@@ -37,20 +37,25 @@
 
   <h1>EASI Components</h1>
 
-   <h2>a-easi</h2>
-  <a-easi></a-easi>
+  <h2>a-easi</h2>
+  <a-easi bind
+          [value]="score"
+          {change}="onChange"></a-easi>
+  <p>Value:
+    <pre bind
+         [inner-html]="scoreJSON"></pre>
+  </p>
 
   <!--
   <h2>a-easi-ernie</h2>
   <a-easi-ernie trunk="5" head="10"></a-easi-ernie>
-  -->
 
- <h2>a-easi-severity</h2>
- <a-easi-severity bind
-                [value]="severity"
-                {change}="onChange"></a-easi-severity>
- <p>Value: <span bind
-         [inner-text]="severity"></span></p>
+  <h2>a-easi-severity</h2>
+  <a-easi-severity bind
+                   [value]="severity"
+                   {change}="onChange"></a-easi-severity>
+  <p>Value: <span bind
+          [inner-text]="severity"></span></p>
 
   <h2>a-easi-extent</h2>
   <a-easi-extent bind
@@ -58,11 +63,17 @@
                  {change}="onChange"></a-easi-extent>
   <p>Value: <span bind
           [inner-text]="extent"></span></p>
+  -->
+
+  <p>A very useful
+    <a href="http://www.homeforeczema.org/documents/easi-user-guide-jan-2017-v3.pdf">Guide on EASI</a>
+  </p>
 
   <script type="module">
     import { bind } from './libs/bind/bind.js';
 
     const context = {
+      score: null,
       extent: 0,
       severity: 2,
 
@@ -71,6 +82,7 @@
         if (!property) throw '[value] not set'
 
         context[property] = e.detail;
+        context[`${property}JSON`] = JSON.stringify(e.detail, null, 2);
       }
     }
 

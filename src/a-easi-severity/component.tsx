@@ -8,6 +8,9 @@ import { EasiSeverity, EasiText, enumValues } from '../models';
 })
 export class EasiSeverityComponent {
 
+  @Prop({ reflectToAttr: true })
+  showText: boolean;
+
   @Prop({ mutable: true })
   value: EasiSeverity = EasiSeverity.None;
 
@@ -15,7 +18,9 @@ export class EasiSeverityComponent {
     return <Host aria-role="menu">
       {enumValues<number>(EasiSeverity).map(severity => <label
         aria-role="menuitemradio" aria-checked={this.value === severity}
-        onClick={e => this.changeHandler(e, severity)}>{EasiText.severity[severity]}</label>
+        onClick={e => this.changeHandler(e, severity)}>
+        {this.showText ? EasiText.severity[severity] : severity}
+      </label>
       )}
     </Host>;
   }

@@ -44,6 +44,7 @@ export interface IEasi {
 }
 
 export interface IEasiRegionValue {
+  extent: EasiExtent;
   [EasiSign.Erythema]: EasiSeverity;
   [EasiSign.EdemaPapulation]: EasiSeverity;
   [EasiSign.Excoriation]: EasiSeverity;
@@ -91,26 +92,30 @@ export interface IEasiText {
 
 export const EasiText = EasiText_en;
 
-export const EasiDefault = {
+export const EasiDefault: IEasi = {
   [EasiRegion.Head]: {
+    extent: EasiExtent.E0,
     [EasiSign.Erythema]: EasiSeverity.None,
     [EasiSign.EdemaPapulation]: EasiSeverity.None,
     [EasiSign.Excoriation]: EasiSeverity.None,
     [EasiSign.Lichenification]: EasiSeverity.None
   },
   [EasiRegion.Trunk]: {
+    extent: EasiExtent.E0,
     [EasiSign.Erythema]: EasiSeverity.None,
     [EasiSign.EdemaPapulation]: EasiSeverity.None,
     [EasiSign.Excoriation]: EasiSeverity.None,
     [EasiSign.Lichenification]: EasiSeverity.None
   },
   [EasiRegion.Upper]: {
+    extent: EasiExtent.E0,
     [EasiSign.Erythema]: EasiSeverity.None,
     [EasiSign.EdemaPapulation]: EasiSeverity.None,
     [EasiSign.Excoriation]: EasiSeverity.None,
     [EasiSign.Lichenification]: EasiSeverity.None
   },
   [EasiRegion.Lower]: {
+    extent: EasiExtent.E0,
     [EasiSign.Erythema]: EasiSeverity.None,
     [EasiSign.EdemaPapulation]: EasiSeverity.None,
     [EasiSign.Excoriation]: EasiSeverity.None,

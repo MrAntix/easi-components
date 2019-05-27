@@ -10,23 +10,30 @@ a-easi-ernie {
 
 main {
     flex: 10 0 15em;
+    display: flex;
+    flex-direction: column;
+}
+
+section {
     display: grid;
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
+    padding: var(--unit);
+    background-color: var(--highlight);
 }
 
-.sign {
+.row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.sign-label {
-  flex: 1 0 7em;
-  align-self: center;
-  padding: var(--unit) 0;
+.row label {
+    flex: 1 0 6.5em;
+    align-self: center;
+    padding: var(--unit) 0;
 }
 
-a-easi-region,
+a-easi-extent,
 a-easi-severity {
-    flex: 10 1 0;
+    flex: 10 1 20em;
 }

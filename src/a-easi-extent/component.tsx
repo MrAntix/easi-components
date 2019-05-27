@@ -13,10 +13,11 @@ export class EasiExtentComponent {
 
   render() {
     return <Host aria-role="menu">
-
-      {enumValues<number>(EasiExtent).map(i => <label
-        aria-role="menuitemradio" aria-checked={this.value === i}
-        onClick={e => this.changeHandler(e, i)}>{EasiText.extent[i]}</label>
+      {enumValues<number>(EasiExtent).map(extent => <label
+        aria-role="menuitemradio" aria-checked={this.value === extent}
+        onClick={e => this.changeHandler(e, extent)}>
+        {EasiText.extent[extent]}
+      </label>
       )}
     </Host>;
   }

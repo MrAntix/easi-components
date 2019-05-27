@@ -17,6 +17,7 @@ import {
 export namespace Components {
   interface AEasi {
     'selectedRegion': EasiRegion;
+    'showText': boolean;
     'value': IEasi;
   }
   interface AEasiErnie {
@@ -34,13 +35,16 @@ export namespace Components {
     'value': EasiRegion;
   }
   interface AEasiSeverity {
+    'showText': boolean;
     'value': EasiSeverity;
   }
 }
 
 declare namespace LocalJSX {
   interface AEasi extends JSXBase.HTMLAttributes {
+    'onChange'?: (event: CustomEvent<IEasi>) => void;
     'selectedRegion'?: EasiRegion;
+    'showText'?: boolean;
     'value'?: IEasi;
   }
   interface AEasiErnie extends JSXBase.HTMLAttributes {
@@ -62,6 +66,7 @@ declare namespace LocalJSX {
   }
   interface AEasiSeverity extends JSXBase.HTMLAttributes {
     'onChange'?: (event: CustomEvent<EasiSeverity>) => void;
+    'showText'?: boolean;
     'value'?: EasiSeverity;
   }
 

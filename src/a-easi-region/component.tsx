@@ -12,13 +12,15 @@ export class EasiRegionComponent {
   value: EasiRegion = EasiRegion.Head;
 
   render() {
-console.info('region', Object.keys(EasiRegion))
+    console.info('region', Object.keys(EasiRegion))
 
     return <Host aria-role="menu">
 
       {Object.values(EasiRegion).map(i => <label
         aria-role="menuitemradio" aria-checked={this.value === i}
-        onClick={e => this.changeHandler(e, i)}>{EasiText.region[i]}</label>
+        onClick={e => this.changeHandler(e, i)}>
+        {EasiText.region[i]}
+      </label>
       )}
     </Host>;
   }
