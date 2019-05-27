@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr"
+      lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>EASI Components</title>
+
+  <script type="module"
+          src="/build/antix-easi-components.esm.js"></script>
+  <script nomodule
+          src="/build/antix-easi-components.esm.js"></script>
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="/build/antix-easi-components.css" />
+  <style>
+    :root {
+      --easi-ernie-hue: -15;
+      --easi-ernie-saturation: 66.7%;
+      --easi-ernie-border-width: 4;
+      --easi-ernie-border-color: rgba(0, 0, 0, .2);
+      --easi-ernie-border-selected-color: rgba(0, 0, 0, .8);
+    }
+
+    body {
+      background: #eee;
+      color: #333;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1>EASI Components</h1>
+
+   <h2>a-easi</h2>
+  <a-easi></a-easi>
+
+  <!--
+  <h2>a-easi-ernie</h2>
+  <a-easi-ernie trunk="5" head="10"></a-easi-ernie>
+  -->
+
+ <h2>a-easi-severity</h2>
+ <a-easi-severity bind
+                [value]="severity"
+                {change}="onChange"></a-easi-severity>
+ <p>Value: <span bind
+         [inner-text]="severity"></span></p>
+
+  <h2>a-easi-extent</h2>
+  <a-easi-extent bind
+                 [value]="extent"
+                 {change}="onChange"></a-easi-extent>
+  <p>Value: <span bind
+          [inner-text]="extent"></span></p>
+
+  <script type="module">
+    import { bind } from './libs/bind/bind.js';
+
+    const context = {
+      extent: 0,
+      severity: 2,
+
+      onChange: function (e) {
+        const property = this.getAttribute('[value]');
+        if (!property) throw '[value] not set'
+
+        context[property] = e.detail;
+      }
+    }
+
+    bind(document.body, context);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+:root {
+    --unit: .5rem;
+
+    --easi-ernie-hue: -15;
+    --easi-ernie-saturation: 66.7%;
+    --easi-ernie-border-width: 4;
+    --easi-ernie-border-color: rgba(0, 0, 0, .2);
+    --easi-ernie-border-selected-color: rgba(0, 0, 0, .8);
+
+    --easi-extent-label-width: 4em;
+    --easi-grid-gap: .1em;
+
+    --highlight: rgba(255, 255, 255, .3333);
+    --lowlight: rgba(0, 0, 0, .1);
+}

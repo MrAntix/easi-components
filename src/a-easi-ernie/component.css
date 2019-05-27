@@ -1,0 +1,63 @@
+:host {
+    display: inline-flex;
+    fill: hsla(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%, 0);
+    stroke: var(--easi-ernie-border-color);
+    padding: var(--unit);
+}
+
+svg {
+    flex: 1 1 auto;
+    overflow: visible;
+    stroke-width: var(--easi-ernie-border-width);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    paint-order: stroke;
+}
+
+.selected {
+    stroke: var(--easi-ernie-border-selected-color);
+}
+
+.score-0 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 100%);
+}
+
+.score-1 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 95%);
+}
+
+.score-2 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 90%);
+}
+
+.score-3 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 85%);
+}
+
+.score-4 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 80%);
+}
+
+.score-5 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 75%);
+}
+
+.score-6 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 70%);
+}
+
+.score-7 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 65%);
+}
+
+.score-8 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 60%);
+}
+
+.score-9 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 55%);
+}
+
+.score-10 {
+    fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%);
+}

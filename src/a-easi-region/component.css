@@ -1,0 +1,18 @@
+:host {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: var(--easi-grid-gap);
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(.5 * var(--unit)) 0;
+    background-color: var(--lowlight);
+}
+
+label[aria-checked] {
+    background-color: var(--highlight);
+}

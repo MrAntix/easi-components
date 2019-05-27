@@ -1,0 +1,32 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a-easi-ernie {
+    flex: 1 0 auto;
+    min-width: 10em;
+}
+
+main {
+    flex: 10 0 15em;
+    display: grid;
+    grid-gap: var(--easi-grid-gap);
+    grid-auto-columns: 1fr;
+}
+
+.sign {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sign-label {
+  flex: 1 0 7em;
+  align-self: center;
+  padding: var(--unit) 0;
+}
+
+a-easi-region,
+a-easi-severity {
+    flex: 10 1 0;
+}
