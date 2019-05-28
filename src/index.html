@@ -18,6 +18,9 @@
         href="/build/antix-easi-components.css" />
   <style>
     :root {
+      --easi-unit: .5em;
+      --easi-panel-background-color: #e7f3ff;
+
       --easi-ernie-hue: -15;
       --easi-ernie-saturation: 66.7%;
       --easi-ernie-border-width: 4;
@@ -26,8 +29,8 @@
     }
 
     body {
-      background: #eee;
-      color: #333;
+      background: #def;
+      color: #369;
     }
   </style>
 
@@ -38,7 +41,8 @@
   <h1>EASI Components</h1>
 
   <h2>a-easi</h2>
-  <a-easi bind
+  <a-easi show-text
+   bind
           [value]="score"
           {change}="onChange"></a-easi>
   <p>Value:

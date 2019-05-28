@@ -1,6 +1,6 @@
 :host {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: var(--easi-grid-gap);
 }
 
@@ -9,10 +9,26 @@ label {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: calc(.5 * var(--unit)) 0;
-    background-color: var(--lowlight);
+    padding: calc(.5 * var(--easi-unit)) calc(.25 * var(--easi-unit));
+    background-color: var(--easi-lowlight);
 }
 
-label[aria-checked] {
-    background-color: var(--highlight);
+:host([disabled]) label {
+    opacity: .5;
+}
+
+:host(:not([disabled])) label {
+    cursor: pointer;
+}
+
+label:first-of-type {
+    border-radius: var(--easi-border-radius) 0 0 var(--easi-border-radius);
+}
+
+label:last-of-type {
+    border-radius: 0 var(--easi-border-radius) var(--easi-border-radius) 0;
+}
+
+:host(:not([disabled])) label[aria-checked] {
+    background-color: var(--easi-highlight);
 }

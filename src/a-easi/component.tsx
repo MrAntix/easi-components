@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter } from '@stencil/core';
-import { IEasi, EasiRegion, EasiSign, EasiText, EasiDefault, EasiSeverity, EasiExtent } from '../models';
+import { IEasiValue, EasiRegion, EasiSign, EasiText, EasiDefault, EasiSeverity, EasiExtent, calculateRegionScore, calculateScore } from '../models';
 
 @Component({
   tag: 'a-easi',
@@ -10,13 +10,21 @@ export class EasiComponent {
 
   @Prop({ reflectToAttr: true })
   showText: boolean;
+  @Prop({ reflectToAttr: true })
+  isChild: boolean;
 
   @Prop({ mutable: true })
-  value: IEasi;
+  value: IEasiValue;
   @Watch('value')
   setValue() {
     if (!this.value)
       this.value = EasiDefault;
+
+    Object.values(EasiRegion).forEach(region => {
+      this.value[region].score = calculateRegionScore(this.isChild, region, this.value[region])
+    })
+
+    this.value.score = calculateScore(this.value);
   }
 
   @Prop({ reflectToAttr: true })
@@ -30,12 +38,20 @@ export class EasiComponent {
     if (!this.value) return;
 
     return <Host>
-      <a-easi-ernie value={this.value}
-        selectedRegion={this.selectedRegion} onSelectRegion={e => this.changeRegionHandler(e, e.detail)}></a-easi-ernie>
+      <header>
+        <a-easi-ernie value={this.value}
+          selectedRegion={this.selectedRegion} onSelectRegion={e => this.changeRegionHandler(e, e.detail)} />
+        <span class="score">{Math.round(this.value.score)}</span>
+      </header>
       <main>
-        <a-easi-region value={this.selectedRegion}
-          onChange={e => this.changeRegionHandler(e, e.detail)}
-        />
+        <nav aria-role="menu">
+          {Object.values(EasiRegion).map(region => <label
+            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
+            onClick={e => this.changeRegionHandler(e, region)}>
+            <span>{EasiText.region[region]}</span>
+          </label>
+          )}
+        </nav>
         {this.selectedRegion != null && <section>
           <div class="row">
             <label>Extent</label>
@@ -46,7 +62,7 @@ export class EasiComponent {
           {Object.values(EasiSign).map(sign =>
             <div class="row">
               <label>{EasiText.sign[sign]}</label>
-              <a-easi-severity showText={this.showText}
+              <a-easi-severity showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
                 value={this.value[this.selectedRegion][sign]}
                 onChange={e => this.changeSeverityHandler(e, sign, e.detail)}></a-easi-severity>
             </div>
@@ -60,7 +76,7 @@ export class EasiComponent {
   changeRegionHandler(e: Event, value: EasiRegion): void {
     e.stopPropagation();
 
-    this.selectedRegion = value;
+    this.selectedRegion = value || EasiRegion.Head;
   }
 
   changeExtentHandler(e: Event, extent: EasiExtent): void {
@@ -70,7 +86,7 @@ export class EasiComponent {
       ...this.value,
       [this.selectedRegion]: {
         ...this.value[this.selectedRegion],
-        extent
+        extent,
       }
     }
 
@@ -85,16 +101,14 @@ export class EasiComponent {
       ...this.value,
       [this.selectedRegion]: {
         ...this.value[this.selectedRegion],
-        [sign]: severity
+        [sign]: severity,
       }
     }
-
-    console.log('change', sign, severity, this.value, value);
 
     this.value = value;
     this.change.emit(value);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  change: EventEmitter<IEasi>
+  change: EventEmitter<IEasiValue>
 }

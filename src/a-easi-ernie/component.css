@@ -2,7 +2,7 @@
     display: inline-flex;
     fill: hsla(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%, 0);
     stroke: var(--easi-ernie-border-color);
-    padding: var(--unit);
+    padding: var(--easi-unit);
 }
 
 svg {
@@ -18,46 +18,46 @@ svg {
     stroke: var(--easi-ernie-border-selected-color);
 }
 
-.score-0 {
+.level-0 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 100%);
 }
 
-.score-1 {
+.level-1 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 95%);
 }
 
-.score-2 {
+.level-2 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 90%);
 }
 
-.score-3 {
+.level-3 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 85%);
 }
 
-.score-4 {
+.level-4 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 80%);
 }
 
-.score-5 {
+.level-5 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 75%);
 }
 
-.score-6 {
+.level-6 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 70%);
 }
 
-.score-7 {
+.level-7 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 65%);
 }
 
-.score-8 {
+.level-8 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 60%);
 }
 
-.score-9 {
+.level-9 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 55%);
 }
 
-.score-10 {
+.level-10 {
     fill: hsl(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%);
 }

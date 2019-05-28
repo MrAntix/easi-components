@@ -7,7 +7,8 @@ import { EasiSeverity, EasiText, enumValues } from '../models';
   shadow: true
 })
 export class EasiSeverityComponent {
-
+  @Prop({ reflectToAttr: true })
+  disabled: boolean;
   @Prop({ reflectToAttr: true })
   showText: boolean;
 
@@ -16,19 +17,23 @@ export class EasiSeverityComponent {
 
   render() {
     return <Host aria-role="menu">
-      {enumValues<number>(EasiSeverity).map(severity => <label
-        aria-role="menuitemradio" aria-checked={this.value === severity}
-        onClick={e => this.changeHandler(e, severity)}>
-        {this.showText ? EasiText.severity[severity] : severity}
-      </label>
-      )}
+      {enumValues<number>(EasiSeverity)
+        .filter(severity => !!severity)
+        .map(severity => <label
+          aria-role="menuitemradio" aria-checked={this.value === severity}
+          onClick={e => this.changeHandler(e, severity)}>
+          {this.showText ? EasiText.severity[severity] : severity}
+        </label>
+        )}
     </Host>;
   }
 
   changeHandler(e: Event, value: EasiSeverity): void {
     e.stopPropagation();
 
-    this.value = value;
+    if (this.disabled) return;
+
+    this.value = this.value === value ? EasiSeverity.None : value;
     this.change.emit(this.value);
   }
 

@@ -10,31 +10,27 @@ import {
   EasiExtent,
   EasiRegion,
   EasiSeverity,
-  IEasi,
+  IEasiValue,
 } from './models';
 
 
 export namespace Components {
   interface AEasi {
+    'isChild': boolean;
     'selectedRegion': EasiRegion;
     'showText': boolean;
-    'value': IEasi;
+    'value': IEasiValue;
   }
   interface AEasiErnie {
-    'head': number;
-    'lower': number;
     'selectedRegion': EasiRegion;
-    'trunk': number;
-    'upper': number;
-    'value': IEasi;
+    'value': IEasiValue;
   }
   interface AEasiExtent {
+    'disabled': boolean;
     'value': EasiExtent;
   }
-  interface AEasiRegion {
-    'value': EasiRegion;
-  }
   interface AEasiSeverity {
+    'disabled': boolean;
     'showText': boolean;
     'value': EasiSeverity;
   }
@@ -42,29 +38,24 @@ export namespace Components {
 
 declare namespace LocalJSX {
   interface AEasi extends JSXBase.HTMLAttributes {
-    'onChange'?: (event: CustomEvent<IEasi>) => void;
+    'isChild'?: boolean;
+    'onChange'?: (event: CustomEvent<IEasiValue>) => void;
     'selectedRegion'?: EasiRegion;
     'showText'?: boolean;
-    'value'?: IEasi;
+    'value'?: IEasiValue;
   }
   interface AEasiErnie extends JSXBase.HTMLAttributes {
-    'head'?: number;
-    'lower'?: number;
     'onSelectRegion'?: (event: CustomEvent<EasiRegion>) => void;
     'selectedRegion'?: EasiRegion;
-    'trunk'?: number;
-    'upper'?: number;
-    'value'?: IEasi;
+    'value'?: IEasiValue;
   }
   interface AEasiExtent extends JSXBase.HTMLAttributes {
+    'disabled'?: boolean;
     'onChange'?: (event: CustomEvent<EasiExtent>) => void;
     'value'?: EasiExtent;
   }
-  interface AEasiRegion extends JSXBase.HTMLAttributes {
-    'onChange'?: (event: CustomEvent<EasiRegion>) => void;
-    'value'?: EasiRegion;
-  }
   interface AEasiSeverity extends JSXBase.HTMLAttributes {
+    'disabled'?: boolean;
     'onChange'?: (event: CustomEvent<EasiSeverity>) => void;
     'showText'?: boolean;
     'value'?: EasiSeverity;
@@ -74,7 +65,6 @@ declare namespace LocalJSX {
     'a-easi': AEasi;
     'a-easi-ernie': AEasiErnie;
     'a-easi-extent': AEasiExtent;
-    'a-easi-region': AEasiRegion;
     'a-easi-severity': AEasiSeverity;
   }
 }
@@ -111,12 +101,6 @@ declare global {
     new (): HTMLAEasiExtentElement;
   };
 
-  interface HTMLAEasiRegionElement extends Components.AEasiRegion, HTMLStencilElement {}
-  var HTMLAEasiRegionElement: {
-    prototype: HTMLAEasiRegionElement;
-    new (): HTMLAEasiRegionElement;
-  };
-
   interface HTMLAEasiSeverityElement extends Components.AEasiSeverity, HTMLStencilElement {}
   var HTMLAEasiSeverityElement: {
     prototype: HTMLAEasiSeverityElement;
@@ -127,7 +111,6 @@ declare global {
     'a-easi': HTMLAEasiElement;
     'a-easi-ernie': HTMLAEasiErnieElement;
     'a-easi-extent': HTMLAEasiExtentElement;
-    'a-easi-region': HTMLAEasiRegionElement;
     'a-easi-severity': HTMLAEasiSeverityElement;
   }
 

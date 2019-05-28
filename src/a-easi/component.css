@@ -1,11 +1,33 @@
 :host {
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
+}
+
+header {
+    flex: 1 0 auto;
+    min-width: 10em;
+    min-height: 15em;
+    display: flex;
+    position: relative;
+    padding: var(--easi-unit);
 }
 
 a-easi-ernie {
     flex: 1 0 auto;
-    min-width: 10em;
+}
+
+.score {
+    position: absolute;
+    top: 0;
+    right: var(--easi-unit);
+    width: 1.75em;
+    height: 1.75em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5em;
+    background-color: var(--easi-highlight);
 }
 
 main {
@@ -18,8 +40,9 @@ section {
     display: grid;
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
-    padding: var(--unit);
-    background-color: var(--highlight);
+    padding: var(--easi-unit);
+    background-color: var(--easi-panel-background-color);
+    border-radius: 0 0 var(--easi-border-radius) var(--easi-border-radius);
 }
 
 .row {
@@ -28,9 +51,30 @@ section {
 }
 
 .row label {
-    flex: 1 0 6.5em;
+    flex: 1 0 var(--easi-label-width);
     align-self: center;
-    padding: var(--unit) 0;
+    padding: calc(.5 * var(--easi-unit)) 0 calc(.25 * var(--easi-unit));
+}
+
+nav {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: var(--easi-grid-gap);
+}
+
+nav label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--easi-unit) calc(.25 * var(--easi-unit));
+    background-color: var(--easi-lowlight);
+    border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
+    cursor: pointer;
+}
+
+nav label[aria-checked] {
+    background-color: var(--easi-panel-background-color);
 }
 
 a-easi-extent,
