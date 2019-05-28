@@ -18,7 +18,7 @@
     --easi-lowlight: rgba(0, 0, 0, .1);
     --easi-lowlight-more: rgba(0, 0, 0, .2);
     --easi-border-width: 0px;
-    --easi-border-color: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2 * var(--easi-primary-lightness)));
+    --easi-border-color: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2.1 * var(--easi-primary-lightness)));
     --easi-border: solid var(--easi-border-width) var(--easi-border-color);
     --easi-outline-width: 2px;
     --easi-outline-color: var(--easi-primary);

@@ -15,8 +15,10 @@ header {
     display: flex;
     position: relative;
     padding: var(--easi-unit);
-    margin: calc(.5 * var(--easi-unit));
+    margin: calc(.5 * var(--easi-unit)) 0;
     background: var(--easi-earnie-background);
+    background-clip: padding-box;
+    color: var(--easi-panel-color);
     border-radius: var(--easi-border-radius);
 }
 
@@ -90,18 +92,19 @@ nav {
 
 nav label {
     display: inline-flex;
-    align-self: flex-start;
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
-    margin: 0 0 calc(-1 * var(--easi-border-radius) - var(--easi-panel-border-width));
+    margin: 0 0 calc(0px - var(--easi-border-radius) - var(--easi-panel-border-width));
     background-color: var(--easi-panel-border-color);
     background-clip: padding-box;
+    cursor: pointer;
 }
 
 nav label[aria-checked] {
-    color: var(--easi-primary);
+  margin: 0 0 calc(0px - var(--easi-panel-border-width));
+  color: var(--easi-primary);
 }
 
-nav a {
+nav span {
     flex: 1;
     position: relative;
     display: inline-flex;
@@ -111,10 +114,10 @@ nav a {
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
     border-bottom: none;
     padding: var(--easi-unit) calc(.25 * var(--easi-unit)) calc(var(--easi-unit) + var(--easi-border-radius));
-    cursor: pointer;
+    touch-action: none;
 }
 
-nav label[aria-checked] a {
+nav label[aria-checked] span {
     background: var(--easi-panel-background);
     color: var(--easi-panel-color);
     border: var(--easi-panel-border);

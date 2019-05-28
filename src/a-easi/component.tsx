@@ -48,10 +48,11 @@ export class EasiComponent {
       }}>
         <nav aria-role="menu">
           {Object.values(EasiRegion).map(region => <label
-            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}>
-            <a onClick={e => this.changeRegionHandler(e, region)}>
+            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
+            onClick={e => this.changeRegionHandler(e, region)}>
+            <span>
               {EasiText.region[region]}
-            </a>
+            </span>
           </label>
           )}
         </nav>
