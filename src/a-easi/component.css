@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :host {
     display: inline-flex;
     flex-wrap: wrap;
@@ -7,7 +11,7 @@
 header {
     flex: 1 0 auto;
     min-width: 10em;
-    min-height: 15em;
+    min-height: 12.5em;
     display: flex;
     position: relative;
     padding: var(--easi-unit);
@@ -31,7 +35,8 @@ a-easi-ernie {
     justify-content: center;
     border-radius: 50%;
     font-size: 1.5em;
-    background-color: var(--easi-highlight);
+    background-color: var(--easi-primary);
+    color: var(--easi-primary-alt);
 }
 
 main {
@@ -47,7 +52,19 @@ section {
     grid-auto-columns: 1fr;
     padding: var(--easi-unit);
     background: var(--easi-panel-background);
-    border-radius: 0 0 var(--easi-border-radius) var(--easi-border-radius);
+    color: var(--easi-panel-color);
+    border-radius: var(--easi-border-radius);
+    border: var(--easi-panel-border);
+    background-clip: padding-box;
+    box-shadow: var(--easi-panel-shadow);
+}
+
+main.head section {
+    border-top-left-radius: 0;
+}
+
+main.lower section {
+    border-top-right-radius: 0;
 }
 
 .row {
@@ -61,6 +78,10 @@ section {
     padding: calc(.5 * var(--easi-unit)) 0 calc(.25 * var(--easi-unit));
 }
 
+.row.disabled label {
+    opacity: .25;
+}
+
 nav {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -69,20 +90,52 @@ nav {
 
 nav label {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: var(--easi-unit) calc(.25 * var(--easi-unit));
-    background-color: var(--easi-lowlight);
+    align-self: flex-start;
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
-    cursor: pointer;
+    margin: 0 0 calc(-1 * var(--easi-border-radius) - var(--easi-panel-border-width));
+    background-color: var(--easi-panel-border-color);
+    background-clip: padding-box;
 }
 
 nav label[aria-checked] {
+    color: var(--easi-primary);
+}
+
+nav a {
+    flex: 1;
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
+    border-bottom: none;
+    padding: var(--easi-unit) calc(.25 * var(--easi-unit)) calc(var(--easi-unit) + var(--easi-border-radius));
+    cursor: pointer;
+}
+
+nav label[aria-checked] a {
     background: var(--easi-panel-background);
+    color: var(--easi-panel-color);
+    border: var(--easi-panel-border);
+    border-bottom: none;
+    padding-bottom: calc(var(--easi-unit) - var(--easi-panel-border-width));
+    z-index: 1;
+}
+
+nav label[aria-checked] a::after {
+    content: '';
+    background: var(--easi-panel-background);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
 }
 
 a-easi-extent,
 a-easi-severity {
     flex: 10 1 20em;
+    --easi-checked-background: var(--easi-panel-checked-background);
+    --easi-checked-color: var(--easi-panel-checked-color);
 }

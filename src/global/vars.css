@@ -1,20 +1,56 @@
 :root {
     --easi-unit: .75rem;
 
+    --easi-primary-hue: 210;
+    --easi-primary-saturation: 0%;
+    --easi-primary-lightness: 40%;
+    --easi-primary: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), var(--easi-primary-lightness));
+    --easi-primary-alt-hue: var(--easi-primary-hue);
+    --easi-primary-alt-saturation: calc(2 * var(--easi-primary-saturation));
+    --easi-primary-alt-lightness: 90%;
+    --easi-primary-alt: hsl(var(--easi-primary-alt-hue), var(--easi-primary-alt-saturation), var(--easi-primary-alt-lightness));
+
     --easi-grid-gap: var(--easi-unit) calc(.25 * var(--easi-unit));
     --easi-label-width: 8em;
 
-    --easi-highlight: rgba(255, 255, 255, .3333);
+    --easi-highlight: rgba(255, 255, 255, .333);
+    --easi-highlight-more: rgba(255, 255, 255, .667);
     --easi-lowlight: rgba(0, 0, 0, .1);
+    --easi-lowlight-more: rgba(0, 0, 0, .2);
+    --easi-border-width: 0px;
+    --easi-border-color: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2 * var(--easi-primary-lightness)));
+    --easi-border: solid var(--easi-border-width) var(--easi-border-color);
+    --easi-outline-width: 2px;
+    --easi-outline-color: var(--easi-primary);
+    --easi-outline: solid var(--easi-outline-width) var(--easi-outline);
+    --easi-checked-background: var(--easi-primary);
+    --easi-checked-color: var(--easi-primary-alt);
 
-    --easi-panel-background: rgb(228, 228, 228);
+    --easi-panel-lightness: calc(var(--easi-primary-alt-lightness) + 5%);
+    --easi-panel-lightness-alt: 40%;
+    --easi-panel-background: hsl(var(--easi-primary-alt-hue), var(--easi-primary-alt-saturation), var(--easi-panel-lightness));
+    --easi-panel-color: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), var(--easi-panel-lightness-alt));
+    --easi-panel-highlight: var(--easi-highlight);
+    --easi-panel-highlight-more: var(--easi-highlight-more);
+    --easi-panel-lowlight: var(--easi-lowlight);
+    --easi-panel-lowlight-more: var(--easi-highlight-more);
+    --easi-panel-checked-background: var(--easi-checked-background);
+    --easi-panel-checked-color: var(--easi-checked-color);
+    --easi-panel-border-width: var(--easi-border-width);
+    --easi-panel-border-color: var(--easi-border-color);
+    --easi-panel-border: solid var(--easi-panel-border-width) var(--easi-panel-border-color);
+
+    --easi-panel-shadow-dist: 0px;
+    --easi-panel-shadow-color: var(--easi-lowlight-more);
+    --easi-panel-shadow: 0 0 var(--easi-panel-shadow-dist) var(--easi-panel-shadow-color);
 
     --easi-border-radius: 4px;
 
-    --easi-earnie-background: linear-gradient(to bottom left, var(--easi-lowlight), transparent);
-    --easi-ernie-hue: -15;
-    --easi-ernie-saturation: 66.7%;
-    --easi-ernie-border-width: 4;
-    --easi-ernie-border-color: rgba(0, 0, 0, .2);
-    --easi-ernie-border-selected-color: rgba(0, 0, 0, .8);
+    --easi-earnie-background: linear-gradient(to top right, var(--easi-highlight), transparent);
+    --easi-ernie-hue: var(--easi-primary-hue);
+    --easi-ernie-saturation: 90%;
+    --easi-ernie-border-width: var(--easi-border-width);
+    --easi-ernie-border-color: var(--easi-border-color);
+    --easi-ernie-outline-width: var(--easi-outline-width);
+    --easi-ernie-outline-color: var(--easi-outline-color);
 }

@@ -7,9 +7,10 @@ import { EasiExtent, EasiText, enumValues } from '../models';
   shadow: true
 })
 export class EasiExtentComponent {
-
   @Prop({ reflectToAttr: true })
   disabled: boolean;
+  @Prop({ reflectToAttr: true })
+  showText: boolean;
 
   @Prop({ mutable: true })
   value: EasiExtent = EasiExtent.E0;
@@ -21,7 +22,7 @@ export class EasiExtentComponent {
         .map(extent => <label
           aria-role="menuitemradio" aria-checked={this.value === extent}
           onClick={e => this.changeHandler(e, extent)}>
-          {EasiText.extent[extent]}
+          {this.showText ? EasiText.extent[extent] : extent}
         </label>
         )}
     </Host>;

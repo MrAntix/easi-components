@@ -27,6 +27,7 @@ export namespace Components {
   }
   interface AEasiExtent {
     'disabled': boolean;
+    'showText': boolean;
     'value': EasiExtent;
   }
   interface AEasiSeverity {
@@ -52,6 +53,7 @@ declare namespace LocalJSX {
   interface AEasiExtent extends JSXBase.HTMLAttributes {
     'disabled'?: boolean;
     'onChange'?: (event: CustomEvent<EasiExtent>) => void;
+    'showText'?: boolean;
     'value'?: EasiExtent;
   }
   interface AEasiSeverity extends JSXBase.HTMLAttributes {

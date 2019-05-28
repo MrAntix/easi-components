@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :host {
     display: inline-flex;
     fill: hsla(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%, 0);
@@ -8,6 +12,7 @@
 svg {
     flex: 1 1 auto;
     overflow: visible;
+    stroke: var(--easi-ernie-border-color);
     stroke-width: var(--easi-ernie-border-width);
     stroke-linejoin: round;
     stroke-linecap: round;
@@ -15,7 +20,8 @@ svg {
 }
 
 .selected {
-    stroke: var(--easi-ernie-border-selected-color);
+    stroke: var(--easi-ernie-outline-color);
+    stroke-width: var(--easi-ernie-outline-width);
 }
 
 .level-0 {

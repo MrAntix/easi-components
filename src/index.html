@@ -19,21 +19,25 @@
   <style>
     :root {
       --easi-unit: .5em;
-      --easi-panel-background: #e7f3ff;
+      --easi-primary-hue: 210;
+      --easi-primary-saturation: 0%;
+      --easi-ernie-hue: 30;
 
-      --easi-ernie-hue: -15;
-      --easi-ernie-saturation: 66.7%;
-      --easi-ernie-border-width: 4;
-      --easi-ernie-border-color: rgba(0, 0, 0, .2);
-      --easi-ernie-border-selected-color: rgba(0, 0, 0, .8);
+      --easi-border-radius: 0px;
+      --easi-grid-gap: 4px;
     }
 
     body {
-      background: #def;
-      color: #369;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background: var(--easi-primary-alt);
+      color: var(--easi-primary);
+      font-size: 15px;
       margin: 0;
       padding: var(--easi-unit);
+    }
+
+    p label {
+      display: inline-block;
+      width: 12rem;
     }
   </style>
 
@@ -43,11 +47,86 @@
 
   <h1>EASI Components</h1>
 
-  <h2>a-easi</h2>
-  <a-easi show-text
-   bind
+  <code>
+    &lt;a-easi
+      <label>show-text
+        <input type="checkbox"
+              bind
+              property="checked"
+              [checked]="show-text"
+              {change}="onChange" />
+      </label>/&gt;
+  </code>
+
+  <a-easi bind
+          [show-text]="show-text"
           [value]="score"
           {change}="onChange"></a-easi>
+  <p><label>--easi-primary-hue</label>
+    <input type="range"
+           min="0"
+           max="360"
+           bind
+           [value]="primary-hue"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="primary-hue"></span>
+  </p>
+  <p><label>--easi-primary-saturation</label>
+    <input type="range"
+           min="0"
+           max="100"
+           bind
+           units="%"
+           [value]="primary-saturation"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="primary-saturation"></span>
+  </p>
+  <p><label>--easi-border-radius</label>
+    <input type="range"
+           min="0"
+           max="40"
+           bind
+           units="px"
+           [value]="border-radius"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="border-radius"></span>
+  </p>
+  <p><label>--easi-border-width</label>
+    <input type="range"
+           min="0"
+           max="6"
+           bind
+           units="px"
+           [value]="border-width"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="border-width"></span>
+  </p>
+  <p><label>--easi-panel-border-width</label>
+    <input type="range"
+           min="0"
+           max="6"
+           bind
+           units="px"
+           [value]="panel-border-width"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="panel-border-width"></span>
+  </p>
+  <p><label>--easi-panel-shadow-dist</label>
+    <input type="range"
+           min="0"
+           max="40"
+           bind
+           units="px"
+           [value]="panel-shadow-dist"
+           {input}="onChangeValue" />
+    <span bind
+          [inner-text]="panel-shadow-dist"></span>
+  </p>
   <p>Value:
     <pre bind
          [inner-html]="scoreJSON"></pre>
@@ -85,11 +164,30 @@
       severity: 2,
 
       onChange: function (e) {
-        const property = this.getAttribute('[value]');
-        if (!property) throw '[value] not set'
+        const property = this.getAttribute('property') || 'value';
+        const propertyName = this.getAttribute(`[${property}]`);
+        if (!propertyName) throw `${property} not set`;
 
-        context[property] = e.detail;
-        context[`${property}JSON`] = JSON.stringify(e.detail, null, 2);
+        context[propertyName] = this[property];
+        context[`${propertyName}JSON`] = JSON.stringify(e.detail, null, 2);
+      },
+
+      'show-text': true,
+      'primary-hue': 210,
+      'primary-saturation': 0,
+      'border-radius': 0,
+      'border-width': 0,
+      'panel-border-width': 0,
+      'panel-shadow-dist': 0,
+      onChangeValue: function () {
+        const property = this.getAttribute('property') || '[value]';
+        const propertyName = this.getAttribute(property);
+        if (!propertyName) throw `${property} not set`;
+
+        const units = this.getAttribute('units') || '';
+
+        context[propertyName] = this.value;
+        document.documentElement.style.setProperty(`--easi-${propertyName}`, `${this.value}${units}`);
       }
     }
 

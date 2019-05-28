@@ -43,12 +43,15 @@ export class EasiComponent {
           selectedRegion={this.selectedRegion} onSelectRegion={e => this.changeRegionHandler(e, e.detail)} />
         <span class="score">{Math.round(this.value.score)}</span>
       </header>
-      <main>
+      <main class={{
+        [this.selectedRegion]: true
+      }}>
         <nav aria-role="menu">
           {Object.values(EasiRegion).map(region => <label
-            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
-            onClick={e => this.changeRegionHandler(e, region)}>
-            <span>{EasiText.region[region]}</span>
+            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}>
+            <a onClick={e => this.changeRegionHandler(e, region)}>
+              {EasiText.region[region]}
+            </a>
           </label>
           )}
         </nav>
@@ -56,13 +59,18 @@ export class EasiComponent {
           <div class="row">
             <label>Extent</label>
             <a-easi-extent
+              showText={this.showText}
               value={this.value[this.selectedRegion].extent}
               onChange={e => this.changeExtentHandler(e, e.detail)}></a-easi-extent>
           </div>
           {Object.values(EasiSign).map(sign =>
-            <div class="row">
+            <div class={{
+              row: true,
+              disabled: this.value[this.selectedRegion].extent === 0
+            }}>
               <label>{EasiText.sign[sign]}</label>
-              <a-easi-severity showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
+              <a-easi-severity
+                showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
                 value={this.value[this.selectedRegion][sign]}
                 onChange={e => this.changeSeverityHandler(e, sign, e.detail)}></a-easi-severity>
             </div>
