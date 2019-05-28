@@ -7,10 +7,11 @@
     --easi-highlight: rgba(255, 255, 255, .3333);
     --easi-lowlight: rgba(0, 0, 0, .1);
 
-    --easi-panel-background-color: rgb(228, 228, 228);
+    --easi-panel-background: rgb(228, 228, 228);
 
     --easi-border-radius: 4px;
 
+    --easi-earnie-background: linear-gradient(to bottom left, var(--easi-lowlight), transparent);
     --easi-ernie-hue: -15;
     --easi-ernie-saturation: 66.7%;
     --easi-ernie-border-width: 4;

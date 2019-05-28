@@ -1,6 +1,7 @@
 :host {
     display: inline-flex;
     flex-wrap: wrap;
+    margin: calc(-.5 * var(--easi-unit));
 }
 
 header {
@@ -10,6 +11,9 @@ header {
     display: flex;
     position: relative;
     padding: var(--easi-unit);
+    margin: calc(.5 * var(--easi-unit));
+    background: var(--easi-earnie-background);
+    border-radius: var(--easi-border-radius);
 }
 
 a-easi-ernie {
@@ -18,8 +22,8 @@ a-easi-ernie {
 
 .score {
     position: absolute;
-    top: 0;
-    right: var(--easi-unit);
+    top: calc(.5 * var(--easi-unit));
+    right: calc(.5 * var(--easi-unit));
     width: 1.75em;
     height: 1.75em;
     display: inline-flex;
@@ -34,6 +38,7 @@ main {
     flex: 10 0 15em;
     display: flex;
     flex-direction: column;
+    margin: calc(.5 * var(--easi-unit));
 }
 
 section {
@@ -41,7 +46,7 @@ section {
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
     padding: var(--easi-unit);
-    background-color: var(--easi-panel-background-color);
+    background: var(--easi-panel-background);
     border-radius: 0 0 var(--easi-border-radius) var(--easi-border-radius);
 }
 
@@ -74,7 +79,7 @@ nav label {
 }
 
 nav label[aria-checked] {
-    background-color: var(--easi-panel-background-color);
+    background: var(--easi-panel-background);
 }
 
 a-easi-extent,
