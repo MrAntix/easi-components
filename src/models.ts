@@ -76,7 +76,7 @@ export const EasiText_en: IEasiText = {
   },
   extent: {
     0: '0%',
-    1: '0 - 9%',
+    1: '1 - 9%',
     2: '10 - 29%',
     3: '30 - 49%',
     4: '50 - 69%',
