@@ -1,23 +1,18 @@
-export enum EasiRegion {
+export enum EasiRegions {
   Head = 'head',
   Trunk = 'trunk',
   Upper = 'upper',
   Lower = 'lower'
 }
 
-export interface IEasiRegionScore {
-  severity: EasiSeverity;
-  extentn: EasiExtent;
-}
-
-export enum EasiSign {
+export enum EasiSigns {
   Erythema = 'erythema',
   EdemaPapulation = 'edemaPapulation',
   Excoriation = 'excoriation',
   Lichenification = 'lichenification'
 }
 
-export enum EasiSeverity {
+export enum EasiSeverities {
   None = 0,
   Mild = 1,
   MildToModerate = 1.5,
@@ -26,7 +21,7 @@ export enum EasiSeverity {
   Severe = 3
 }
 
-export enum EasiExtent {
+export enum EasiExtents {
   E0 = 0,
   E1_9,
   E10_29,
@@ -36,43 +31,50 @@ export enum EasiExtent {
   E90_100
 }
 
-export interface IEasiValue {
-  [EasiRegion.Head]: IEasiRegionValue;
-  [EasiRegion.Trunk]: IEasiRegionValue;
-  [EasiRegion.Upper]: IEasiRegionValue;
-  [EasiRegion.Lower]: IEasiRegionValue;
-  score: number;
+export interface IEasi {
+  isChild: boolean;
+  [EasiRegions.Head]: IEasiRegion;
+  [EasiRegions.Trunk]: IEasiRegion;
+  [EasiRegions.Upper]: IEasiRegion;
+  [EasiRegions.Lower]: IEasiRegion;
 }
 
-export interface IEasiRegionValue {
-  extent: EasiExtent;
-  [EasiSign.Erythema]: EasiSeverity;
-  [EasiSign.EdemaPapulation]: EasiSeverity;
-  [EasiSign.Excoriation]: EasiSeverity;
-  [EasiSign.Lichenification]: EasiSeverity;
-  score: number;
+export interface IEasiRegion {
+  extent: EasiExtents;
+  [EasiSigns.Erythema]: EasiSeverities;
+  [EasiSigns.EdemaPapulation]: EasiSeverities;
+  [EasiSigns.Excoriation]: EasiSeverities;
+  [EasiSigns.Lichenification]: EasiSeverities;
+}
+
+export interface IEasiScore {
+  total: number;
+  [EasiRegions.Head]: number;
+  [EasiRegions.Trunk]: number;
+  [EasiRegions.Upper]: number;
+  [EasiRegions.Lower]: number;
 }
 
 export const EasiText_en: IEasiText = {
   sign: {
-    [EasiSign.Erythema]: 'Erythema',
-    [EasiSign.EdemaPapulation]: 'Edema / Papulation',
-    [EasiSign.Excoriation]: 'Excoriation',
-    [EasiSign.Lichenification]: 'Lichenification'
+    [EasiSigns.Erythema]: 'Erythema',
+    [EasiSigns.EdemaPapulation]: 'Edema / Papulation',
+    [EasiSigns.Excoriation]: 'Excoriation',
+    [EasiSigns.Lichenification]: 'Lichenification'
   },
   region: {
-    [EasiRegion.Head]: 'Head & Neck',
-    [EasiRegion.Trunk]: 'Trunk',
-    [EasiRegion.Upper]: 'Upper Limbs',
-    [EasiRegion.Lower]: 'Lower Limbs'
+    [EasiRegions.Head]: 'Head & Neck',
+    [EasiRegions.Trunk]: 'Trunk',
+    [EasiRegions.Upper]: 'Upper Limbs',
+    [EasiRegions.Lower]: 'Lower Limbs'
   },
   severity: {
-    [EasiSeverity.None]: 'None',
-    [EasiSeverity.Mild]: 'Mild',
-    [EasiSeverity.MildToModerate]: 'Mild to Moderate',
-    [EasiSeverity.Moderate]: 'Moderate',
-    [EasiSeverity.ModerateToSevere]: 'Moderate to Severe',
-    [EasiSeverity.Severe]: 'Severe'
+    [EasiSeverities.None]: 'None',
+    [EasiSeverities.Mild]: 'Mild',
+    [EasiSeverities.MildToModerate]: 'Mild to Moderate',
+    [EasiSeverities.Moderate]: 'Moderate',
+    [EasiSeverities.ModerateToSevere]: 'Moderate to Severe',
+    [EasiSeverities.Severe]: 'Severe'
   },
   extent: {
     0: '0%',
@@ -94,91 +96,89 @@ export interface IEasiText {
 
 export const EasiText = EasiText_en;
 
-export const EasiDefault: IEasiValue = {
-  [EasiRegion.Head]: {
-    extent: EasiExtent.E0,
-    [EasiSign.Erythema]: EasiSeverity.None,
-    [EasiSign.EdemaPapulation]: EasiSeverity.None,
-    [EasiSign.Excoriation]: EasiSeverity.None,
-    [EasiSign.Lichenification]: EasiSeverity.None,
-    score: 0
+export const EasiDefault: IEasi = {
+  isChild: false,
+  [EasiRegions.Head]: {
+    extent: EasiExtents.E0,
+    [EasiSigns.Erythema]: EasiSeverities.None,
+    [EasiSigns.EdemaPapulation]: EasiSeverities.None,
+    [EasiSigns.Excoriation]: EasiSeverities.None,
+    [EasiSigns.Lichenification]: EasiSeverities.None
   },
-  [EasiRegion.Trunk]: {
-    extent: EasiExtent.E0,
-    [EasiSign.Erythema]: EasiSeverity.None,
-    [EasiSign.EdemaPapulation]: EasiSeverity.None,
-    [EasiSign.Excoriation]: EasiSeverity.None,
-    [EasiSign.Lichenification]: EasiSeverity.None,
-    score: 0
+  [EasiRegions.Trunk]: {
+    extent: EasiExtents.E0,
+    [EasiSigns.Erythema]: EasiSeverities.None,
+    [EasiSigns.EdemaPapulation]: EasiSeverities.None,
+    [EasiSigns.Excoriation]: EasiSeverities.None,
+    [EasiSigns.Lichenification]: EasiSeverities.None
   },
-  [EasiRegion.Upper]: {
-    extent: EasiExtent.E0,
-    [EasiSign.Erythema]: EasiSeverity.None,
-    [EasiSign.EdemaPapulation]: EasiSeverity.None,
-    [EasiSign.Excoriation]: EasiSeverity.None,
-    [EasiSign.Lichenification]: EasiSeverity.None,
-    score: 0
+  [EasiRegions.Upper]: {
+    extent: EasiExtents.E0,
+    [EasiSigns.Erythema]: EasiSeverities.None,
+    [EasiSigns.EdemaPapulation]: EasiSeverities.None,
+    [EasiSigns.Excoriation]: EasiSeverities.None,
+    [EasiSigns.Lichenification]: EasiSeverities.None
   },
-  [EasiRegion.Lower]: {
-    extent: EasiExtent.E0,
-    [EasiSign.Erythema]: EasiSeverity.None,
-    [EasiSign.EdemaPapulation]: EasiSeverity.None,
-    [EasiSign.Excoriation]: EasiSeverity.None,
-    [EasiSign.Lichenification]: EasiSeverity.None,
-    score: 0
-  },
-  score: 0
+  [EasiRegions.Lower]: {
+    extent: EasiExtents.E0,
+    [EasiSigns.Erythema]: EasiSeverities.None,
+    [EasiSigns.EdemaPapulation]: EasiSeverities.None,
+    [EasiSigns.Excoriation]: EasiSeverities.None,
+    [EasiSigns.Lichenification]: EasiSeverities.None
+  }
 };
 
 export function enumValues<T>(e: any): T[] {
-  return Object.values(e).filter(v => typeof v !== 'string') as any;
+  return Object.values(e).filter(v => typeof v !== 'string') as T[];
 }
 
-export function calculateScore(value: IEasiValue): number {
-  return (
-    value[EasiRegion.Head].score +
-    value[EasiRegion.Trunk].score +
-    value[EasiRegion.Upper].score +
-    value[EasiRegion.Lower].score
+export function calculateScore(value: IEasi): IEasiScore {
+  return Object.values(EasiRegions).reduce(
+    (score, region) => {
+      score[region] = calculateRegionScore(value, region);
+      score.total += score[region];
+
+      return score;
+    },
+    { total: 0 }
   );
 }
 
 export function calculateRegionScore(
-  isChild: boolean,
-  region: EasiRegion,
-  value: IEasiRegionValue
+  value: IEasi,
+  region: EasiRegions
 ): number {
   return (
-    (value[EasiSign.Erythema] +
-      value[EasiSign.EdemaPapulation] +
-      value[EasiSign.Excoriation] +
-      value[EasiSign.Lichenification]) *
-    value.extent *
-    getRegionMultiplier(isChild, region)
+    (value[region][EasiSigns.Erythema] +
+      value[region][EasiSigns.EdemaPapulation] +
+      value[region][EasiSigns.Excoriation] +
+      value[region][EasiSigns.Lichenification]) *
+    value[region].extent *
+    getRegionMultiplier(value.isChild, region)
   );
 }
 
-export function getRegionMultiplier(isChild: boolean, region: EasiRegion) {
+export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
   switch (region) {
     default:
       throw new Error(`unknown region: ${region}`);
-    case EasiRegion.Head:
+    case EasiRegions.Head:
       return isChild ? 0.2 : 0.1;
-    case EasiRegion.Trunk:
+    case EasiRegions.Trunk:
       return isChild ? 0.3 : 0.3;
-    case EasiRegion.Upper:
+    case EasiRegions.Upper:
       return isChild ? 0.2 : 0.2;
-    case EasiRegion.Lower:
+    case EasiRegions.Lower:
       return isChild ? 0.3 : 0.4;
   }
 }
 
-export function calculateRegionLevel(value: IEasiRegionValue): number {
+export function calculateRegionLevel(value: IEasiRegion): number {
   return Math.round(
-    ((value[EasiSign.Erythema] +
-      value[EasiSign.EdemaPapulation] +
-      value[EasiSign.Excoriation] +
-      value[EasiSign.Lichenification]) *
+    ((value[EasiSigns.Erythema] +
+      value[EasiSigns.EdemaPapulation] +
+      value[EasiSigns.Excoriation] +
+      value[EasiSigns.Lichenification]) *
       value.extent) /
       7.2
   );

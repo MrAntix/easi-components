@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
-import { EasiSeverity, EasiText, enumValues } from '../models';
+import { EasiSeverities, EasiText, enumValues } from '../models';
 
 @Component({
   tag: 'a-easi-severity',
@@ -13,11 +13,11 @@ export class EasiSeverityComponent {
   showText: boolean;
 
   @Prop({ mutable: true })
-  value: EasiSeverity = EasiSeverity.None;
+  value: EasiSeverities = EasiSeverities.None;
 
   render() {
     return <Host aria-role="menu">
-      {enumValues<number>(EasiSeverity)
+      {enumValues<number>(EasiSeverities)
         .filter(severity => !!severity)
         .map(severity => <label
           aria-role="menuitemradio" aria-checked={this.value === severity}
@@ -28,15 +28,15 @@ export class EasiSeverityComponent {
     </Host>;
   }
 
-  changeHandler(e: Event, value: EasiSeverity): void {
+  changeHandler(e: Event, value: EasiSeverities): void {
     e.stopPropagation();
 
     if (this.disabled) return;
 
-    this.value = this.value === value ? EasiSeverity.None : value;
+    this.value = this.value === value ? EasiSeverities.None : value;
     this.change.emit(this.value);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  change: EventEmitter<EasiSeverity>
+  change: EventEmitter<EasiSeverities>
 }

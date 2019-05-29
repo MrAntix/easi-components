@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
-import { IEasiValue, EasiRegion, calculateRegionLevel } from '../models';
+import { IEasi, EasiRegions, calculateRegionLevel } from '../models';
 
 @Component({
   tag: 'a-easi-ernie',
@@ -9,10 +9,10 @@ import { IEasiValue, EasiRegion, calculateRegionLevel } from '../models';
 export class EasiErnieComponent {
 
   @Prop({ mutable: true })
-  value: IEasiValue
+  value: IEasi
 
   @Prop({ reflectToAttr: true })
-  selectedRegion: EasiRegion = null;
+  selectedRegion: EasiRegions = null;
 
   render() {
     if (!this.value) return;
@@ -22,49 +22,49 @@ export class EasiErnieComponent {
         onClick={e => this.selectRegionHandler(e, null)}>
         <g class={{
           "head-neck": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegion.Head])}`]: true,
-          selected: this.selectedRegion === EasiRegion.Head
+          [`level-${calculateRegionLevel(this.value[EasiRegions.Head])}`]: true,
+          selected: this.selectedRegion === EasiRegions.Head
         }}
-          onClick={e => this.selectRegionHandler(e, EasiRegion.Head)}>
+          onClick={e => this.selectRegionHandler(e, EasiRegions.Head)}>
           <path d="M85,45 85,54 75,54 75,45 A20,22.5 1,1,1 85,45Z" />
         </g>
         <g class={{
           "trunk": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegion.Trunk])}`]: true,
-          selected: this.selectedRegion === EasiRegion.Trunk
+          [`level-${calculateRegionLevel(this.value[EasiRegions.Trunk])}`]: true,
+          selected: this.selectedRegion === EasiRegions.Trunk
         }}
-          onClick={e => this.selectRegionHandler(e, EasiRegion.Trunk)}>
+          onClick={e => this.selectRegionHandler(e, EasiRegions.Trunk)}>
           <path d="M65,60 95,60 105,130 55,130 65,60Z" />
         </g>
         <g class={{
           "upper-limbs": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegion.Upper])}`]: true,
-          selected: this.selectedRegion === EasiRegion.Upper
+          [`level-${calculateRegionLevel(this.value[EasiRegions.Upper])}`]: true,
+          selected: this.selectedRegion === EasiRegions.Upper
         }}
-          onClick={e => this.selectRegionHandler(e, EasiRegion.Upper)}>
+          onClick={e => this.selectRegionHandler(e, EasiRegions.Upper)}>
           <path d="M60,60 55,85 10,140 0,136 5,130 0,130 0,125 5,125 60,60Z" />
           <path d="M100,60 105,85 150,140 160,136 155,130 160,130 160,125 155,125 100,60Z" />
         </g>
         <g class={{
           "lower-limbs": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegion.Lower])}`]: true,
-          selected: this.selectedRegion === EasiRegion.Lower
+          [`level-${calculateRegionLevel(this.value[EasiRegions.Lower])}`]: true,
+          selected: this.selectedRegion === EasiRegions.Lower
         }}
-          onClick={e => this.selectRegionHandler(e, EasiRegion.Lower)}>
+          onClick={e => this.selectRegionHandler(e, EasiRegions.Lower)}>
           <path d="M55,136 105,136 100,230 105,235 105,240 85,240 85,150 75,150 75,240 55,240 55,235 60,230 55,140Z" />
         </g>
       </svg>
     </Host>;
   }
 
-  selectRegionHandler(e: MouseEvent, region: EasiRegion): void {
+  selectRegionHandler(e: MouseEvent, region: EasiRegions): void {
     e.stopPropagation();
 
     this.selectRegion.emit(region);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  selectRegion: EventEmitter<EasiRegion>
+  selectRegion: EventEmitter<EasiRegions>
 }
 
 

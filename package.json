@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@ntix/bind": "^1.1.3",
-    "@stencil/core": "1.0.0-beta.5",
+    "@stencil/core": "1.0.0-beta.7",
     "@types/jest": "23.3.14",
     "@types/puppeteer": "1.12.2",
     "jest": "23.6.0",

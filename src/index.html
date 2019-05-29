@@ -7,7 +7,9 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>EASI Components</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/a.svg">
+  <link rel="icon"
+        type="image/svg+xml"
+        href="/assets/a.svg">
 
   <script type="module"
           src="/build/antix-easi-components.esm.js"></script>
@@ -51,20 +53,22 @@
   <p>
     <code>
     &lt;a-easi
-      <label>show-text
-        <input type="checkbox"
-              bind
-              property="checked"
-              [checked]="show-text"
-              {change}="onChange" />
-      </label>/&gt;
+    <label>show-text
+      <input type="checkbox"
+            bind
+            property="checked"
+            [checked]="show-text"
+            {change}="onChange" />
+    </label>
+    /&gt;
     </code>
   </p>
 
   <a-easi bind
           [show-text]="show-text"
-          [value]="score"
-          {change}="onChange"></a-easi>
+          [value]="easi"
+          {change}="onChange"
+          {score-change}="onChange" scorechange="score"></a-easi>
 
   <div class="properties">
     <p><label>--easi-primary-hue</label>
@@ -135,12 +139,16 @@
   </div>
   <p>Value:
     <pre bind
+         [inner-html]="easiJSON"></pre>
+  </p>
+  <p>Score:
+    <pre bind
          [inner-html]="scoreJSON"></pre>
   </p>
 
-  <!--
   <h2>a-easi-ernie</h2>
-  <a-easi-ernie trunk="5" head="10"></a-easi-ernie>
+  <a-easi-ernie trunk="5"
+                head="10"></a-easi-ernie>
 
   <h2>a-easi-severity</h2>
   <a-easi-severity bind
@@ -155,7 +163,6 @@
                  {change}="onChange"></a-easi-extent>
   <p>Value: <span bind
           [inner-text]="extent"></span></p>
-  -->
 
   <p>A very useful
     <a href="http://www.homeforeczema.org/documents/easi-user-guide-jan-2017-v3.pdf">Guide on EASI</a>
@@ -165,17 +172,17 @@
     import { bind } from './libs/bind/bind.js';
 
     const context = {
+      easi: null,
       score: null,
       extent: 0,
       severity: 2,
 
       onChange: function (e) {
-        const property = this.getAttribute('property') || 'value';
-        const propertyName = this.getAttribute(`[${property}]`);
-        if (!propertyName) throw `${property} not set`;
+        let contextProperty = this.getAttribute(e.type)
+          || this.getAttribute('[value]');
 
-        context[propertyName] = this[property];
-        context[`${propertyName}JSON`] = JSON.stringify(e.detail, null, 2);
+        context[contextProperty] = e.detail;
+        context[`${contextProperty}JSON`] = JSON.stringify(e.detail, null, 2);
       },
 
       'show-text': true,
