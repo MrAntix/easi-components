@@ -17,7 +17,6 @@ import {
 export namespace Components {
   interface AEasi {
     'isChild': boolean;
-    'selectedRegion': EasiRegion;
     'showText': boolean;
     'value': IEasiValue;
   }
@@ -41,7 +40,6 @@ declare namespace LocalJSX {
   interface AEasi extends JSXBase.HTMLAttributes {
     'isChild'?: boolean;
     'onChange'?: (event: CustomEvent<IEasiValue>) => void;
-    'selectedRegion'?: EasiRegion;
     'showText'?: boolean;
     'value'?: IEasiValue;
   }

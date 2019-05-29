@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Watch, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
 import { IEasiValue, EasiRegion, EasiSign, EasiText, EasiDefault, EasiSeverity, EasiExtent, calculateRegionScore, calculateScore } from '../models';
 
 @Component({
@@ -27,7 +27,7 @@ export class EasiComponent {
     this.value.score = calculateScore(this.value);
   }
 
-  @Prop({ reflectToAttr: true })
+  @State()
   selectedRegion: EasiRegion = EasiRegion.Head;
 
   componentWillLoad() {
