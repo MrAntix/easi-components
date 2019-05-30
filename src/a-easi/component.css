@@ -15,11 +15,13 @@ header {
     display: flex;
     position: relative;
     padding: var(--easi-unit);
-    margin: calc(.5 * var(--easi-unit)) 0;
+    margin: calc(.5 * var(--easi-unit));
     background: var(--easi-earnie-background);
     background-clip: padding-box;
     color: var(--easi-panel-color);
     border-radius: var(--easi-border-radius);
+    border: var(--easi-panel-border);
+    background-clip: padding-box;
 }
 
 a-easi-ernie {
@@ -48,10 +50,14 @@ main {
     margin: calc(.5 * var(--easi-unit));
 }
 
-section {
+.region,
+.signs {
     display: grid;
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
+}
+
+.region {
     padding: var(--easi-unit);
     background: var(--easi-panel-background);
     color: var(--easi-panel-color);
@@ -67,6 +73,10 @@ main.head section {
 
 main.lower section {
     border-top-right-radius: 0;
+}
+
+.extent {
+    margin-bottom: var(--easi-unit);
 }
 
 .row {
@@ -100,8 +110,8 @@ nav label {
 }
 
 nav label[aria-checked] {
-  margin: 0 0 calc(0px - var(--easi-panel-border-width));
-  color: var(--easi-primary);
+    margin: 0 0 calc(0px - var(--easi-panel-border-width));
+    color: var(--easi-primary);
 }
 
 nav span {

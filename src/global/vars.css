@@ -1,5 +1,5 @@
 :root {
-    --easi-unit: .75rem;
+    --easi-unit: .5rem;
 
     --easi-primary-hue: 210;
     --easi-primary-saturation: 0%;
@@ -10,7 +10,7 @@
     --easi-primary-alt-lightness: 90%;
     --easi-primary-alt: hsl(var(--easi-primary-alt-hue), var(--easi-primary-alt-saturation), var(--easi-primary-alt-lightness));
 
-    --easi-grid-gap: var(--easi-unit) calc(.25 * var(--easi-unit));
+    --easi-grid-gap: 1px;
     --easi-label-width: 8em;
 
     --easi-highlight: rgba(255, 255, 255, .333);
@@ -44,9 +44,9 @@
     --easi-panel-shadow-color: var(--easi-lowlight-more);
     --easi-panel-shadow: 0 0 var(--easi-panel-shadow-dist) var(--easi-panel-shadow-color);
 
-    --easi-border-radius: 4px;
+    --easi-border-radius: 5px;
 
-    --easi-earnie-background: linear-gradient(to top right, var(--easi-highlight), transparent);
+    --easi-earnie-background: linear-gradient(to top right, var(--easi-lowlight), transparent);
     --easi-ernie-hue: var(--easi-primary-hue);
     --easi-ernie-saturation: 90%;
     --easi-ernie-border-width: var(--easi-border-width);

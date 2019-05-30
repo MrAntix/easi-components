@@ -20,16 +20,6 @@
         type="text/css"
         href="/build/antix-easi-components.css" />
   <style>
-    :root {
-      --easi-unit: .5em;
-      --easi-primary-hue: 210;
-      --easi-primary-saturation: 0%;
-      --easi-ernie-hue: 30;
-
-      --easi-border-radius: 0px;
-      --easi-grid-gap: 4px;
-    }
-
     body {
       background: var(--easi-primary-alt);
       color: var(--easi-primary);
@@ -40,7 +30,7 @@
 
     .properties label {
       display: inline-block;
-      width: 12rem;
+      width: 10rem;
     }
   </style>
 
@@ -56,9 +46,8 @@
     <label>show-text
       <input type="checkbox"
             bind
-            property="checked"
             [checked]="show-text"
-            {change}="onChange" />
+            {change}="onChange" change="show-text" />
     </label>
     /&gt;
     </code>
@@ -68,16 +57,29 @@
           [show-text]="show-text"
           [value]="easi"
           {change}="onChange"
-          {score-change}="onChange" scorechange="score"></a-easi>
+          {score-change}="onChange"
+          scorechange="score"></a-easi>
 
   <div class="properties">
+    <p><label>--easi-unit</label>
+      <input type="range"
+             min="0"
+             max="1"
+             step=".05"
+             bind
+             units="rem"
+             [value]="unit"
+             {input}="onChangeStyle" />
+      <span bind
+            [inner-text]="unit"></span>rem
+    </p>
     <p><label>--easi-primary-hue</label>
       <input type="range"
              min="0"
              max="360"
              bind
              [value]="primary-hue"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
             [inner-text]="primary-hue"></span>
     </p>
@@ -88,9 +90,20 @@
              bind
              units="%"
              [value]="primary-saturation"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
-            [inner-text]="primary-saturation"></span>
+            [inner-text]="primary-saturation"></span>%
+    </p>
+    <p><label>--easi-grid-gap</label>
+      <input type="range"
+             min="0"
+             max="10"
+             bind
+             units="px"
+             [value]="grid-gap"
+             {input}="onChangeStyle" />
+      <span bind
+            [inner-text]="grid-gap"></span>px
     </p>
     <p><label>--easi-border-radius</label>
       <input type="range"
@@ -99,9 +112,9 @@
              bind
              units="px"
              [value]="border-radius"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
-            [inner-text]="border-radius"></span>
+            [inner-text]="border-radius"></span>px
     </p>
     <p><label>--easi-border-width</label>
       <input type="range"
@@ -110,9 +123,9 @@
              bind
              units="px"
              [value]="border-width"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
-            [inner-text]="border-width"></span>
+            [inner-text]="border-width"></span>px
     </p>
     <p><label>--easi-panel-border-width</label>
       <input type="range"
@@ -121,9 +134,9 @@
              bind
              units="px"
              [value]="panel-border-width"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
-            [inner-text]="panel-border-width"></span>
+            [inner-text]="panel-border-width"></span>px
     </p>
     <p><label>--easi-panel-shadow-dist</label>
       <input type="range"
@@ -132,9 +145,9 @@
              bind
              units="px"
              [value]="panel-shadow-dist"
-             {input}="onChangeValue" />
+             {input}="onChangeStyle" />
       <span bind
-            [inner-text]="panel-shadow-dist"></span>
+            [inner-text]="panel-shadow-dist"></span>px
     </p>
   </div>
   <p>Value:
@@ -146,19 +159,48 @@
          [inner-html]="scoreJSON"></pre>
   </p>
 
-  <h2>a-easi-ernie</h2>
+  <p>
+    <code>
+    &lt;a-easi-ernie
+    /&gt;
+    </code>
+  </p>
   <a-easi-ernie trunk="5"
                 head="10"></a-easi-ernie>
 
-  <h2>a-easi-severity</h2>
+  <p>
+    <code>
+    &lt;a-easi-severity
+    <label>show-text
+      <input type="checkbox"
+            bind
+            [checked]="severity-show-text"
+            {change}="onChange" change="severity-show-text" />
+    </label>
+    /&gt;
+    </code>
+  </p>
   <a-easi-severity bind
+                   [show-text]="severity-show-text"
                    [value]="severity"
                    {change}="onChange"></a-easi-severity>
   <p>Value: <span bind
           [inner-text]="severity"></span></p>
 
-  <h2>a-easi-extent</h2>
+  <p>
+    <code>
+    &lt;a-easi-extent
+    <label>show-text
+      <input type="checkbox"
+            bind
+            [checked]="extent-show-text"
+            {change}="onChange" change="extent-show-text" />
+    </label>
+    /&gt;
+    </code>
+  </p>
   <a-easi-extent bind
+                 [show-text]="extent-show-text"
                  [value]="extent"
                  {change}="onChange"></a-easi-extent>
   <p>Value: <span bind
@@ -181,18 +223,20 @@
         let contextProperty = this.getAttribute(e.type)
           || this.getAttribute('[value]');
 
-        context[contextProperty] = e.detail;
+        context[contextProperty] = e.detail === undefined ? e.target.checked : e.detail;
         context[`${contextProperty}JSON`] = JSON.stringify(e.detail, null, 2);
       },
 
       'show-text': true,
+      'unit': .5,
       'primary-hue': 210,
       'primary-saturation': 0,
-      'border-radius': 0,
+      'grid-gap': 1,
+      'border-radius': 5,
       'border-width': 0,
       'panel-border-width': 0,
       'panel-shadow-dist': 0,
-      onChangeValue: function () {
+      onChangeStyle: function () {
         const property = this.getAttribute('property') || '[value]';
         const propertyName = this.getAttribute(property);
         if (!propertyName) throw `${property} not set`;

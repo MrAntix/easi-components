@@ -7,18 +7,18 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type                                                                                                                                         | Default         |
-| ---------- | ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| `disabled` | `disabled`  |             | `boolean`                                                                                                                                    | `undefined`     |
-| `showText` | `show-text` |             | `boolean`                                                                                                                                    | `undefined`     |
-| `value`    | `value`     |             | `EasiExtent.E0 \| EasiExtent.E10_29 \| EasiExtent.E1_9 \| EasiExtent.E30_49 \| EasiExtent.E50_69 \| EasiExtent.E70_89 \| EasiExtent.E90_100` | `EasiExtent.E0` |
+| Property   | Attribute   | Description | Type                                                                                                                                                | Default          |
+| ---------- | ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `disabled` | `disabled`  |             | `boolean`                                                                                                                                           | `undefined`      |
+| `showText` | `show-text` |             | `boolean`                                                                                                                                           | `undefined`      |
+| `value`    | `value`     |             | `EasiExtents.E0 \| EasiExtents.E10_29 \| EasiExtents.E1_9 \| EasiExtents.E30_49 \| EasiExtents.E50_69 \| EasiExtents.E70_89 \| EasiExtents.E90_100` | `EasiExtents.E0` |
 
 
 ## Events
 
-| Event    | Description | Type                                                                                                                                                      |
-| -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `change` |             | `CustomEvent<EasiExtent.E0 \| EasiExtent.E10_29 \| EasiExtent.E1_9 \| EasiExtent.E30_49 \| EasiExtent.E50_69 \| EasiExtent.E70_89 \| EasiExtent.E90_100>` |
+| Event    | Description | Type                                                                                                                                                             |
+| -------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `change` |             | `CustomEvent<EasiExtents.E0 \| EasiExtents.E10_29 \| EasiExtents.E1_9 \| EasiExtents.E30_49 \| EasiExtents.E50_69 \| EasiExtents.E70_89 \| EasiExtents.E90_100>` |
 
 
 ## Dependencies

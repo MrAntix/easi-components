@@ -7,18 +7,18 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type                                                                                                                                                     | Default             |
-| ---------- | ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `disabled` | `disabled`  |             | `boolean`                                                                                                                                                | `undefined`         |
-| `showText` | `show-text` |             | `boolean`                                                                                                                                                | `undefined`         |
-| `value`    | `value`     |             | `EasiSeverity.Mild \| EasiSeverity.MildToModerate \| EasiSeverity.Moderate \| EasiSeverity.ModerateToSevere \| EasiSeverity.None \| EasiSeverity.Severe` | `EasiSeverity.None` |
+| Property   | Attribute   | Description | Type                                                                                                                                                                 | Default               |
+| ---------- | ----------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `disabled` | `disabled`  |             | `boolean`                                                                                                                                                            | `undefined`           |
+| `showText` | `show-text` |             | `boolean`                                                                                                                                                            | `undefined`           |
+| `value`    | `value`     |             | `EasiSeverities.Mild \| EasiSeverities.MildToModerate \| EasiSeverities.Moderate \| EasiSeverities.ModerateToSevere \| EasiSeverities.None \| EasiSeverities.Severe` | `EasiSeverities.None` |
 
 
 ## Events
 
-| Event    | Description | Type                                                                                                                                                                  |
-| -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `change` |             | `CustomEvent<EasiSeverity.Mild \| EasiSeverity.MildToModerate \| EasiSeverity.Moderate \| EasiSeverity.ModerateToSevere \| EasiSeverity.None \| EasiSeverity.Severe>` |
+| Event    | Description | Type                                                                                                                                                                              |
+| -------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `change` |             | `CustomEvent<EasiSeverities.Mild \| EasiSeverities.MildToModerate \| EasiSeverities.Moderate \| EasiSeverities.ModerateToSevere \| EasiSeverities.None \| EasiSeverities.Severe>` |
 
 
 ## Dependencies

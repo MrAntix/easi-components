@@ -7,19 +7,19 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type                                                                          | Default           |
-| ---------------- | ----------------- | ----------- | ----------------------------------------------------------------------------- | ----------------- |
-| `isChild`        | `is-child`        |             | `boolean`                                                                     | `undefined`       |
-| `selectedRegion` | `selected-region` |             | `EasiRegion.Head \| EasiRegion.Lower \| EasiRegion.Trunk \| EasiRegion.Upper` | `EasiRegion.Head` |
-| `showText`       | `show-text`       |             | `boolean`                                                                     | `undefined`       |
-| `value`          | --                |             | `IEasiValue`                                                                  | `undefined`       |
+| Property   | Attribute   | Description | Type         | Default     |
+| ---------- | ----------- | ----------- | ------------ | ----------- |
+| `score`    | --          |             | `IEasiScore` | `undefined` |
+| `showText` | `show-text` |             | `boolean`    | `undefined` |
+| `value`    | --          |             | `IEasi`      | `undefined` |
 
 
 ## Events
 
-| Event    | Description | Type                      |
-| -------- | ----------- | ------------------------- |
-| `change` |             | `CustomEvent<IEasiValue>` |
+| Event         | Description | Type                      |
+| ------------- | ----------- | ------------------------- |
+| `change`      |             | `CustomEvent<IEasi>`      |
+| `scoreChange` |             | `CustomEvent<IEasiScore>` |
 
 
 ## Dependencies

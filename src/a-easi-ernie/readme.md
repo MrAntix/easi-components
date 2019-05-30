@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type                                                                          | Default     |
-| ---------------- | ----------------- | ----------- | ----------------------------------------------------------------------------- | ----------- |
-| `selectedRegion` | `selected-region` |             | `EasiRegion.Head \| EasiRegion.Lower \| EasiRegion.Trunk \| EasiRegion.Upper` | `null`      |
-| `value`          | --                |             | `IEasiValue`                                                                  | `undefined` |
+| Property         | Attribute         | Description | Type                                                                              | Default     |
+| ---------------- | ----------------- | ----------- | --------------------------------------------------------------------------------- | ----------- |
+| `selectedRegion` | `selected-region` |             | `EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper` | `null`      |
+| `value`          | --                |             | `IEasi`                                                                           | `undefined` |
 
 
 ## Events
 
-| Event          | Description | Type                                                                                       |
-| -------------- | ----------- | ------------------------------------------------------------------------------------------ |
-| `selectRegion` |             | `CustomEvent<EasiRegion.Head \| EasiRegion.Lower \| EasiRegion.Trunk \| EasiRegion.Upper>` |
+| Event          | Description | Type                                                                                           |
+| -------------- | ----------- | ---------------------------------------------------------------------------------------------- |
+| `selectRegion` |             | `CustomEvent<EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper>` |
 
 
 ## Dependencies

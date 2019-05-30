@@ -54,26 +54,28 @@ export class EasiComponent {
           </label>
           )}
         </nav>
-        {this.selectedRegion != null && <section>
-          <div class="row">
+        {this.selectedRegion != null && <section class="region">
+          <div class="row extent">
             <label>Extent</label>
             <a-easi-extent
               showText={this.showText}
               value={this.value[this.selectedRegion].extent}
               onChange={e => this.changeExtentHandler(e, e.detail)}></a-easi-extent>
           </div>
-          {Object.values(EasiSigns).map(sign =>
-            <div class={{
-              row: true,
-              disabled: this.value[this.selectedRegion].extent === 0
-            }}>
-              <label>{EasiText.sign[sign]}</label>
-              <a-easi-severity
-                showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
-                value={this.value[this.selectedRegion][sign]}
-                onChange={e => this.changeSeverityHandler(e, sign, e.detail)}></a-easi-severity>
-            </div>
-          )}
+          <section class="signs">
+            {Object.values(EasiSigns).map(sign =>
+              <div class={{
+                row: true,
+                disabled: this.value[this.selectedRegion].extent === 0
+              }}>
+                <label>{EasiText.sign[sign]}</label>
+                <a-easi-severity
+                  showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
+                  value={this.value[this.selectedRegion][sign]}
+                  onChange={e => this.changeSeverityHandler(e, sign, e.detail)}></a-easi-severity>
+              </div>
+            )}
+          </section>
         </section>
         }
       </main>
