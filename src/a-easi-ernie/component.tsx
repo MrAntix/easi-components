@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
-import { IEasi, EasiRegions, calculateRegionLevel } from '../models';
+import { IEasi, EasiRegions, calculateRegionLevel, EasiDefault } from '../models';
 
 @Component({
   tag: 'a-easi-ernie',
@@ -8,21 +8,21 @@ import { IEasi, EasiRegions, calculateRegionLevel } from '../models';
 })
 export class EasiErnieComponent {
 
-  @Prop({ mutable: true })
-  value: IEasi
+  @Prop()
+  value: IEasi = EasiDefault;
 
   @Prop({ reflectToAttr: true })
   selectedRegion: EasiRegions = null;
 
   render() {
-    if (!this.value) return;
+    const value = this.value ||EasiDefault;
 
     return <Host>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240"
         onClick={e => this.selectRegionHandler(e, null)}>
         <g class={{
           "head-neck": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegions.Head])}`]: true,
+          [`level-${calculateRegionLevel(value[EasiRegions.Head])}`]: true,
           selected: this.selectedRegion === EasiRegions.Head
         }}
           onClick={e => this.selectRegionHandler(e, EasiRegions.Head)}>
@@ -30,7 +30,7 @@ export class EasiErnieComponent {
         </g>
         <g class={{
           "trunk": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegions.Trunk])}`]: true,
+          [`level-${calculateRegionLevel(value[EasiRegions.Trunk])}`]: true,
           selected: this.selectedRegion === EasiRegions.Trunk
         }}
           onClick={e => this.selectRegionHandler(e, EasiRegions.Trunk)}>
@@ -38,7 +38,7 @@ export class EasiErnieComponent {
         </g>
         <g class={{
           "upper-limbs": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegions.Upper])}`]: true,
+          [`level-${calculateRegionLevel(value[EasiRegions.Upper])}`]: true,
           selected: this.selectedRegion === EasiRegions.Upper
         }}
           onClick={e => this.selectRegionHandler(e, EasiRegions.Upper)}>
@@ -47,7 +47,7 @@ export class EasiErnieComponent {
         </g>
         <g class={{
           "lower-limbs": true,
-          [`level-${calculateRegionLevel(this.value[EasiRegions.Lower])}`]: true,
+          [`level-${calculateRegionLevel(value[EasiRegions.Lower])}`]: true,
           selected: this.selectedRegion === EasiRegions.Lower
         }}
           onClick={e => this.selectRegionHandler(e, EasiRegions.Lower)}>

@@ -28,6 +28,11 @@
       padding: var(--easi-unit);
     }
 
+    section{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     .properties label {
       display: inline-block;
       width: 10rem;
@@ -60,104 +65,106 @@
           {score-change}="onChange"
           scorechange="score"></a-easi>
 
-  <div class="properties">
-    <p><label>--easi-unit</label>
-      <input type="range"
-             min="0"
-             max="1"
-             step=".05"
-             bind
-             units="rem"
-             [value]="unit"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="unit"></span>rem
-    </p>
-    <p><label>--easi-primary-hue</label>
-      <input type="range"
-             min="0"
-             max="360"
-             bind
-             [value]="primary-hue"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="primary-hue"></span>
-    </p>
-    <p><label>--easi-primary-saturation</label>
-      <input type="range"
-             min="0"
-             max="100"
-             bind
-             units="%"
-             [value]="primary-saturation"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="primary-saturation"></span>%
-    </p>
-    <p><label>--easi-grid-gap</label>
-      <input type="range"
-             min="0"
-             max="10"
-             bind
-             units="px"
-             [value]="grid-gap"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="grid-gap"></span>px
-    </p>
-    <p><label>--easi-border-radius</label>
-      <input type="range"
-             min="0"
-             max="20"
-             bind
-             units="px"
-             [value]="border-radius"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="border-radius"></span>px
-    </p>
-    <p><label>--easi-border-width</label>
-      <input type="range"
-             min="0"
-             max="10"
-             bind
-             units="px"
-             [value]="border-width"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="border-width"></span>px
-    </p>
-    <p><label>--easi-panel-border-width</label>
-      <input type="range"
-             min="0"
-             max="10"
-             bind
-             units="px"
-             [value]="panel-border-width"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="panel-border-width"></span>px
-    </p>
-    <p><label>--easi-panel-shadow-dist</label>
-      <input type="range"
-             min="0"
-             max="40"
-             bind
-             units="px"
-             [value]="panel-shadow-dist"
-             {input}="onChangeStyle" />
-      <span bind
-            [inner-text]="panel-shadow-dist"></span>px
-    </p>
-  </div>
-  <p>Value:
-    <pre bind
-         [inner-html]="easiJSON"></pre>
-  </p>
-  <p>Score:
-    <pre bind
-         [inner-html]="scoreJSON"></pre>
-  </p>
+  <section>
+    <div class="properties">
+      <p><label>--easi-unit</label>
+        <input type="range"
+               min="0"
+               max="1"
+               step=".05"
+               bind
+               units="rem"
+               [value]="unit"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="unit"></span>rem
+      </p>
+      <p><label>--easi-primary-hue</label>
+        <input type="range"
+               min="0"
+               max="360"
+               bind
+               [value]="primary-hue"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="primary-hue"></span>
+      </p>
+      <p><label>--easi-primary-saturation</label>
+        <input type="range"
+               min="0"
+               max="100"
+               bind
+               units="%"
+               [value]="primary-saturation"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="primary-saturation"></span>%
+      </p>
+      <p><label>--easi-grid-gap</label>
+        <input type="range"
+               min="0"
+               max="10"
+               bind
+               units="px"
+               [value]="grid-gap"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="grid-gap"></span>px
+      </p>
+      <p><label>--easi-border-radius</label>
+        <input type="range"
+               min="0"
+               max="20"
+               bind
+               units="px"
+               [value]="border-radius"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="border-radius"></span>px
+      </p>
+      <p><label>--easi-border-width</label>
+        <input type="range"
+               min="0"
+               max="10"
+               bind
+               units="px"
+               [value]="border-width"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="border-width"></span>px
+      </p>
+      <p><label>--easi-panel-border-width</label>
+        <input type="range"
+               min="0"
+               max="10"
+               bind
+               units="px"
+               [value]="panel-border-width"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="panel-border-width"></span>px
+      </p>
+      <p><label>--easi-panel-shadow-dist</label>
+        <input type="range"
+               min="0"
+               max="40"
+               bind
+               units="px"
+               [value]="panel-shadow-dist"
+               {input}="onChangeStyle" />
+        <span bind
+              [inner-text]="panel-shadow-dist"></span>px
+      </p>
+    </div>
+      <p>Value:
+        <pre bind
+             [inner-html]="easiJSON"></pre>
+      </p>
+      <p>Score:
+        <pre bind
+             [inner-html]="scoreJSON"></pre>
+      </p>
+  </section>
 
   <p>
     <code>
@@ -165,8 +172,8 @@
     /&gt;
     </code>
   </p>
-  <a-easi-ernie trunk="5"
-                head="10"></a-easi-ernie>
+  <a-easi-ernie bind
+                [value]="easi"></a-easi-ernie>
 
   <p>
     <code>
