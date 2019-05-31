@@ -22,6 +22,7 @@ header {
     border-radius: var(--easi-border-radius);
     border: var(--easi-panel-border);
     background-clip: padding-box;
+    box-shadow: var(--easi-panel-shadow);
 }
 
 a-easi-ernie {

@@ -69,8 +69,6 @@ declare global {
     'a-easi-extent': HTMLAEasiExtentElement;
     'a-easi-severity': HTMLAEasiSeverityElement;
   }
-
-  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
 
 declare namespace LocalJSX {
