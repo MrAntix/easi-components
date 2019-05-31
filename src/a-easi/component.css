@@ -14,14 +14,11 @@ header {
     min-height: 12.5em;
     display: flex;
     position: relative;
-    padding: var(--easi-unit);
     margin: calc(.5 * var(--easi-unit));
-    background: var(--easi-earnie-background);
-    background-clip: padding-box;
+    background: var(--easi-panel-background);
     color: var(--easi-panel-color);
     border-radius: var(--easi-border-radius);
     border: var(--easi-panel-border);
-    background-clip: padding-box;
     box-shadow: var(--easi-panel-shadow);
 }
 
@@ -64,7 +61,6 @@ main {
     color: var(--easi-panel-color);
     border-radius: var(--easi-border-radius);
     border: var(--easi-panel-border);
-    background-clip: padding-box;
     box-shadow: var(--easi-panel-shadow);
 }
 
@@ -106,7 +102,6 @@ nav label {
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
     margin: 0 0 calc(0px - var(--easi-border-radius) - var(--easi-panel-border-width));
     background-color: var(--easi-panel-border-color);
-    background-clip: padding-box;
     cursor: pointer;
 }
 
@@ -150,6 +145,13 @@ nav label[aria-checked] a::after {
 a-easi-extent,
 a-easi-severity {
     flex: 10 1 20em;
+}
+
+.extents {
+    flex: 10 1 20em;
+
     --easi-checked-background: var(--easi-panel-checked-background);
     --easi-checked-color: var(--easi-panel-checked-color);
+
+    -grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }

@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
-import { IEasi, EasiRegions, EasiSigns, EasiText, EasiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore } from '../models';
+import { IEasi, EasiRegions, EasiSigns, EasiText, EasiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues } from '../models';
 
 @Component({
   tag: 'a-easi',
@@ -44,6 +44,14 @@ export class EasiComponent {
       <main class={{
         [this.selectedRegion]: true
       }}>
+        <a-easi-select class="child-adult"
+          showText={this.showText}
+          options={[false, true]}
+          optionsText={{ 'true': 'Child', 'false': 'Adult' }}
+          value={this.value.isChild}
+          onChange={e => this.changeIsChildHandler(e, e.detail)}>
+        </a-easi-select>
+
         <nav aria-role="menu">
           {Object.values(EasiRegions).map(region => <label
             aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
@@ -57,10 +65,13 @@ export class EasiComponent {
         {this.selectedRegion != null && <section class="region">
           <div class="row extent">
             <label>Extent</label>
-            <a-easi-extent
+            <a-easi-select class="extents"
               showText={this.showText}
+              options={enumValues(EasiExtents)}
+              optionsText={EasiText.extent}
               value={this.value[this.selectedRegion].extent}
-              onChange={e => this.changeExtentHandler(e, e.detail)}></a-easi-extent>
+              onChange={e => this.changeExtentHandler(e, e.detail)}>
+            </a-easi-select>
           </div>
           <section class="signs">
             {Object.values(EasiSigns).map(sign =>
@@ -69,10 +80,13 @@ export class EasiComponent {
                 disabled: this.value[this.selectedRegion].extent === 0
               }}>
                 <label>{EasiText.sign[sign]}</label>
-                <a-easi-severity
+                <a-easi-select class="extents"
                   showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
+                  options={enumValues(EasiSeverities)}
+                  optionsText={EasiText.severity}
                   value={this.value[this.selectedRegion][sign]}
-                  onChange={e => this.changeSeverityHandler(e, sign, e.detail)}></a-easi-severity>
+                  onChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
+                </a-easi-select>
               </div>
             )}
           </section>
@@ -86,6 +100,18 @@ export class EasiComponent {
     e.stopPropagation();
 
     this.selectedRegion = value || EasiRegions.Head;
+  }
+
+  changeIsChildHandler(e: Event, change: any): void {
+    e.stopPropagation();
+
+    const value = {
+      ...this.value,
+      isChild: change == null ? false : !!change
+    }
+
+    this.value = value;
+    this.change.emit(value);
   }
 
   changeExtentHandler(e: Event, extent: EasiExtents): void {

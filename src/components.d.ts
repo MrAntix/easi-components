@@ -7,9 +7,7 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  EasiExtents,
   EasiRegions,
-  EasiSeverities,
   IEasi,
   IEasiScore,
 } from './models';
@@ -25,15 +23,12 @@ export namespace Components {
     'selectedRegion': EasiRegions;
     'value': IEasi;
   }
-  interface AEasiExtent {
+  interface AEasiSelect {
     'disabled': boolean;
+    'options': any[];
+    'optionsText': { [key: string]: string };
     'showText': boolean;
-    'value': EasiExtents;
-  }
-  interface AEasiSeverity {
-    'disabled': boolean;
-    'showText': boolean;
-    'value': EasiSeverities;
+    'value': any;
   }
 }
 
@@ -52,22 +47,15 @@ declare global {
     new (): HTMLAEasiErnieElement;
   };
 
-  interface HTMLAEasiExtentElement extends Components.AEasiExtent, HTMLStencilElement {}
-  var HTMLAEasiExtentElement: {
-    prototype: HTMLAEasiExtentElement;
-    new (): HTMLAEasiExtentElement;
-  };
-
-  interface HTMLAEasiSeverityElement extends Components.AEasiSeverity, HTMLStencilElement {}
-  var HTMLAEasiSeverityElement: {
-    prototype: HTMLAEasiSeverityElement;
-    new (): HTMLAEasiSeverityElement;
+  interface HTMLAEasiSelectElement extends Components.AEasiSelect, HTMLStencilElement {}
+  var HTMLAEasiSelectElement: {
+    prototype: HTMLAEasiSelectElement;
+    new (): HTMLAEasiSelectElement;
   };
   interface HTMLElementTagNameMap {
     'a-easi': HTMLAEasiElement;
     'a-easi-ernie': HTMLAEasiErnieElement;
-    'a-easi-extent': HTMLAEasiExtentElement;
-    'a-easi-severity': HTMLAEasiSeverityElement;
+    'a-easi-select': HTMLAEasiSelectElement;
   }
 }
 
@@ -84,24 +72,19 @@ declare namespace LocalJSX {
     'selectedRegion'?: EasiRegions;
     'value'?: IEasi;
   }
-  interface AEasiExtent extends JSXBase.HTMLAttributes<HTMLAEasiExtentElement> {
+  interface AEasiSelect extends JSXBase.HTMLAttributes<HTMLAEasiSelectElement> {
     'disabled'?: boolean;
-    'onChange'?: (event: CustomEvent<EasiExtents>) => void;
+    'onChange'?: (event: CustomEvent<any>) => void;
+    'options'?: any[];
+    'optionsText'?: { [key: string]: string };
     'showText'?: boolean;
-    'value'?: EasiExtents;
-  }
-  interface AEasiSeverity extends JSXBase.HTMLAttributes<HTMLAEasiSeverityElement> {
-    'disabled'?: boolean;
-    'onChange'?: (event: CustomEvent<EasiSeverities>) => void;
-    'showText'?: boolean;
-    'value'?: EasiSeverities;
+    'value'?: any;
   }
 
   interface IntrinsicElements {
     'a-easi': AEasi;
     'a-easi-ernie': AEasiErnie;
-    'a-easi-extent': AEasiExtent;
-    'a-easi-severity': AEasiSeverity;
+    'a-easi-select': AEasiSelect;
   }
 }
 

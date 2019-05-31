@@ -8,6 +8,7 @@
     fill: hsla(var(--easi-ernie-hue), var(--easi-ernie-saturation), 50%, 0);
     stroke: var(--easi-ernie-border-color);
     padding: var(--easi-unit);
+    background: var(--easi-ernie-background);
 }
 
 svg {

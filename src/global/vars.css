@@ -18,9 +18,9 @@
     --easi-lowlight: rgba(0, 0, 0, .1);
     --easi-lowlight-more: rgba(0, 0, 0, .2);
     --easi-border-width: 0px;
-    --easi-border-color: hsl(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2.1 * var(--easi-primary-lightness)));
+    --easi-border-color: hsla(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2.1 * var(--easi-primary-lightness)), .5);
     --easi-border: solid var(--easi-border-width) var(--easi-border-color);
-    --easi-outline-width: 2px;
+    --easi-outline-width: var(--easi-border-width);
     --easi-outline-color: var(--easi-primary);
     --easi-outline: solid var(--easi-outline-width) var(--easi-outline);
     --easi-checked-background: var(--easi-primary);
@@ -46,7 +46,7 @@
 
     --easi-border-radius: 5px;
 
-    --easi-earnie-background: linear-gradient(to top right, var(--easi-lowlight), transparent);
+    --easi-ernie-background: #eee;
     --easi-ernie-hue: var(--easi-primary-hue);
     --easi-ernie-saturation: 90%;
     --easi-ernie-border-width: var(--easi-border-width);

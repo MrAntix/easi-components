@@ -1,11 +1,11 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :host {
     display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: var(--easi-grid-gap);
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
 
 label {
@@ -16,7 +16,6 @@ label {
     padding: calc(.5 * var(--easi-unit)) calc(.25 * var(--easi-unit));
     background-color: var(--easi-lowlight);
     border: var(--easi-border);
-    background-clip: padding-box;
 }
 
 :host([disabled]) label {

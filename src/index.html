@@ -199,6 +199,31 @@
   <article>
     <header>
       <code>
+          &lt;a-easi-select
+          /&gt;
+          </code>
+    </header>
+
+    <a-easi-select bind
+                   [show-text]="show-text"
+                   [options]="selectOptions"
+                   [options-text]="selectOptionsText"
+                   [value]="selectValue"
+                   {change}="onChange"></a-easi-select>
+
+    <footer class="row">
+      <div>
+        <p>Value</p>
+        <pre bind
+             [inner-html]="selectValueJSON"></pre>
+      </div>
+    </footer>
+
+  </article>
+
+  <article>
+    <header>
+      <code>
       &lt;a-easi-ernie
       /&gt;
       </code>
@@ -266,6 +291,9 @@
         context[contextProperty] = e.detail === undefined ? e.target.checked : e.detail;
         context[`${contextProperty}JSON`] = JSON.stringify(e.detail, null, 2);
       },
+
+      selectOptions: [true, false],
+      selectOptionsText: { 'true': 'True', 'false': 'False' },
 
       'show-text': true,
       'unit': .5,
