@@ -159,6 +159,17 @@
           <span bind
                 [inner-text]="border-width"></span>px
         </div>
+        <div><label>--easi-ernie-border-width</label>
+          <input type="range"
+                 min="0"
+                 max="10"
+                 bind
+                 units="px"
+                 [value]="ernie-border-width"
+                 {input}="onChangeStyle" />
+          <span bind
+                [inner-text]="ernie-border-width"></span>px
+        </div>
         <div><label>--easi-panel-border-width</label>
           <input type="range"
                  min="0"
@@ -302,6 +313,7 @@
       'grid-gap': 1,
       'border-radius': 5,
       'border-width': 0,
+      'ernie-border-width': 1,
       'panel-border-width': 0,
       'panel-shadow-dist': 0,
       onChangeStyle: function () {

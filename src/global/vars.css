@@ -18,7 +18,7 @@
     --easi-lowlight: rgba(0, 0, 0, .1);
     --easi-lowlight-more: rgba(0, 0, 0, .2);
     --easi-border-width: 0px;
-    --easi-border-color: hsla(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2.1 * var(--easi-primary-lightness)), .5);
+    --easi-border-color: hsla(var(--easi-primary-hue), var(--easi-primary-saturation), calc(2.1 * var(--easi-primary-lightness)), .75);
     --easi-border: solid var(--easi-border-width) var(--easi-border-color);
     --easi-outline-width: var(--easi-border-width);
     --easi-outline-color: var(--easi-primary);
@@ -49,8 +49,8 @@
     --easi-ernie-background: #eee;
     --easi-ernie-hue: var(--easi-primary-hue);
     --easi-ernie-saturation: 90%;
-    --easi-ernie-border-width: var(--easi-border-width);
+    --easi-ernie-border-width: 1px;
     --easi-ernie-border-color: var(--easi-border-color);
-    --easi-ernie-outline-width: var(--easi-outline-width);
+    --easi-ernie-outline-width: var(--easi-ernie-border-width);
     --easi-ernie-outline-color: var(--easi-outline-color);
 }

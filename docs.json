@@ -1,0 +1,211 @@
+{
+  "timestamp": "2019-06-01T17:35:40",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.0.0",
+    "typescriptVersion": "3.5.1"
+  },
+  "components": [
+    {
+      "tag": "a-easi",
+      "encapsulation": "shadow",
+      "readme": "# a-easi\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "score",
+          "type": "IEasiScore",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showText",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-text",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "IEasi",
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "change",
+          "detail": "IEasi",
+          "bubbles": false,
+          "cancelable": false,
+          "composed": false,
+          "docs": "",
+          "docsTags": []
+        },
+        {
+          "event": "scoreChange",
+          "detail": "IEasiScore",
+          "bubbles": false,
+          "cancelable": false,
+          "composed": false,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": []
+    },
+    {
+      "tag": "a-easi-ernie",
+      "encapsulation": "shadow",
+      "readme": "# a-easi-ernie\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "selectedRegion",
+          "type": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper",
+          "mutable": false,
+          "attr": "selected-region",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "IEasi",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "EasiDefault",
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "selectRegion",
+          "detail": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper",
+          "bubbles": false,
+          "cancelable": false,
+          "composed": false,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": []
+    },
+    {
+      "tag": "a-easi-select",
+      "encapsulation": "shadow",
+      "readme": "# a-easi-select\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "nullValue",
+          "type": "any",
+          "mutable": false,
+          "attr": "null-value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "null",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "any[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "[]",
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "optionsText",
+          "type": "{ [key: string]: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showText",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "show-text",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "change",
+          "detail": "any",
+          "bubbles": false,
+          "cancelable": false,
+          "composed": false,
+          "docs": "",
+          "docsTags": []
+        }
+      ],
+      "styles": [],
+      "slots": []
+    }
+  ]
+}
