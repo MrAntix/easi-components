@@ -49,7 +49,7 @@
     --easi-ernie-background: #eee;
     --easi-ernie-hue: var(--easi-primary-hue);
     --easi-ernie-saturation: 90%;
-    --easi-ernie-border-width: 1px;
+    --easi-ernie-border-width: 3px;
     --easi-ernie-border-color: var(--easi-border-color);
     --easi-ernie-outline-width: var(--easi-ernie-border-width);
     --easi-ernie-outline-color: var(--easi-outline-color);

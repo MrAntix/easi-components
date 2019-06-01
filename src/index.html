@@ -126,6 +126,17 @@
           <span bind
                 [inner-text]="primary-saturation"></span>%
         </div>
+        <div><label>--easi-primary-lightness</label>
+          <input type="range"
+                 min="0"
+                 max="100"
+                 bind
+                 units="%"
+                 [value]="primary-lightness"
+                 {input}="onChangeStyle" />
+          <span bind
+                [inner-text]="primary-lightness"></span>%
+        </div>
         <div><label>--easi-grid-gap</label>
           <input type="range"
                  min="0"
@@ -159,6 +170,17 @@
           <span bind
                 [inner-text]="border-width"></span>px
         </div>
+        <hr />
+        <div><label>--easi-ernie-hue</label>
+          <input type="range"
+                 min="0"
+                 max="360"
+                 bind
+                 [value]="ernie-hue"
+                 {input}="onChangeStyle" />
+          <span bind
+                [inner-text]="ernie-hue"></span>
+        </div>
         <div><label>--easi-ernie-border-width</label>
           <input type="range"
                  min="0"
@@ -170,6 +192,7 @@
           <span bind
                 [inner-text]="ernie-border-width"></span>px
         </div>
+        <hr />
         <div><label>--easi-panel-border-width</label>
           <input type="range"
                  min="0"
@@ -244,43 +267,6 @@
 
   </article>
 
-  <div>
-    <code>
-    &lt;a-easi-severity
-    <label>show-text
-      <input type="checkbox"
-            bind
-            [checked]="severity-show-text"
-            {change}="onChange" change="severity-show-text" />
-    </label>
-    /&gt;
-    </code>
-  </div>
-  <a-easi-severity bind
-                   [show-text]="severity-show-text"
-                   [value]="severity"
-                   {change}="onChange"></a-easi-severity>
-  <div>Value: <span bind
-          [inner-text]="severity"></span></div>
-
-  <div>
-    <code>
-    &lt;a-easi-extent
-    <label>show-text
-      <input type="checkbox"
-            bind
-            [checked]="extent-show-text"
-            {change}="onChange" change="extent-show-text" />
-    </label>
-    /&gt;
-    </code>
-  </div>
-  <a-easi-extent bind
-                 [show-text]="extent-show-text"
-                 [value]="extent"
-                 {change}="onChange"></a-easi-extent>
-  <div>Value: <span bind
-          [inner-text]="extent"></span></div>
 
   <div>A very useful
     <a href="http://www.homeforeczema.org/documents/easi-user-guide-jan-2017-v3.pdf">Guide on EASI</a>
@@ -292,8 +278,6 @@
     const context = {
       easi: null,
       score: null,
-      extent: 0,
-      severity: 2,
 
       onChange: function (e) {
         let contextProperty = this.getAttribute(e.type)
@@ -310,10 +294,12 @@
       'unit': .5,
       'primary-hue': 210,
       'primary-saturation': 0,
+      'primary-lightness': 40,
       'grid-gap': 1,
       'border-radius': 5,
       'border-width': 0,
-      'ernie-border-width': 1,
+      'ernie-hue': null,
+      'ernie-border-width': 3,
       'panel-border-width': 0,
       'panel-shadow-dist': 0,
       onChangeStyle: function () {
