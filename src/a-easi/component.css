@@ -8,6 +8,21 @@
     margin: calc(-.5 * var(--easi-unit));
 }
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row label {
+    flex: 1 0 var(--easi-label-width);
+    align-self: center;
+    padding: calc(.5 * var(--easi-unit)) 0 calc(.25 * var(--easi-unit));
+}
+
+.row.disabled label {
+    opacity: .25;
+}
+
 header {
     flex: 1 0 auto;
     min-width: 10em;
@@ -60,48 +75,6 @@ main {
     box-shadow: var(--easi-panel-shadow);
 }
 
-main.head section {
-    border-top-left-radius: 0;
-}
-
-main.lower section {
-    border-top-right-radius: 0;
-}
-
-
-.child-adult {
-  margin-bottom: var(--easi-unit);
-  align-self: start;
-  width:10em;
-}
-
-.extent {
-  margin-bottom: var(--easi-unit);
-}
-
-.extent,
-.severites {
-  flex: 10 1 0;
-
-  --easi-checked-background: var(--easi-panel-checked-background);
-  --easi-checked-color: var(--easi-panel-checked-color);
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.row label {
-    flex: 1 0 var(--easi-label-width);
-    align-self: center;
-    padding: calc(.5 * var(--easi-unit)) 0 calc(.25 * var(--easi-unit));
-}
-
-.row.disabled label {
-    opacity: .25;
-}
-
 nav {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -151,4 +124,36 @@ nav label[aria-checked] a::after {
     right: 0;
     bottom: -1px;
     height: 2px;
+}
+
+main.head section {
+    border-top-left-radius: 0;
+}
+
+main.lower section {
+    border-top-right-radius: 0;
+}
+
+
+.child-adult {
+    margin-bottom: var(--easi-unit);
+    align-self: start;
+    width: 10em;
+}
+
+.extent {
+    margin-bottom: var(--easi-unit);
+}
+
+
+.extent label {
+    flex: 1 0 auto;
+}
+
+.extent,
+.severites {
+    flex: 10 1 0;
+
+    --easi-checked-background: var(--easi-panel-checked-background);
+    --easi-checked-color: var(--easi-panel-checked-color);
 }
