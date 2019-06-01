@@ -11,6 +11,8 @@ export class EasiSelectComponent {
   options: any[] = []
   @Prop()
   optionsText: { [key: string]: string };
+  @Prop()
+  nullValue: any = null;
 
   @Prop({ reflectToAttr: true })
   disabled: boolean;
@@ -40,7 +42,7 @@ export class EasiSelectComponent {
 
     if (this.disabled) return;
 
-    this.value = this.value === value ? null : value;
+    this.value = this.value === value ? this.nullValue : value;
     this.change.emit(this.value);
   }
 

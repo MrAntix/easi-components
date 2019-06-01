@@ -15,11 +15,7 @@ header {
     display: flex;
     position: relative;
     margin: calc(.5 * var(--easi-unit));
-    background: var(--easi-panel-background);
-    color: var(--easi-panel-color);
-    border-radius: var(--easi-border-radius);
-    border: var(--easi-panel-border);
-    box-shadow: var(--easi-panel-shadow);
+    padding: var(--easi-unit);
 }
 
 a-easi-ernie {
@@ -72,8 +68,23 @@ main.lower section {
     border-top-right-radius: 0;
 }
 
+
+.child-adult {
+  margin-bottom: var(--easi-unit);
+  align-self: start;
+  width:10em;
+}
+
 .extent {
-    margin-bottom: var(--easi-unit);
+  margin-bottom: var(--easi-unit);
+}
+
+.extent,
+.severites {
+  flex: 10 1 0;
+
+  --easi-checked-background: var(--easi-panel-checked-background);
+  --easi-checked-color: var(--easi-panel-checked-color);
 }
 
 .row {
@@ -140,18 +151,4 @@ nav label[aria-checked] a::after {
     right: 0;
     bottom: -1px;
     height: 2px;
-}
-
-a-easi-extent,
-a-easi-severity {
-    flex: 10 1 20em;
-}
-
-.extents {
-    flex: 10 1 20em;
-
-    --easi-checked-background: var(--easi-panel-checked-background);
-    --easi-checked-color: var(--easi-panel-checked-color);
-
-    -grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }

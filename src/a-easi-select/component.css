@@ -5,8 +5,8 @@
 :host {
     display: inline-grid;
     grid-gap: var(--easi-grid-gap);
-    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-}
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;}
 
 label {
     display: inline-flex;

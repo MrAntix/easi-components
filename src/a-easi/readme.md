@@ -27,15 +27,13 @@
 ### Depends on
 
 - [a-easi-ernie](..\a-easi-ernie)
-- [a-easi-extent](..\a-easi-extent)
-- [a-easi-severity](..\a-easi-severity)
+- [a-easi-select](..\a-easi-select)
 
 ### Graph
 ```mermaid
 graph TD;
   a-easi --> a-easi-ernie
-  a-easi --> a-easi-extent
-  a-easi --> a-easi-severity
+  a-easi --> a-easi-select
   style a-easi fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

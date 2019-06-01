@@ -65,7 +65,7 @@ export class EasiComponent {
         {this.selectedRegion != null && <section class="region">
           <div class="row extent">
             <label>Extent</label>
-            <a-easi-select class="extents"
+            <a-easi-select class="extent"
               showText={this.showText}
               options={enumValues(EasiExtents)}
               optionsText={EasiText.extent}
@@ -80,10 +80,11 @@ export class EasiComponent {
                 disabled: this.value[this.selectedRegion].extent === 0
               }}>
                 <label>{EasiText.sign[sign]}</label>
-                <a-easi-select class="extents"
+                <a-easi-select class="severites"
                   showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
-                  options={enumValues(EasiSeverities)}
+                  options={enumValues(EasiSeverities).slice(1)}
                   optionsText={EasiText.severity}
+                  nullValue={EasiSeverities.None}
                   value={this.value[this.selectedRegion][sign]}
                   onChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
                 </a-easi-select>

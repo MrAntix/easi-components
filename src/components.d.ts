@@ -25,6 +25,7 @@ export namespace Components {
   }
   interface AEasiSelect {
     'disabled': boolean;
+    'nullValue': any;
     'options': any[];
     'optionsText': { [key: string]: string };
     'showText': boolean;
@@ -74,6 +75,7 @@ declare namespace LocalJSX {
   }
   interface AEasiSelect extends JSXBase.HTMLAttributes<HTMLAEasiSelectElement> {
     'disabled'?: boolean;
+    'nullValue'?: any;
     'onChange'?: (event: CustomEvent<any>) => void;
     'options'?: any[];
     'optionsText'?: { [key: string]: string };
