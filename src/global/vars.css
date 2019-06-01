@@ -46,7 +46,7 @@
 
     --easi-border-radius: 5px;
 
-    --easi-ernie-background: #eee;
+    --easi-ernie-background: transparent;
     --easi-ernie-hue: var(--easi-primary-hue);
     --easi-ernie-saturation: 90%;
     --easi-ernie-border-width: 3px;
