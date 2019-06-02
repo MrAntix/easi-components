@@ -44,7 +44,7 @@
     "jest": "23.6.0",
     "jest-cli": "23.6.0",
     "puppeteer": "1.14.0",
-    "semantic-release": "^15.13.12"
+    "semantic-release": "^15.13.14"
   },
   "config": {
     "commitizen": {
