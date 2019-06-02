@@ -73,13 +73,13 @@ main {
 }
 
 .region {
+    position: relative;
     padding: var(--easi-unit);
     background: var(--easi-panel-background);
     color: var(--easi-panel-color);
     border-radius: var(--easi-border-radius);
     border: var(--easi-panel-border);
     box-shadow: var(--easi-panel-shadow);
-    z-index: 1;
 }
 
 nav {
@@ -100,6 +100,7 @@ nav label {
 nav label[aria-checked] {
     margin: 0 0 calc(0px - var(--easi-panel-border-width));
     color: var(--easi-primary);
+    z-index: 1;
 }
 
 nav a-easi-messages {
@@ -127,7 +128,6 @@ nav label[aria-checked] span {
     border: var(--easi-panel-border);
     border-bottom: none;
     padding-bottom: calc(var(--easi-unit) - var(--easi-panel-border-width));
-    z-index: 1;
 }
 
 nav label[aria-checked] a::after {

@@ -59,10 +59,10 @@ export class EasiComponent {
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
               {EasiText.region[region]}
-              <a-easi-messages
-                value={this.score[region] == null ? EasiRequiredMessage : EasiEmptyMessages}
-                type="warning" />
             </span>
+            <a-easi-messages
+              value={this.score[region] == null ? EasiRequiredMessage : EasiEmptyMessages}
+              type="warning" />
           </label>
           )}
         </nav>
