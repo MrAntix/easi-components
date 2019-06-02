@@ -150,6 +150,7 @@ export function calculateRegionScore(
   value: IEasi,
   region: EasiRegions
 ): number {
+  if (value[region].extent === EasiExtents.E0) return 0;
   if (Object.values(value[region]).some(v => v == null)) return null;
 
   return (
@@ -178,6 +179,7 @@ export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
 }
 
 export function calculateRegionLevel(value: IEasiRegion): number {
+  if (value.extent === EasiExtents.E0) return 0;
   if (Object.values(value).some(v => v == null)) return null;
 
   return Math.round(

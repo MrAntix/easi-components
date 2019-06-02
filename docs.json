@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-06-02T15:49:58",
+  "timestamp": "2019-06-02T22:37:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.0.0",
@@ -120,6 +120,7 @@
     {
       "tag": "a-easi-messages",
       "encapsulation": "shadow",
+      "readme": "# a-easi-messages\n\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
