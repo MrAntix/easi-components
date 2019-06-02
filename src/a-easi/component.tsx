@@ -45,8 +45,8 @@ export class EasiComponent {
         [this.selectedRegion]: true
       }}>
         <a-easi-select class="child-adult"
-          showText={this.showText}
-          options={[false, true]}
+          show-text
+          options={[true, false]}
           optionsText={{ 'true': 'Child', 'false': 'Adult' }}
           value={this.value.isChild}
           onChange={e => this.changeIsChildHandler(e, e.detail)}>
