@@ -82,9 +82,8 @@ export class EasiComponent {
                 <label>{EasiText.sign[sign]}</label>
                 <a-easi-select class="severites"
                   showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
-                  options={enumValues(EasiSeverities).slice(1)}
+                  options={enumValues(EasiSeverities)}
                   optionsText={EasiText.severity}
-                  nullValue={EasiSeverities.None}
                   value={this.value[this.selectedRegion][sign]}
                   onChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
                 </a-easi-select>

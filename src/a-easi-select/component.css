@@ -16,6 +16,7 @@ label {
     padding: calc(.5 * var(--easi-unit)) calc(.25 * var(--easi-unit));
     background-color: var(--easi-lowlight);
     border: var(--easi-border);
+    font-size: var(--easi-select-label-font-size);
 }
 
 :host([disabled]) label {

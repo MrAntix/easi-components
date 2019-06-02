@@ -1,6 +1,8 @@
 :root {
     --easi-unit: .5rem;
 
+    --easi-border-radius: 5px;
+
     --easi-primary-hue: 210;
     --easi-primary-saturation: 0%;
     --easi-primary-lightness: 40%;
@@ -44,7 +46,7 @@
     --easi-panel-shadow-color: var(--easi-lowlight-more);
     --easi-panel-shadow: 0 0 var(--easi-panel-shadow-dist) var(--easi-panel-shadow-color);
 
-    --easi-border-radius: 5px;
+    --easi-select-label-font-size: .9em;
 
     --easi-ernie-background: transparent;
     --easi-ernie-hue: var(--easi-primary-hue);
