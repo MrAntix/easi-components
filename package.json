@@ -1,6 +1,6 @@
 {
   "name": "@ntix/easi-components",
-  "version": "1.0.0-0",
+  "version": "0.0.0-development",
   "description": "EASI (Eczema Area and Severity Index) Components",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -16,19 +16,41 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "prebuild": "npm run test",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll --screenshot"
+    "test.watch": "stencil test --spec --e2e --watchAll --screenshot",
+    "commit": "npx git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "engines": {
+    "node": "^10.15"
+  },
+  "keywords": [
+    "easi",
+    "webcomponents"
+  ],
+  "author": "Anthony Johnston <npm@antix.co.uk> (http://antix.co.uk)",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "@ntix/bind": "^1.1.3",
     "@stencil/core": "1.0.0",
     "@types/jest": "23.3.14",
-    "@types/puppeteer": "1.12.2",
+    "@types/puppeteer": "1.12.4",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
     "jest": "23.6.0",
     "jest-cli": "23.6.0",
-    "puppeteer": "1.14.0"
+    "puppeteer": "1.14.0",
+    "semantic-release": "^15.13.12"
   },
-  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {}
 }
