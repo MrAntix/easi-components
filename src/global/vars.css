@@ -27,6 +27,8 @@
     --easi-outline: solid var(--easi-outline-width) var(--easi-outline);
     --easi-checked-background: var(--easi-primary);
     --easi-checked-color: var(--easi-primary-alt);
+    --easi-danger-color: darkred;
+    --easi-warning-color: orange;
 
     --easi-panel-lightness: calc(var(--easi-primary-alt-lightness) + 5%);
     --easi-panel-lightness-alt: 40%;

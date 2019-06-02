@@ -1,4 +1,5 @@
-import { Component, Event, EventEmitter, Prop, Host, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, Host, h, Method } from '@stencil/core';
+import { IEasiMessages, EasiEmptyMessages, EasiRequiredMessage } from '../models';
 
 @Component({
   tag: 'a-easi-select',
@@ -15,18 +16,43 @@ export class EasiSelectComponent {
   nullValue: any = null;
 
   @Prop({ reflectToAttr: true })
+  required: boolean;
+  @Prop({ reflectToAttr: true })
   disabled: boolean;
   @Prop({ reflectToAttr: true })
   showText: boolean;
 
   @Prop()
   value: any;
+  @Prop()
+  errors: IEasiMessages;
+
+  @Method()
+  async validate(): Promise<IEasiMessages> {
+
+    if (this.disabled) return EasiEmptyMessages;
+    if (!this.required) return EasiEmptyMessages;
+
+    return this.value == null ? EasiRequiredMessage : EasiEmptyMessages;
+  }
+
+  async componentWillLoad() {
+
+    this.componentDidUpdate();
+  }
+
+  async componentDidUpdate() {
+    console.log('componentWillUpdate')
+
+    this.errors = await this.validate();
+  }
 
   render() {
     if (!this.options) return 'options not set';
     if (this.showText && !this.optionsText) return 'optionText not set';
 
-    return <Host aria-role="menu">
+
+    return <Host aria-role="menu" invalid={this.errors !== EasiEmptyMessages}>
       {this.options
         .map(option => <label
           aria-role="menuitemradio" aria-checked={this.value === option}
@@ -34,6 +60,7 @@ export class EasiSelectComponent {
           {this.showText ? this.optionsText[option] : option}
         </label>
         )}
+      <a-easi-messages value={this.errors} type="warning" />
     </Host>;
   }
 

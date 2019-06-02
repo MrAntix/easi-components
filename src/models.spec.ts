@@ -1,10 +1,26 @@
-import { EasiDefault, calculateScore } from './models';
+import {
+  EasiDefault,
+  calculateScore,
+  calculateRegionLevel,
+  EasiSigns
+} from './models';
 
 describe('models', () => {
   describe('calculateScore', () => {
-    it('default easi scores 0', () => {
+    it('default easi scores null', () => {
       const result = calculateScore(EasiDefault);
-      expect(result.total).toEqual(0);
+      expect(result.total).toEqual(null);
+    });
+
+    it('calc region when any null', () => {
+      const result = calculateRegionLevel({
+        extent: null,
+        [EasiSigns.Erythema]: null,
+        [EasiSigns.EdemaPapulation]: null,
+        [EasiSigns.Excoriation]: null,
+        [EasiSigns.Lichenification]: null
+      });
+      expect(result).toEqual(null);
     });
 
     it('child score is different to adult', () => {

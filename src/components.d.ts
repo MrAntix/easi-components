@@ -8,7 +8,9 @@
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   EasiRegions,
+  easyMessageTypes,
   IEasi,
+  IEasiMessages,
   IEasiScore,
 } from './models';
 
@@ -23,12 +25,19 @@ export namespace Components {
     'selectedRegion': EasiRegions;
     'value': IEasi;
   }
+  interface AEasiMessages {
+    'type': easyMessageTypes;
+    'value': IEasiMessages;
+  }
   interface AEasiSelect {
     'disabled': boolean;
+    'errors': IEasiMessages;
     'nullValue': any;
     'options': any[];
     'optionsText': { [key: string]: string };
+    'required': boolean;
     'showText': boolean;
+    'validate': () => Promise<IEasiMessages>;
     'value': any;
   }
 }
@@ -48,6 +57,12 @@ declare global {
     new (): HTMLAEasiErnieElement;
   };
 
+  interface HTMLAEasiMessagesElement extends Components.AEasiMessages, HTMLStencilElement {}
+  var HTMLAEasiMessagesElement: {
+    prototype: HTMLAEasiMessagesElement;
+    new (): HTMLAEasiMessagesElement;
+  };
+
   interface HTMLAEasiSelectElement extends Components.AEasiSelect, HTMLStencilElement {}
   var HTMLAEasiSelectElement: {
     prototype: HTMLAEasiSelectElement;
@@ -56,6 +71,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'a-easi': HTMLAEasiElement;
     'a-easi-ernie': HTMLAEasiErnieElement;
+    'a-easi-messages': HTMLAEasiMessagesElement;
     'a-easi-select': HTMLAEasiSelectElement;
   }
 }
@@ -73,12 +89,18 @@ declare namespace LocalJSX {
     'selectedRegion'?: EasiRegions;
     'value'?: IEasi;
   }
+  interface AEasiMessages extends JSXBase.HTMLAttributes<HTMLAEasiMessagesElement> {
+    'type'?: easyMessageTypes;
+    'value'?: IEasiMessages;
+  }
   interface AEasiSelect extends JSXBase.HTMLAttributes<HTMLAEasiSelectElement> {
     'disabled'?: boolean;
+    'errors'?: IEasiMessages;
     'nullValue'?: any;
     'onChange'?: (event: CustomEvent<any>) => void;
     'options'?: any[];
     'optionsText'?: { [key: string]: string };
+    'required'?: boolean;
     'showText'?: boolean;
     'value'?: any;
   }
@@ -86,6 +108,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'a-easi': AEasi;
     'a-easi-ernie': AEasiErnie;
+    'a-easi-messages': AEasiMessages;
     'a-easi-select': AEasiSelect;
   }
 }

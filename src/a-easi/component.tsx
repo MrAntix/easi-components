@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
-import { IEasi, EasiRegions, EasiSigns, EasiText, EasiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues } from '../models';
+import { IEasi, EasiRegions, EasiSigns, EasiText, EasiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues, EasiEmptyMessages, EasiRequiredMessage } from '../models';
 
 @Component({
   tag: 'a-easi',
@@ -35,16 +35,13 @@ export class EasiComponent {
   render() {
     if (!this.value) return;
 
-    return <Host>
+    return <Host class={{ invalid: this.score.total == null }}>
       <header>
         <a-easi-ernie value={this.value}
           selectedRegion={this.selectedRegion} onSelectRegion={e => this.changeRegionHandler(e, e.detail)} />
-        <span class="score">{Math.round(this.score.total)}</span>
-      </header>
-      <main class={{
-        [this.selectedRegion]: true
-      }}>
-        <a-easi-select class="child-adult"
+        <span class="score">{this.score.total != null && Math.round(this.score.total)}</span>
+
+        <a-easi-select class="child-adult" required
           show-text
           options={[true, false]}
           optionsText={{ 'true': 'Child', 'false': 'Adult' }}
@@ -52,12 +49,19 @@ export class EasiComponent {
           onChange={e => this.changeIsChildHandler(e, e.detail)}>
         </a-easi-select>
 
+      </header>
+      <main class={{
+        [this.selectedRegion]: true
+      }}>
         <nav aria-role="menu">
           {Object.values(EasiRegions).map(region => <label
             aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
               {EasiText.region[region]}
+              <a-easi-messages
+                value={this.score[region] == null ? EasiRequiredMessage : EasiEmptyMessages}
+                type="warning" />
             </span>
           </label>
           )}
@@ -65,7 +69,7 @@ export class EasiComponent {
         {this.selectedRegion != null && <section class="region">
           <div class="row extent">
             <label>Extent</label>
-            <a-easi-select class="extent"
+            <a-easi-select class="extent" required
               showText={this.showText}
               options={enumValues(EasiExtents)}
               optionsText={EasiText.extent}
@@ -77,11 +81,11 @@ export class EasiComponent {
             {Object.values(EasiSigns).map(sign =>
               <div class={{
                 row: true,
-                disabled: this.value[this.selectedRegion].extent === 0
+                disabled: !this.value[this.selectedRegion].extent
               }}>
                 <label>{EasiText.sign[sign]}</label>
-                <a-easi-select class="severites"
-                  showText={this.showText} disabled={this.value[this.selectedRegion].extent === 0}
+                <a-easi-select class="severites" required
+                  showText={this.showText} disabled={!this.value[this.selectedRegion].extent}
                   options={enumValues(EasiSeverities)}
                   optionsText={EasiText.severity}
                   value={this.value[this.selectedRegion][sign]}

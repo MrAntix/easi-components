@@ -1,0 +1,13 @@
+:host {
+    align-self: center;
+    position: absolute;
+    right: 0;
+    width: var(--easi-unit);
+    height: 100%;
+    border-radius: 0 var(--easi-border-radius) var(--easi-border-radius) 0;
+    background-color: var(--easi-warning-color);
+}
+
+:host([count="0"]) {
+    display: none;
+}

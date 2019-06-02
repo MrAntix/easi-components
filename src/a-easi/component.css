@@ -8,6 +8,10 @@
     margin: calc(-.5 * var(--easi-unit));
 }
 
+:host(.invalid) .score {
+    background-color: var(--easi-warning-color);
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -28,6 +32,7 @@ header {
     min-width: calc(15 * var(--easi-unit));
     min-height: 12.5em;
     display: flex;
+    flex-direction: column;
     position: relative;
     margin: calc(.5 * var(--easi-unit));
     padding: var(--easi-unit);
@@ -74,6 +79,7 @@ main {
     border-radius: var(--easi-border-radius);
     border: var(--easi-panel-border);
     box-shadow: var(--easi-panel-shadow);
+    z-index: 1;
 }
 
 nav {
@@ -83,6 +89,7 @@ nav {
 }
 
 nav label {
+    position: relative;
     display: inline-flex;
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
     margin: 0 0 calc(0px - var(--easi-border-radius) - var(--easi-panel-border-width));
@@ -93,6 +100,12 @@ nav label {
 nav label[aria-checked] {
     margin: 0 0 calc(0px - var(--easi-panel-border-width));
     color: var(--easi-primary);
+}
+
+nav a-easi-messages {
+    top: 0;
+    bottom: 0;
+    border-bottom-right-radius: 0;
 }
 
 nav span {
@@ -135,11 +148,10 @@ main.lower section {
     border-top-right-radius: 0;
 }
 
-
 .child-adult {
-    margin-bottom: var(--easi-unit);
-    align-self: start;
+    align-self: center;
     width: 10em;
+
 }
 
 .extent {
