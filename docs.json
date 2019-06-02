@@ -1,5 +1,5 @@
 {
-  "timestamp": "2019-06-02T09:01:01",
+  "timestamp": "2019-06-02T15:49:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "1.0.0",
@@ -118,6 +118,41 @@
       "slots": []
     },
     {
+      "tag": "a-easi-messages",
+      "encapsulation": "shadow",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "type",
+          "type": "\"error\" | \"info\" | \"warning\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "IEasiMessages",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "",
+          "docsTags": [],
+          "default": "EasiEmptyMessages",
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "styles": [],
+      "slots": []
+    },
+    {
       "tag": "a-easi-select",
       "encapsulation": "shadow",
       "readme": "# a-easi-select\n\n\n",
@@ -131,6 +166,16 @@
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "errors",
+          "type": "IEasiMessages",
+          "mutable": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "optional": false,
@@ -170,6 +215,17 @@
           "required": false
         },
         {
+          "name": "required",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": true,
+          "docs": "",
+          "docsTags": [],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "showText",
           "type": "boolean",
           "mutable": false,
@@ -192,7 +248,19 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "validate",
+          "returns": {
+            "type": "Promise<IEasiMessages>",
+            "docs": ""
+          },
+          "signature": "validate() => Promise<IEasiMessages>",
+          "parameters": [],
+          "docs": "",
+          "docsTags": []
+        }
+      ],
       "events": [
         {
           "event": "change",

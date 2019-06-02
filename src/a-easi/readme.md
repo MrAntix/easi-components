@@ -28,12 +28,15 @@
 
 - [a-easi-ernie](..\a-easi-ernie)
 - [a-easi-select](..\a-easi-select)
+- [a-easi-messages](..\a-messages)
 
 ### Graph
 ```mermaid
 graph TD;
   a-easi --> a-easi-ernie
   a-easi --> a-easi-select
+  a-easi --> a-easi-messages
+  a-easi-select --> a-easi-messages
   style a-easi fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -42,7 +42,6 @@ export class EasiSelectComponent {
   }
 
   async componentDidUpdate() {
-    console.log('componentWillUpdate')
 
     this.errors = await this.validate();
   }
