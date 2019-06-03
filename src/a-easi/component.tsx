@@ -58,11 +58,11 @@ export class EasiComponent {
             aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
-              {EasiText.region[region]}
-            </span>
             <a-easi-messages
               value={this.score[region] == null ? EasiRequiredMessage : EasiEmptyMessages}
               type="warning" />
+              {EasiText.region[region]}
+            </span>
           </label>
           )}
         </nav>

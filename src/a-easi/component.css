@@ -113,12 +113,12 @@ nav span {
     flex: 1;
     position: relative;
     display: inline-flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     text-align: center;
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
     border-bottom: none;
-    padding: var(--easi-unit) calc(.25 * var(--easi-unit)) calc(var(--easi-unit) + var(--easi-border-radius));
+    padding: var(--easi-unit) var(--easi-unit) calc(var(--easi-unit) + var(--easi-border-radius));
     touch-action: none;
 }
 

@@ -56,7 +56,7 @@ export class EasiSelectComponent {
         .map(option => <label
           aria-role="menuitemradio" aria-checked={this.value === option}
           onClick={e => this.changeHandler(e, option)}>
-          {this.showText ? this.optionsText[option] : option}
+          <span>{this.showText ? this.optionsText[option] : option}</span>
         </label>
         )}
       <a-easi-messages value={this.errors} type="warning" />
