@@ -3,7 +3,9 @@ import {
   calculateScore,
   calculateRegionLevel,
   EasiSigns,
-  EasiRegions
+  EasiRegions,
+  EasiExtents,
+  easiClone
 } from './models';
 
 describe('models', () => {
@@ -13,24 +15,32 @@ describe('models', () => {
       expect(result.total).toEqual(null);
     });
 
-    it('extents 0 and isChild null scores 0', () => {
-      const value = EasiDefault;
-      value[EasiRegions.Head].extent = 0;
-      value[EasiRegions.Trunk].extent = 0;
-      value[EasiRegions.Upper].extent = 0;
-      value[EasiRegions.Lower].extent = 0;
+    it('isChild set others null scores null', () => {
+      const value = { ...EasiDefault, isChild: false };
+
+      const result = calculateScore(value);
+      expect(result.total).toEqual(null);
+    });
+
+    it('isChild null and extents 0 scores null', () => {
+      const value = easiClone(EasiDefault);
+      value.isChild = null;
+      value[EasiRegions.Head].extent = EasiExtents.E0;
+      value[EasiRegions.Trunk].extent = EasiExtents.E0;
+      value[EasiRegions.Upper].extent = EasiExtents.E0;
+      value[EasiRegions.Lower].extent = EasiExtents.E0;
 
       const result = calculateScore(value);
       expect(result.total).toEqual(null);
     });
 
     it('extents 0 scores 0', () => {
-      const value = EasiDefault;
-      value.isChild = false
-      value[EasiRegions.Head].extent = 0;
-      value[EasiRegions.Trunk].extent = 0;
-      value[EasiRegions.Upper].extent = 0;
-      value[EasiRegions.Lower].extent = 0;
+      const value = easiClone(EasiDefault);
+      value.isChild = false;
+      value[EasiRegions.Head].extent = EasiExtents.E0;
+      value[EasiRegions.Trunk].extent = EasiExtents.E0;
+      value[EasiRegions.Upper].extent = EasiExtents.E0;
+      value[EasiRegions.Lower].extent = EasiExtents.E0;
 
       const result = calculateScore(value);
       expect(result.total).toEqual(0);

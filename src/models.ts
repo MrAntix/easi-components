@@ -96,37 +96,37 @@ export interface IEasiText {
 
 export const EasiText = EasiText_en;
 
-export const EasiDefault: IEasi = {
+export const EasiDefault: IEasi = Object.freeze({
   isChild: null,
-  [EasiRegions.Head]: {
+  [EasiRegions.Head]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Trunk]: {
+  }),
+  [EasiRegions.Trunk]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Upper]: {
+  }),
+  [EasiRegions.Upper]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Lower]: {
+  }),
+  [EasiRegions.Lower]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  }
-};
+  })
+});
 
 export function enumValues<T>(e: any): T[] {
   return Object.values(e).filter(v => typeof v !== 'string') as T[];
@@ -137,8 +137,7 @@ export function calculateScore(value: IEasi): IEasiScore {
     (score, region) => {
       score[region] = calculateRegionScore(value, region);
 
-      if (value.isChild == null || score.total == null || score[region] == null)
-        score.total = null;
+      if (score.total == null || score[region] == null) score.total = null;
       else score.total += score[region];
 
       return score;
@@ -151,12 +150,9 @@ export function calculateRegionScore(
   value: IEasi,
   region: EasiRegions
 ): number {
+  if (value.isChild == null) return null;
   if (value[region].extent === EasiExtents.E0) return 0;
-  if (
-    value.isChild == null &&
-    Object.values(value[region]).some(v => v == null)
-  )
-    return null;
+  if (Object.values(value[region]).some(v => v == null)) return null;
 
   return (
     (value[region][EasiSigns.Erythema] +
@@ -169,6 +165,8 @@ export function calculateRegionScore(
 }
 
 export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
+  if (isChild == null) return null;
+
   switch (region) {
     default:
       throw new Error(`unknown region: ${region}`);
@@ -205,3 +203,7 @@ export interface IEasiMessages {
 
 export const EasiEmptyMessages = {};
 export const EasiRequiredMessage = { required: true };
+
+export function easiClone<T>(o: T): T {
+  return JSON.parse(JSON.stringify(o));
+}
