@@ -137,7 +137,8 @@ export function calculateScore(value: IEasi): IEasiScore {
     (score, region) => {
       score[region] = calculateRegionScore(value, region);
 
-      if (score.total == null || score[region] == null) score.total = null;
+      if (value.isChild == null || score.total == null || score[region] == null)
+        score.total = null;
       else score.total += score[region];
 
       return score;
@@ -151,7 +152,11 @@ export function calculateRegionScore(
   region: EasiRegions
 ): number {
   if (value[region].extent === EasiExtents.E0) return 0;
-  if (Object.values(value[region]).some(v => v == null)) return null;
+  if (
+    value.isChild == null &&
+    Object.values(value[region]).some(v => v == null)
+  )
+    return null;
 
   return (
     (value[region][EasiSigns.Erythema] +

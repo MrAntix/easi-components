@@ -13,8 +13,20 @@ describe('models', () => {
       expect(result.total).toEqual(null);
     });
 
+    it('extents 0 and isChild null scores 0', () => {
+      const value = EasiDefault;
+      value[EasiRegions.Head].extent = 0;
+      value[EasiRegions.Trunk].extent = 0;
+      value[EasiRegions.Upper].extent = 0;
+      value[EasiRegions.Lower].extent = 0;
+
+      const result = calculateScore(value);
+      expect(result.total).toEqual(null);
+    });
+
     it('extents 0 scores 0', () => {
       const value = EasiDefault;
+      value.isChild = false
       value[EasiRegions.Head].extent = 0;
       value[EasiRegions.Trunk].extent = 0;
       value[EasiRegions.Upper].extent = 0;
