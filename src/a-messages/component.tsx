@@ -1,5 +1,5 @@
 import { Component, Prop, Host, h } from '@stencil/core';
-import { IEasiMessages, easyMessageTypes, EasiEmptyMessages } from '../models';
+import { IEasiMessages, easiMessageTypes, EasiEmptyMessages } from '../models';
 
 @Component({
   tag: 'a-easi-messages',
@@ -11,7 +11,7 @@ export class EasiMessagesComponent {
   @Prop()
   value: IEasiMessages = EasiEmptyMessages;
   @Prop()
-  type: easyMessageTypes;
+  type: easiMessageTypes;
 
   render() {
 

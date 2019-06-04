@@ -195,7 +195,7 @@ export function calculateRegionLevel(value: IEasiRegion): number {
   );
 }
 
-export type easyMessageTypes = 'info' | 'warning' | 'error';
+export type easiMessageTypes = 'info' | 'warning' | 'error';
 
 export interface IEasiMessages {
   [key: string]: any;
