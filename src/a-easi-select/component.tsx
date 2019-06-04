@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, Host, h, Method } from '@stencil/core';
-import { IEasiMessages, EasiEmptyMessages, EasiRequiredMessage } from '../models';
+import { IEasiMessages, easiEmptyMessages, easiRequiredMessage } from '../models';
 
 @Component({
   tag: 'a-easi-select',
@@ -30,10 +30,10 @@ export class EasiSelectComponent {
   @Method()
   async validate(): Promise<IEasiMessages> {
 
-    if (this.disabled) return EasiEmptyMessages;
-    if (!this.required) return EasiEmptyMessages;
+    if (this.disabled) return easiEmptyMessages;
+    if (!this.required) return easiEmptyMessages;
 
-    return this.value == null ? EasiRequiredMessage : EasiEmptyMessages;
+    return this.value == null ? easiRequiredMessage : easiEmptyMessages;
   }
 
   async componentWillLoad() {
@@ -51,7 +51,7 @@ export class EasiSelectComponent {
     if (this.showText && !this.optionsText) return 'optionText not set';
 
 
-    return <Host aria-role="menu" invalid={this.errors !== EasiEmptyMessages}>
+    return <Host aria-role="menu" invalid={this.errors !== easiEmptyMessages}>
       <div class="options">
         {this.options
           .map(option => <label

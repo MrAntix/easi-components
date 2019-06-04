@@ -7,8 +7,8 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
-  EasiRegions,
   easiMessageTypes,
+  EasiRegions,
   IEasi,
   IEasiMessages,
   IEasiScore,

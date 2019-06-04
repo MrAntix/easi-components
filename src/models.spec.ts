@@ -1,5 +1,5 @@
 import {
-  EasiDefault,
+  easiDefault,
   calculateScore,
   calculateRegionLevel,
   EasiSigns,
@@ -11,19 +11,19 @@ import {
 describe('models', () => {
   describe('calculateScore', () => {
     it('default easi scores null', () => {
-      const result = calculateScore(EasiDefault);
+      const result = calculateScore(easiDefault);
       expect(result.total).toEqual(null);
     });
 
     it('isChild set others null scores null', () => {
-      const value = { ...EasiDefault, isChild: false };
+      const value = { ...easiDefault, isChild: false };
 
       const result = calculateScore(value);
       expect(result.total).toEqual(null);
     });
 
     it('isChild null and extents 0 scores null', () => {
-      const value = easiClone(EasiDefault);
+      const value = easiClone(easiDefault);
       value.isChild = null;
       value[EasiRegions.Head].extent = EasiExtents.E0;
       value[EasiRegions.Trunk].extent = EasiExtents.E0;
@@ -35,7 +35,7 @@ describe('models', () => {
     });
 
     it('extents 0 scores 0', () => {
-      const value = easiClone(EasiDefault);
+      const value = easiClone(easiDefault);
       value.isChild = false;
       value[EasiRegions.Head].extent = EasiExtents.E0;
       value[EasiRegions.Trunk].extent = EasiExtents.E0;

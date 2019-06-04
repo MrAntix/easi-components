@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
-import { IEasi, EasiRegions, EasiSigns, EasiText, EasiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues, EasiEmptyMessages, EasiRequiredMessage } from '../models';
+import { IEasi, EasiRegions, EasiSigns, easiText, easiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues, easiEmptyMessages, easiRequiredMessage } from '../models';
 
 @Component({
   tag: 'a-easi',
@@ -16,7 +16,7 @@ export class EasiComponent {
   @Watch('value')
   setValue() {
     if (!this.value)
-      this.value = EasiDefault;
+      this.value = easiDefault;
 
     this.score = calculateScore(this.value);
     this.scoreChange.emit(this.score);
@@ -59,9 +59,9 @@ export class EasiComponent {
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
             <a-easi-messages
-              value={this.score[region] == null ? EasiRequiredMessage : EasiEmptyMessages}
+              value={this.score[region] == null ? easiRequiredMessage : easiEmptyMessages}
               type="warning" />
-              {EasiText.region[region]}
+              {easiText.region[region]}
             </span>
           </label>
           )}
@@ -72,7 +72,7 @@ export class EasiComponent {
             <a-easi-select class="extent" required
               showText={this.showText}
               options={enumValues(EasiExtents)}
-              optionsText={EasiText.extent}
+              optionsText={easiText.extent}
               value={this.value[this.selectedRegion].extent}
               onChange={e => this.changeExtentHandler(e, e.detail)}>
             </a-easi-select>
@@ -83,11 +83,11 @@ export class EasiComponent {
                 row: true,
                 disabled: !this.value[this.selectedRegion].extent
               }}>
-                <label>{EasiText.sign[sign]}</label>
+                <label>{easiText.sign[sign]}</label>
                 <a-easi-select class="severites" required
                   showText={this.showText} disabled={!this.value[this.selectedRegion].extent}
                   options={enumValues(EasiSeverities)}
-                  optionsText={EasiText.severity}
+                  optionsText={easiText.severity}
                   value={this.value[this.selectedRegion][sign]}
                   onChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
                 </a-easi-select>

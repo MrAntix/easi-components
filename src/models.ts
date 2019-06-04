@@ -55,7 +55,7 @@ export interface IEasiScore {
   [EasiRegions.Lower]: number;
 }
 
-export const EasiText_en: IEasiText = {
+export const easiText_en: IEasiText = {
   sign: {
     [EasiSigns.Erythema]: 'Erythema',
     [EasiSigns.EdemaPapulation]: 'Edema / Papulation',
@@ -94,9 +94,9 @@ export interface IEasiText {
   extent: { [key: number]: string };
 }
 
-export const EasiText = EasiText_en;
+export const easiText = easiText_en;
 
-export const EasiDefault: IEasi = Object.freeze({
+export const easiDefault: IEasi = Object.freeze({
   isChild: null,
   [EasiRegions.Head]: Object.freeze({
     extent: null,
@@ -201,8 +201,8 @@ export interface IEasiMessages {
   [key: string]: any;
 }
 
-export const EasiEmptyMessages = {};
-export const EasiRequiredMessage = { required: true };
+export const easiEmptyMessages = {};
+export const easiRequiredMessage = { required: true };
 
 export function easiClone<T>(o: T): T {
   return JSON.parse(JSON.stringify(o));
