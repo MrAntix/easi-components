@@ -52,13 +52,15 @@ export class EasiSelectComponent {
 
 
     return <Host aria-role="menu" invalid={this.errors !== EasiEmptyMessages}>
-      {this.options
-        .map(option => <label
-          aria-role="menuitemradio" aria-checked={this.value === option}
-          onClick={e => this.changeHandler(e, option)}>
-          <span>{this.showText ? this.optionsText[option] : option}</span>
-        </label>
-        )}
+      <div class="options">
+        {this.options
+          .map(option => <label
+            aria-role="menuitemradio" aria-checked={this.value === option}
+            onClick={e => this.changeHandler(e, option)}>
+            <span>{this.showText ? this.optionsText[option] : option}</span>
+          </label>
+          )}
+      </div>
       <a-easi-messages value={this.errors} type="warning" />
     </Host>;
   }
