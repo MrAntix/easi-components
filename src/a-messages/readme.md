@@ -10,7 +10,7 @@
 | Property | Attribute | Description | Type                             | Default             |
 | -------- | --------- | ----------- | -------------------------------- | ------------------- |
 | `type`   | `type`    |             | `"error" \| "info" \| "warning"` | `undefined`         |
-| `value`  | --        |             | `IEasiMessages`                  | `EasiEmptyMessages` |
+| `value`  | --        |             | `IEasiMessages`                  | `easiEmptyMessages` |
 
 
 ## Dependencies

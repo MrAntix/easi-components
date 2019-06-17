@@ -10,7 +10,7 @@
 | Property         | Attribute         | Description | Type                                                                              | Default       |
 | ---------------- | ----------------- | ----------- | --------------------------------------------------------------------------------- | ------------- |
 | `selectedRegion` | `selected-region` |             | `EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper` | `null`        |
-| `value`          | --                |             | `IEasi`                                                                           | `EasiDefault` |
+| `value`          | --                |             | `IEasi`                                                                           | `easiDefault` |
 
 
 ## Events
