@@ -7,8 +7,8 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  easiMessageTypes,
   EasiRegions,
-  easyMessageTypes,
   IEasi,
   IEasiMessages,
   IEasiScore,
@@ -26,7 +26,7 @@ export namespace Components {
     'value': IEasi;
   }
   interface AEasiMessages {
-    'type': easyMessageTypes;
+    'type': easiMessageTypes;
     'value': IEasiMessages;
   }
   interface AEasiSelect {
@@ -90,7 +90,7 @@ declare namespace LocalJSX {
     'value'?: IEasi;
   }
   interface AEasiMessages extends JSXBase.HTMLAttributes<HTMLAEasiMessagesElement> {
-    'type'?: easyMessageTypes;
+    'type'?: easiMessageTypes;
     'value'?: IEasiMessages;
   }
   interface AEasiSelect extends JSXBase.HTMLAttributes<HTMLAEasiSelectElement> {

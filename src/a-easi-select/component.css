@@ -4,13 +4,21 @@
 
 :host {
     position: relative;
-    display: inline-grid;
+    display:inline-flex;
+    -overflow: hidden;
+}
+
+.options {
+    flex: 1;
+    display: grid;
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
+    -overflow-x: auto;
 }
 
 label {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +27,10 @@ label {
     background-color: var(--easi-lowlight);
     border: var(--easi-border);
     font-size: var(--easi-select-label-font-size);
+}
+
+label span {
+    z-index: 1;
 }
 
 :host([disabled]) label {

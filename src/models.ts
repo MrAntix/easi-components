@@ -55,7 +55,7 @@ export interface IEasiScore {
   [EasiRegions.Lower]: number;
 }
 
-export const EasiText_en: IEasiText = {
+export const easiText_en: IEasiText = {
   sign: {
     [EasiSigns.Erythema]: 'Erythema',
     [EasiSigns.EdemaPapulation]: 'Edema / Papulation',
@@ -94,39 +94,39 @@ export interface IEasiText {
   extent: { [key: number]: string };
 }
 
-export const EasiText = EasiText_en;
+export const easiText = easiText_en;
 
-export const EasiDefault: IEasi = {
+export const easiDefault: IEasi = Object.freeze({
   isChild: null,
-  [EasiRegions.Head]: {
+  [EasiRegions.Head]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Trunk]: {
+  }),
+  [EasiRegions.Trunk]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Upper]: {
+  }),
+  [EasiRegions.Upper]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  },
-  [EasiRegions.Lower]: {
+  }),
+  [EasiRegions.Lower]: Object.freeze({
     extent: null,
     [EasiSigns.Erythema]: null,
     [EasiSigns.EdemaPapulation]: null,
     [EasiSigns.Excoriation]: null,
     [EasiSigns.Lichenification]: null
-  }
-};
+  })
+});
 
 export function enumValues<T>(e: any): T[] {
   return Object.values(e).filter(v => typeof v !== 'string') as T[];
@@ -150,6 +150,7 @@ export function calculateRegionScore(
   value: IEasi,
   region: EasiRegions
 ): number {
+  if (value.isChild == null) return null;
   if (value[region].extent === EasiExtents.E0) return 0;
   if (Object.values(value[region]).some(v => v == null)) return null;
 
@@ -164,6 +165,8 @@ export function calculateRegionScore(
 }
 
 export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
+  if (isChild == null) return null;
+
   switch (region) {
     default:
       throw new Error(`unknown region: ${region}`);
@@ -192,11 +195,15 @@ export function calculateRegionLevel(value: IEasiRegion): number {
   );
 }
 
-export type easyMessageTypes = 'info' | 'warning' | 'error';
+export type easiMessageTypes = 'info' | 'warning' | 'error';
 
 export interface IEasiMessages {
   [key: string]: any;
 }
 
-export const EasiEmptyMessages = {};
-export const EasiRequiredMessage = { required: true };
+export const easiEmptyMessages = {};
+export const easiRequiredMessage = { required: true };
+
+export function easiClone<T>(o: T): T {
+  return JSON.parse(JSON.stringify(o));
+}

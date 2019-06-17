@@ -1,5 +1,5 @@
 import { newE2EPage, E2EPage, E2EElement } from '@stencil/core/testing';
-import { EasiDefault } from '../models';
+import { easiDefault } from '../models';
 
 describe('a-easi', () => {
   let page: E2EPage;
@@ -10,7 +10,7 @@ describe('a-easi', () => {
 
     await page.setContent('<a-easi></a-easi>');
     element = await page.find('a-easi');
-    element.setProperty('value', EasiDefault);
+    element.setProperty('value', easiDefault);
     await page.waitForChanges();
   });
 

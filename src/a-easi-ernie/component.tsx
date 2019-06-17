@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
-import { IEasi, EasiRegions, calculateRegionLevel, EasiDefault } from '../models';
+import { IEasi, EasiRegions, calculateRegionLevel, easiDefault } from '../models';
 
 @Component({
   tag: 'a-easi-ernie',
@@ -9,13 +9,13 @@ import { IEasi, EasiRegions, calculateRegionLevel, EasiDefault } from '../models
 export class EasiErnieComponent {
 
   @Prop()
-  value: IEasi = EasiDefault;
+  value: IEasi = easiDefault;
 
   @Prop({ reflectToAttr: true })
   selectedRegion: EasiRegions = null;
 
   render() {
-    const value = this.value ||EasiDefault;
+    const value = this.value ||easiDefault;
 
     return <Host>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240"
