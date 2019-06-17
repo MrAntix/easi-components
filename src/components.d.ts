@@ -14,7 +14,6 @@ import {
   IEasiScore,
 } from './models';
 
-
 export namespace Components {
   interface AEasi {
     'score': IEasiScore;
