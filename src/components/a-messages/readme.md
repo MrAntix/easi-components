@@ -17,8 +17,8 @@
 
 ### Used by
 
- - [a-easi](..\a-easi)
- - [a-easi-select](..\a-easi-select)
+ - [a-easi](../a-easi)
+ - [a-easi-select](../a-easi-select)
 
 ### Graph
 ```mermaid

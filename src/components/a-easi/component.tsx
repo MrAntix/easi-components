@@ -1,5 +1,9 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
-import { IEasi, EasiRegions, EasiSigns, easiText, easiDefault, EasiSeverities, EasiExtents, calculateScore, IEasiScore, enumValues, easiEmptyMessages, easiRequiredMessage } from '../models';
+import {
+  IEasi, EasiRegions, EasiSigns, easiText, easiDefault, EasiSeverities, EasiExtents,
+  calculateScore, IEasiScore, enumValues,
+  easiEmptyMessages, easiRequiredMessage
+} from '../../models';
 
 @Component({
   tag: 'a-easi',
@@ -46,7 +50,7 @@ export class EasiComponent {
           options={[true, false]}
           optionsText={{ 'true': 'Child', 'false': 'Adult' }}
           value={this.value.isChild}
-          onChange={e => this.changeIsChildHandler(e, e.detail)}>
+          onValueChange={e => this.changeIsChildHandler(e, e.detail)}>
         </a-easi-select>
 
       </header>
@@ -58,9 +62,9 @@ export class EasiComponent {
             aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
-            <a-easi-messages
-              value={this.score[region] == null ? easiRequiredMessage : easiEmptyMessages}
-              type="warning" />
+              <a-easi-messages
+                value={this.score[region] == null ? easiRequiredMessage : easiEmptyMessages}
+                type="warning" />
               {easiText.region[region]}
             </span>
           </label>
@@ -74,7 +78,7 @@ export class EasiComponent {
               options={enumValues(EasiExtents)}
               optionsText={easiText.extent}
               value={this.value[this.selectedRegion].extent}
-              onChange={e => this.changeExtentHandler(e, e.detail)}>
+              onValueChange={e => this.changeExtentHandler(e, e.detail)}>
             </a-easi-select>
           </div>
           <section class="signs">
@@ -89,7 +93,7 @@ export class EasiComponent {
                   options={enumValues(EasiSeverities)}
                   optionsText={easiText.severity}
                   value={this.value[this.selectedRegion][sign]}
-                  onChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
+                  onValueChange={e => this.changeSeverityHandler(e, sign, e.detail)}>
                 </a-easi-select>
               </div>
             )}
@@ -115,7 +119,7 @@ export class EasiComponent {
     }
 
     this.value = value;
-    this.change.emit(value);
+    this.valueChange.emit(value);
   }
 
   changeExtentHandler(e: Event, extent: EasiExtents): void {
@@ -130,7 +134,7 @@ export class EasiComponent {
     }
 
     this.value = value;
-    this.change.emit(value);
+    this.valueChange.emit(value);
   }
 
   changeSeverityHandler(e: Event, sign: EasiSigns, severity: EasiSeverities): void {
@@ -145,11 +149,11 @@ export class EasiComponent {
     }
 
     this.value = value;
-    this.change.emit(value);
+    this.valueChange.emit(value);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  change: EventEmitter<IEasi>
+  valueChange: EventEmitter<IEasi>
 
   @Event({ bubbles: false, cancelable: false, composed: false })
   scoreChange: EventEmitter<IEasiScore>

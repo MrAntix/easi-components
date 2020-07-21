@@ -142,7 +142,7 @@ export function calculateScore(value: IEasi): IEasiScore {
 
       return score;
     },
-    { total: 0 }
+    { total: 0 } as any
   );
 }
 

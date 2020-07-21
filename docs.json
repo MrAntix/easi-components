@@ -1,14 +1,15 @@
 {
-  "timestamp": "2019-06-17T21:23:14",
+  "timestamp": "2020-07-21T21:44:30",
   "compiler": {
     "name": "@stencil/core",
-    "version": "1.0.0",
-    "typescriptVersion": "3.5.1"
+    "version": "1.16.4",
+    "typescriptVersion": "3.9.7"
   },
   "components": [
     {
-      "tag": "a-easi",
+      "filePath": "./src/components/a-easi/component.tsx",
       "encapsulation": "shadow",
+      "tag": "a-easi",
       "readme": "# a-easi\n\n\n",
       "docs": "",
       "docsTags": [],
@@ -21,6 +22,11 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "IEasiScore"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -32,6 +38,11 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -42,21 +53,17 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "IEasi"
+            }
+          ],
           "optional": false,
           "required": false
         }
       ],
       "methods": [],
       "events": [
-        {
-          "event": "change",
-          "detail": "IEasi",
-          "bubbles": false,
-          "cancelable": false,
-          "composed": false,
-          "docs": "",
-          "docsTags": []
-        },
         {
           "event": "scoreChange",
           "detail": "IEasiScore",
@@ -65,14 +72,42 @@
           "composed": false,
           "docs": "",
           "docsTags": []
+        },
+        {
+          "event": "valueChange",
+          "detail": "IEasi",
+          "bubbles": false,
+          "cancelable": false,
+          "composed": false,
+          "docs": "",
+          "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
-      "slots": []
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "a-easi-ernie",
+        "a-easi-select",
+        "a-easi-messages"
+      ],
+      "dependencyGraph": {
+        "a-easi": [
+          "a-easi-ernie",
+          "a-easi-select",
+          "a-easi-messages"
+        ],
+        "a-easi-select": [
+          "a-easi-messages"
+        ]
+      }
     },
     {
-      "tag": "a-easi-ernie",
+      "filePath": "./src/components/a-easi-ernie/component.tsx",
       "encapsulation": "shadow",
+      "tag": "a-easi-ernie",
       "readme": "# a-easi-ernie\n\n\n",
       "docs": "",
       "docsTags": [],
@@ -87,6 +122,20 @@
           "docs": "",
           "docsTags": [],
           "default": "null",
+          "values": [
+            {
+              "type": "EasiRegions.Head"
+            },
+            {
+              "type": "EasiRegions.Lower"
+            },
+            {
+              "type": "EasiRegions.Trunk"
+            },
+            {
+              "type": "EasiRegions.Upper"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -98,6 +147,11 @@
           "docs": "",
           "docsTags": [],
           "default": "easiDefault",
+          "values": [
+            {
+              "type": "IEasi"
+            }
+          ],
           "optional": false,
           "required": false
         }
@@ -114,12 +168,24 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
-      "slots": []
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "a-easi"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "a-easi": [
+          "a-easi-ernie"
+        ]
+      }
     },
     {
-      "tag": "a-easi-messages",
+      "filePath": "./src/components/a-messages/component.tsx",
       "encapsulation": "shadow",
+      "tag": "a-easi-messages",
       "readme": "# a-easi-messages\n\n\n",
       "docs": "",
       "docsTags": [],
@@ -133,6 +199,20 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "value": "error",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -144,18 +224,39 @@
           "docs": "",
           "docsTags": [],
           "default": "easiEmptyMessages",
+          "values": [
+            {
+              "type": "IEasiMessages"
+            }
+          ],
           "optional": false,
           "required": false
         }
       ],
       "methods": [],
       "events": [],
+      "listeners": [],
       "styles": [],
-      "slots": []
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "a-easi",
+        "a-easi-select"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "a-easi": [
+          "a-easi-messages"
+        ],
+        "a-easi-select": [
+          "a-easi-messages"
+        ]
+      }
     },
     {
-      "tag": "a-easi-select",
+      "filePath": "./src/components/a-easi-select/component.tsx",
       "encapsulation": "shadow",
+      "tag": "a-easi-select",
       "readme": "# a-easi-select\n\n\n",
       "docs": "",
       "docsTags": [],
@@ -169,6 +270,11 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -179,6 +285,11 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "IEasiMessages"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -191,6 +302,11 @@
           "docs": "",
           "docsTags": [],
           "default": "null",
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -202,6 +318,11 @@
           "docs": "",
           "docsTags": [],
           "default": "[]",
+          "values": [
+            {
+              "type": "any[]"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -212,6 +333,11 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "{ [key: string]: string; }"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -223,6 +349,11 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -234,6 +365,11 @@
           "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
           "optional": false,
           "required": false
         },
@@ -245,6 +381,11 @@
           "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
           "optional": false,
           "required": false
         }
@@ -264,7 +405,7 @@
       ],
       "events": [
         {
-          "event": "change",
+          "event": "valueChange",
           "detail": "any",
           "bubbles": false,
           "cancelable": false,
@@ -273,8 +414,24 @@
           "docsTags": []
         }
       ],
+      "listeners": [],
       "styles": [],
-      "slots": []
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "a-easi"
+      ],
+      "dependencies": [
+        "a-easi-messages"
+      ],
+      "dependencyGraph": {
+        "a-easi-select": [
+          "a-easi-messages"
+        ],
+        "a-easi": [
+          "a-easi-select"
+        ]
+      }
     }
   ]
 }

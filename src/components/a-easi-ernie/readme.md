@@ -24,7 +24,7 @@
 
 ### Used by
 
- - [a-easi](..\a-easi)
+ - [a-easi](../a-easi)
 
 ### Graph
 ```mermaid

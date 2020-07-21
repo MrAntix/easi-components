@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `change` |             | `CustomEvent<any>` |
+| Event         | Description | Type               |
+| ------------- | ----------- | ------------------ |
+| `valueChange` |             | `CustomEvent<any>` |
 
 
 ## Methods
@@ -43,11 +43,11 @@ Type: `Promise<IEasiMessages>`
 
 ### Used by
 
- - [a-easi](..\a-easi)
+ - [a-easi](../a-easi)
 
 ### Depends on
 
-- [a-easi-messages](..\a-messages)
+- [a-easi-messages](../a-messages)
 
 ### Graph
 ```mermaid
