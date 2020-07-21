@@ -30,6 +30,10 @@
     "webcomponents"
   ],
   "author": "Anthony Johnston <npm@antix.co.uk> (http://antix.co.uk)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrAntix/easi-components"
+  },
   "license": "ISC",
   "publishConfig": {
     "access": "public"
