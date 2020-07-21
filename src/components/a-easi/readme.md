@@ -18,17 +18,17 @@
 
 | Event         | Description | Type                      |
 | ------------- | ----------- | ------------------------- |
-| `change`      |             | `CustomEvent<IEasi>`      |
 | `scoreChange` |             | `CustomEvent<IEasiScore>` |
+| `valueChange` |             | `CustomEvent<IEasi>`      |
 
 
 ## Dependencies
 
 ### Depends on
 
-- [a-easi-ernie](..\a-easi-ernie)
-- [a-easi-select](..\a-easi-select)
-- [a-easi-messages](..\a-messages)
+- [a-easi-ernie](../a-easi-ernie)
+- [a-easi-select](../a-easi-select)
+- [a-easi-messages](../a-messages)
 
 ### Graph
 ```mermaid

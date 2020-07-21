@@ -9,6 +9,7 @@
     stroke: var(--easi-ernie-border-color);
     padding: var(--easi-unit);
     background: var(--easi-ernie-background);
+    position: relative;
 }
 
 svg {
@@ -19,6 +20,7 @@ svg {
     stroke-linejoin: round;
     stroke-linecap: round;
     paint-order: stroke;
+    max-width: 100%;
 }
 
 .selected {
