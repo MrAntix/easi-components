@@ -1,5 +1,5 @@
 import { newE2EPage, E2EPage, E2EElement } from '@stencil/core/testing';
-import { easiDefault } from '../models';
+import { easiDefault } from '../../models';
 
 describe('a-easi', () => {
   let page: E2EPage;

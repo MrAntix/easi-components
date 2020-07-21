@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, Host, h, Method } from '@stencil/core';
-import { IEasiMessages, easiEmptyMessages, easiRequiredMessage } from '../models';
+import { IEasiMessages, easiEmptyMessages, easiRequiredMessage } from '../../models';
 
 @Component({
   tag: 'a-easi-select',
@@ -71,9 +71,9 @@ export class EasiSelectComponent {
     if (this.disabled) return;
 
     this.value = this.value === value ? this.nullValue : value;
-    this.change.emit(this.value);
+    this.valueChange.emit(this.value);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  change: EventEmitter<any>
+  valueChange: EventEmitter<any>
 }
