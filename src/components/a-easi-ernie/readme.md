@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type                                                                              | Default       |
-| ---------------- | ----------------- | ----------- | --------------------------------------------------------------------------------- | ------------- |
-| `selectedRegion` | `selected-region` |             | `EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper` | `null`        |
-| `value`          | --                |             | `IEasi`                                                                           | `easiDefault` |
+| Property         | Attribute         | Description | Type                                                                                           | Default       |
+| ---------------- | ----------------- | ----------- | ---------------------------------------------------------------------------------------------- | ------------- |
+| `selectedRegion` | `selected-region` |             | `EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper \| undefined` | `undefined`   |
+| `value`          | --                |             | `IEasi`                                                                                        | `easiDefault` |
 
 
 ## Events
 
-| Event          | Description | Type                                                                                           |
-| -------------- | ----------- | ---------------------------------------------------------------------------------------------- |
-| `selectRegion` |             | `CustomEvent<EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper>` |
+| Event          | Description | Type                                                                                                   |
+| -------------- | ----------- | ------------------------------------------------------------------------------------------------------ |
+| `selectRegion` |             | `CustomEvent<EasiRegions.Head \| EasiRegions.Lower \| EasiRegions.Trunk \| EasiRegions.Upper \| null>` |
 
 
 ## Dependencies

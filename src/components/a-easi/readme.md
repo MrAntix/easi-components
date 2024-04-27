@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type         | Default     |
-| ---------- | ----------- | ----------- | ------------ | ----------- |
-| `score`    | --          |             | `IEasiScore` | `undefined` |
-| `showText` | `show-text` |             | `boolean`    | `undefined` |
-| `value`    | --          |             | `IEasi`      | `undefined` |
+| Property   | Attribute   | Description | Type                 | Default       |
+| ---------- | ----------- | ----------- | -------------------- | ------------- |
+| `score`    | --          |             | `IEasiScore \| null` | `null`        |
+| `showText` | `show-text` |             | `boolean`            | `false`       |
+| `value`    | --          |             | `IEasi`              | `easiDefault` |
 
 
 ## Events

@@ -21,7 +21,7 @@ describe('a-easi-select', () => {
   });
 
   it('select on click', async () => {
-    const option = await page.find('a-easi-select >>> label:nth-child(2)');
+    const option = await page.find('a-easi-select >>> .option:nth-child(2)');
     await option.click();
 
     const value = await element.getProperty('value');

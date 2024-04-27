@@ -1,5 +1,5 @@
 import { Component, Prop, h, Host, Event, EventEmitter } from '@stencil/core';
-import { IEasi, EasiRegions, calculateRegionLevel, easiDefault } from '../../models';
+import { IEasi, easiDefault, EasiRegions, calculateRegionLevel } from '../../models';
 
 @Component({
   tag: 'a-easi-ernie',

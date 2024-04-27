@@ -9,13 +9,13 @@
 
 | Property      | Attribute    | Description | Type                         | Default     |
 | ------------- | ------------ | ----------- | ---------------------------- | ----------- |
-| `disabled`    | `disabled`   |             | `boolean`                    | `undefined` |
-| `errors`      | --           |             | `IEasiMessages`              | `undefined` |
+| `disabled`    | `disabled`   |             | `boolean`                    | `false`     |
+| `errors`      | --           |             | `IEasiMessages \| undefined` | `undefined` |
 | `nullValue`   | `null-value` |             | `any`                        | `null`      |
 | `options`     | --           |             | `any[]`                      | `[]`        |
-| `optionsText` | --           |             | `{ [key: string]: string; }` | `undefined` |
-| `required`    | `required`   |             | `boolean`                    | `undefined` |
-| `showText`    | `show-text`  |             | `boolean`                    | `undefined` |
+| `optionsText` | --           |             | `{ [key: string]: string; }` | `{}`        |
+| `required`    | `required`   |             | `boolean`                    | `false`     |
+| `showText`    | `show-text`  |             | `boolean`                    | `false`     |
 | `value`       | `value`      |             | `any`                        | `undefined` |
 
 

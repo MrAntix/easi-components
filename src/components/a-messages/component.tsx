@@ -15,7 +15,7 @@ export class EasiMessagesComponent {
 
   render() {
 
-    return <Host aria-role="menu"
+    return <Host
       count={Object.keys(this.value).length}>
     </Host>;
   }

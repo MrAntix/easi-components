@@ -1,9 +1,5 @@
 import { Component, Prop, h, Host, Watch, Event, EventEmitter, State } from '@stencil/core';
-import {
-  IEasi, EasiRegions, EasiSigns, easiText, easiDefault, EasiSeverities, EasiExtents,
-  calculateScore, IEasiScore, enumValues,
-  easiEmptyMessages, easiRequiredMessage
-} from '../../models';
+import { EasiExtents, EasiRegions, EasiSeverities, EasiSigns, IEasi, IEasiScore, calculateScore, easiDefault, easiEmptyMessages, easiRequiredMessage, easiText, enumValues } from '../../models';
 
 @Component({
   tag: 'a-easi',
@@ -57,9 +53,10 @@ export class EasiComponent {
       <main class={{
         [this.selectedRegion]: true
       }}>
-        <nav aria-role="menu">
-          {Object.values(EasiRegions).map(region => <label
-            aria-role="menuitemradio" aria-checked={this.selectedRegion === region}
+        <nav role="menu">
+          {Object.values(EasiRegions).map(region => <button
+            type="button" role="menuitemradio" class="tab"
+            aria-label={easiText.region[region]} aria-checked={this.selectedRegion === region ? "true" : "false"}
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
               <a-easi-messages
@@ -67,7 +64,7 @@ export class EasiComponent {
                 type="warning" />
               {easiText.region[region]}
             </span>
-          </label>
+          </button>
           )}
         </nav>
         {this.selectedRegion != null && <section class="region">
@@ -83,10 +80,9 @@ export class EasiComponent {
           </div>
           <section class="signs">
             {Object.values(EasiSigns).map(sign =>
-              <div class={{
-                row: true,
-                disabled: !this.value[this.selectedRegion].extent
-              }}>
+              <div
+                class={{ row: true }}
+                aria-disabled={this.value[this.selectedRegion].extent ? "false" : "true"}>
                 <label>{easiText.sign[sign]}</label>
                 <a-easi-select class="severites" required
                   showText={this.showText} disabled={!this.value[this.selectedRegion].extent}

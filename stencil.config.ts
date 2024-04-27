@@ -12,7 +12,12 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
-      copy: [{ src: '../node_modules/@ntix/bind/dist', dest: 'libs/bind' }]
+      copy: [
+        { src: '../node_modules/@ntix/bind/dist', dest: 'libs/bind' },
+        { src: 'robots.txt' },
+        { src: 'sitemap.xml' },
+        { src: 'web.config' }
+      ]
     }
   ],
   globalStyle: './src/global/vars.css'

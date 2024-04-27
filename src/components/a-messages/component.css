@@ -2,10 +2,10 @@
     align-self: center;
     position: absolute;
     right: 0;
-    width: var(--easi-border-radius);
+    width: var(--easi-messages-width);
     min-width: calc(.5 * var(--easi-unit));
     height: 100%;
-    border-radius: 0 var(--easi-border-radius) var(--easi-border-radius) 0;
+    border-radius: 0 var(--easi-messages-border-radius) var(--easi-messages-border-radius) 0;
     background-color: var(--easi-warning-color);
 }
 

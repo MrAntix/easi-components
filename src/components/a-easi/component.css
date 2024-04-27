@@ -21,9 +21,10 @@
     flex: 1 0 var(--easi-label-width);
     align-self: center;
     padding: calc(.5 * var(--easi-unit)) 0 calc(.25 * var(--easi-unit));
+    border: none;
 }
 
-.row.disabled label {
+.row[aria-disabled="true"] .tab {
     opacity: .25;
 }
 
@@ -88,19 +89,22 @@ nav {
     grid-gap: var(--easi-grid-gap);
 }
 
-nav label {
+nav .tab {
     position: relative;
     display: inline-flex;
+    align-items: stretch;
+    padding: 0;
+    border: none;
     border-radius: var(--easi-border-radius) var(--easi-border-radius) 0 0;
     margin: 0 0 calc(0px - var(--easi-border-radius) - var(--easi-panel-border-width));
     background-color: var(--easi-panel-border-color);
     cursor: pointer;
 }
 
-nav label[aria-checked] {
+nav .tab[aria-checked="true"] {
     margin: 0 0 calc(0px - var(--easi-panel-border-width));
     color: var(--easi-primary);
-    z-index: 1;
+    box-shadow: var(--easi-panel-shadow);
 }
 
 nav a-easi-messages {
@@ -120,17 +124,20 @@ nav span {
     border-bottom: none;
     padding: var(--easi-unit) var(--easi-unit) calc(var(--easi-unit) + var(--easi-border-radius));
     touch-action: none;
+    overflow: hidden;
+    --easy-messages-border-radius: 0;
 }
 
-nav label[aria-checked] span {
+nav .tab[aria-checked="true"] span {
     background: var(--easi-panel-background);
     color: var(--easi-panel-color);
     border: var(--easi-panel-border);
     border-bottom: none;
     padding-bottom: calc(var(--easi-unit) - var(--easi-panel-border-width));
+    z-index: 1;
 }
 
-nav label[aria-checked] a::after {
+nav .tab[aria-checked="true"] a::after {
     content: '';
     background: var(--easi-panel-background);
     position: absolute;
@@ -142,6 +149,7 @@ nav label[aria-checked] a::after {
 
 main.head section {
     border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 main.lower section {

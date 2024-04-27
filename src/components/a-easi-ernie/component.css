@@ -20,7 +20,12 @@ svg {
     stroke-linejoin: round;
     stroke-linecap: round;
     paint-order: stroke;
-    max-width: 100%;
+    max-width: var(--easi-ernie-max-width, 100%);
+    max-height: var(--easi-ernie-max-height, auto);
+}
+
+svg g {
+    cursor: pointer;
 }
 
 .selected {

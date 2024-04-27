@@ -13,9 +13,12 @@
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
+    border-radius: var(--easi-border-radius);
+    position: relative;
+    overflow: hidden;
 }
 
-label {
+.option {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -25,29 +28,23 @@ label {
     background-color: var(--easi-lowlight);
     border: var(--easi-border);
     font-size: var(--easi-select-label-font-size);
+    outline-offset: -1px;
+    outline-width: 1px;
 }
 
-label span {
+.option span {
     z-index: 1;
 }
 
-:host([disabled]) label {
+:host([disabled]) .option {
     opacity: .333;
 }
 
-:host(:not([disabled])) label {
+:host(:not([disabled])) .option {
     cursor: pointer;
 }
 
-label:first-of-type {
-    border-radius: var(--easi-border-radius) 0 0 var(--easi-border-radius);
-}
-
-label:last-of-type {
-    border-radius: 0 var(--easi-border-radius) var(--easi-border-radius) 0;
-}
-
-:host(:not([disabled])) label[aria-checked] {
+:host(:not([disabled])) .option[aria-checked="true"] {
     background-color: var(--easi-checked-background);
     color: var(--easi-checked-color);
     outline: var(--easi-checked-outline);

@@ -1,30 +1,45 @@
 {
-  "timestamp": "2020-07-21T21:44:30",
+  "timestamp": "2024-04-27T22:48:39",
   "compiler": {
     "name": "@stencil/core",
-    "version": "1.16.4",
-    "typescriptVersion": "3.9.7"
+    "version": "4.17.1",
+    "typescriptVersion": "5.4.5"
   },
   "components": [
     {
-      "filePath": "./src/components/a-easi/component.tsx",
+      "filePath": "src/components/a-easi/component.tsx",
       "encapsulation": "shadow",
       "tag": "a-easi",
-      "readme": "# a-easi\n\n\n",
+      "readme": "# a-easi\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
           "name": "score",
-          "type": "IEasiScore",
-          "mutable": false,
-          "reflect": false,
+          "type": "IEasiScore | null",
+          "complexType": {
+            "original": "IEasiScore | null",
+            "resolved": "IEasiScore | null",
+            "references": {
+              "IEasiScore": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasiScore"
+              }
+            }
+          },
+          "mutable": true,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "default": "null",
           "values": [
             {
               "type": "IEasiScore"
+            },
+            {
+              "type": "null"
             }
           ],
           "optional": false,
@@ -33,11 +48,17 @@
         {
           "name": "showText",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "show-text",
-          "reflect": true,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -49,10 +70,22 @@
         {
           "name": "value",
           "type": "IEasi",
+          "complexType": {
+            "original": "IEasi",
+            "resolved": "IEasi",
+            "references": {
+              "IEasi": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasi"
+              }
+            }
+          },
           "mutable": true,
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "default": "easiDefault",
           "values": [
             {
               "type": "IEasi"
@@ -68,6 +101,17 @@
           "event": "scoreChange",
           "detail": "IEasiScore",
           "bubbles": false,
+          "complexType": {
+            "original": "IEasiScore",
+            "resolved": "IEasiScore",
+            "references": {
+              "IEasiScore": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasiScore"
+              }
+            }
+          },
           "cancelable": false,
           "composed": false,
           "docs": "",
@@ -77,6 +121,17 @@
           "event": "valueChange",
           "detail": "IEasi",
           "bubbles": false,
+          "complexType": {
+            "original": "IEasi",
+            "resolved": "IEasi",
+            "references": {
+              "IEasi": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasi"
+              }
+            }
+          },
           "cancelable": false,
           "composed": false,
           "docs": "",
@@ -105,23 +160,33 @@
       }
     },
     {
-      "filePath": "./src/components/a-easi-ernie/component.tsx",
+      "filePath": "src/components/a-easi-ernie/component.tsx",
       "encapsulation": "shadow",
       "tag": "a-easi-ernie",
-      "readme": "# a-easi-ernie\n\n\n",
+      "readme": "# a-easi-ernie\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
           "name": "selectedRegion",
-          "type": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper",
+          "type": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper | undefined",
+          "complexType": {
+            "original": "EasiRegions",
+            "resolved": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper | undefined",
+            "references": {
+              "EasiRegions": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::EasiRegions"
+              }
+            }
+          },
           "mutable": false,
           "attr": "selected-region",
-          "reflect": true,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
-          "default": "null",
           "values": [
             {
               "type": "EasiRegions.Head"
@@ -134,16 +199,30 @@
             },
             {
               "type": "EasiRegions.Upper"
+            },
+            {
+              "type": "undefined"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "value",
           "type": "IEasi",
+          "complexType": {
+            "original": "IEasi",
+            "resolved": "IEasi",
+            "references": {
+              "IEasi": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasi"
+              }
+            }
+          },
           "mutable": false,
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "default": "easiDefault",
@@ -160,8 +239,19 @@
       "events": [
         {
           "event": "selectRegion",
-          "detail": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper",
+          "detail": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper | null",
           "bubbles": false,
+          "complexType": {
+            "original": "EasiRegions | null",
+            "resolved": "EasiRegions.Head | EasiRegions.Lower | EasiRegions.Trunk | EasiRegions.Upper | null",
+            "references": {
+              "EasiRegions": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::EasiRegions"
+              }
+            }
+          },
           "cancelable": false,
           "composed": false,
           "docs": "",
@@ -183,10 +273,10 @@
       }
     },
     {
-      "filePath": "./src/components/a-messages/component.tsx",
+      "filePath": "src/components/a-messages/component.tsx",
       "encapsulation": "shadow",
       "tag": "a-easi-messages",
-      "readme": "# a-easi-messages\n\n\n",
+      "readme": "# a-easi-messages\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -194,11 +284,23 @@
         {
           "name": "type",
           "type": "\"error\" | \"info\" | \"warning\"",
+          "complexType": {
+            "original": "easiMessageTypes",
+            "resolved": "\"error\" | \"info\" | \"warning\"",
+            "references": {
+              "easiMessageTypes": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::easiMessageTypes"
+              }
+            }
+          },
           "mutable": false,
           "attr": "type",
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "default": "'warning'",
           "values": [
             {
               "value": "error",
@@ -219,8 +321,19 @@
         {
           "name": "value",
           "type": "IEasiMessages",
+          "complexType": {
+            "original": "IEasiMessages",
+            "resolved": "IEasiMessages",
+            "references": {
+              "IEasiMessages": {
+                "location": "import",
+                "path": "../../models",
+                "id": "src/models/index.ts::IEasiMessages"
+              }
+            }
+          },
           "mutable": false,
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "default": "easiEmptyMessages",
@@ -254,10 +367,10 @@
       }
     },
     {
-      "filePath": "./src/components/a-easi-select/component.tsx",
+      "filePath": "src/components/a-easi-select/component.tsx",
       "encapsulation": "shadow",
       "tag": "a-easi-select",
-      "readme": "# a-easi-select\n\n\n",
+      "readme": "# a-easi-select\r\n\r\n\r\n\r",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -265,11 +378,17 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
-          "reflect": true,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -280,25 +399,44 @@
         },
         {
           "name": "errors",
-          "type": "IEasiMessages",
-          "mutable": false,
-          "reflect": false,
+          "type": "IEasiMessages | undefined",
+          "complexType": {
+            "original": "IEasiMessages",
+            "resolved": "IEasiMessages | undefined",
+            "references": {
+              "IEasiMessages": {
+                "location": "import",
+                "path": "../../models/IEasiMessages",
+                "id": "src/models/IEasiMessages.ts::IEasiMessages"
+              }
+            }
+          },
+          "mutable": true,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
             {
               "type": "IEasiMessages"
+            },
+            {
+              "type": "undefined"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
           "name": "nullValue",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": false,
           "attr": "null-value",
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "default": "null",
@@ -313,8 +451,13 @@
         {
           "name": "options",
           "type": "any[]",
+          "complexType": {
+            "original": "any[]",
+            "resolved": "any[]",
+            "references": {}
+          },
           "mutable": false,
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "default": "[]",
@@ -329,10 +472,16 @@
         {
           "name": "optionsText",
           "type": "{ [key: string]: string; }",
+          "complexType": {
+            "original": "{ [key: string]: string }",
+            "resolved": "{ [key: string]: string; }",
+            "references": {}
+          },
           "mutable": false,
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
+          "default": "{}",
           "values": [
             {
               "type": "{ [key: string]: string; }"
@@ -344,11 +493,17 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
-          "reflect": true,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -360,11 +515,17 @@
         {
           "name": "showText",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "show-text",
-          "reflect": true,
+          "reflectToAttr": true,
           "docs": "",
           "docsTags": [],
+          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -376,9 +537,14 @@
         {
           "name": "value",
           "type": "any",
-          "mutable": false,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": true,
           "attr": "value",
-          "reflect": false,
+          "reflectToAttr": false,
           "docs": "",
           "docsTags": [],
           "values": [
@@ -386,7 +552,7 @@
               "type": "any"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -396,6 +562,22 @@
           "returns": {
             "type": "Promise<IEasiMessages>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<IEasiMessages>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "IEasiMessages": {
+                "location": "import",
+                "path": "../../models/IEasiMessages",
+                "id": "src/models/IEasiMessages.ts::IEasiMessages"
+              }
+            },
+            "return": "Promise<IEasiMessages>"
           },
           "signature": "validate() => Promise<IEasiMessages>",
           "parameters": [],
@@ -408,6 +590,11 @@
           "event": "valueChange",
           "detail": "any",
           "bubbles": false,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "cancelable": false,
           "composed": false,
           "docs": "",
@@ -433,5 +620,37 @@
         ]
       }
     }
-  ]
+  ],
+  "typeLibrary": {
+    "src/models/index.ts::IEasi": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/models/index.ts"
+    },
+    "src/models/index.ts::IEasiScore": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/models/index.ts"
+    },
+    "src/models/index.ts::EasiRegions": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/models/index.ts"
+    },
+    "src/models/IEasiMessages.ts::IEasiMessages": {
+      "declaration": "export interface IEasiMessages {\r\n    [key: string]: any;\r\n}",
+      "docstring": "",
+      "path": "src/models/IEasiMessages.ts"
+    },
+    "src/models/index.ts::IEasiMessages": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/models/index.ts"
+    },
+    "src/models/index.ts::easiMessageTypes": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/models/index.ts"
+    }
+  }
 }

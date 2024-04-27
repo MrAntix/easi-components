@@ -9,7 +9,7 @@
 
 | Property | Attribute | Description | Type                             | Default             |
 | -------- | --------- | ----------- | -------------------------------- | ------------------- |
-| `type`   | `type`    |             | `"error" \| "info" \| "warning"` | `undefined`         |
+| `type`   | `type`    |             | `"error" \| "info" \| "warning"` | `'warning'`         |
 | `value`  | --        |             | `IEasiMessages`                  | `easiEmptyMessages` |
 
 

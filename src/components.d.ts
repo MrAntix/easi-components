@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { easiMessageTypes, EasiRegions, IEasi, IEasiMessages, IEasiScore } from "./models";
+import { IEasiMessages as IEasiMessages1 } from "./models/IEasiMessages";
 export { easiMessageTypes, EasiRegions, IEasi, IEasiMessages, IEasiScore } from "./models";
+export { IEasiMessages as IEasiMessages1 } from "./models/IEasiMessages";
 export namespace Components {
     interface AEasi {
         "score": IEasiScore | null;
@@ -23,13 +25,13 @@ export namespace Components {
     }
     interface AEasiSelect {
         "disabled": boolean;
-        "errors"?: IEasiMessages;
+        "errors"?: IEasiMessages1;
         "nullValue": any;
         "options": any[];
         "optionsText": { [key: string]: string };
         "required": boolean;
         "showText": boolean;
-        "validate": () => Promise<IEasiMessages>;
+        "validate": () => Promise<IEasiMessages1>;
         "value"?: any;
     }
 }
@@ -130,7 +132,7 @@ declare namespace LocalJSX {
     }
     interface AEasiSelect {
         "disabled"?: boolean;
-        "errors"?: IEasiMessages;
+        "errors"?: IEasiMessages1;
         "nullValue"?: any;
         "onValueChange"?: (event: AEasiSelectCustomEvent<any>) => void;
         "options"?: any[];

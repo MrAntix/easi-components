@@ -1,5 +1,7 @@
 import { Component, Event, EventEmitter, Prop, Host, h, Method } from '@stencil/core';
-import { IEasiMessages, easiEmptyMessages, easiRequiredMessage } from '../../models';
+import { easiRequiredMessage } from "../../models/easiRequiredMessage";
+import { easiEmptyMessages } from "../../models/easiEmptyMessages";
+import { IEasiMessages } from "../../models/IEasiMessages";
 
 @Component({
   tag: 'a-easi-select',
@@ -50,18 +52,17 @@ export class EasiSelectComponent {
     if (!this.options) return 'options not set';
     if (this.showText && !this.optionsText) return 'optionText not set';
 
-
     return <Host invalid={this.errors !== easiEmptyMessages}>
       <div role="menu" class="options">
         {this.options
-          .map(option => <label key={option}
-            role="menuitemradio" aria-checked={this.value === option}
+          .map((option, i) => <button key={option} class="option" type="button"
+            role="menuitemradio" aria-label={option?.toString() ?? `option ${i}`} aria-checked={this.value === option ? "true" : "false"}
             onClick={e => this.changeHandler(e, option)}>
             <span>{this.showText ? this.optionsText[option] : option}</span>
-          </label>
+          </button>
           )}
+        <a-easi-messages value={this.errors} type="warning" />
       </div>
-      <a-easi-messages value={this.errors} type="warning" />
     </Host>;
   }
 
