@@ -12,11 +12,11 @@ import {
 })
 export class EasiComponent {
 
-  @Prop({ reflectToAttr: true })
-  showText: boolean;
+  @Prop({ reflect: true })
+  showText: boolean = false;
 
   @Prop({ mutable: true })
-  value: IEasi;
+  value: IEasi = easiDefault;
   @Watch('value')
   setValue() {
     if (!this.value)
@@ -26,8 +26,8 @@ export class EasiComponent {
     this.scoreChange.emit(this.score);
   }
 
-  @Prop()
-  score: IEasiScore;
+  @Prop({ mutable: true })
+  score: IEasiScore | null = null;
 
   @State()
   selectedRegion: EasiRegions = EasiRegions.Head;
@@ -39,11 +39,11 @@ export class EasiComponent {
   render() {
     if (!this.value) return;
 
-    return <Host class={{ invalid: this.score.total == null }}>
+    return <Host class={{ invalid: this.score?.total == null }}>
       <header>
         <a-easi-ernie value={this.value}
           selectedRegion={this.selectedRegion} onSelectRegion={e => this.changeRegionHandler(e, e.detail)} />
-        <span class="score">{this.score.total != null && Math.round(this.score.total)}</span>
+        <span class="score">{this.score?.total != null && Math.round(this.score.total)}</span>
 
         <a-easi-select class="child-adult" required
           show-text
@@ -63,7 +63,7 @@ export class EasiComponent {
             onClick={e => this.changeRegionHandler(e, region)}>
             <span>
               <a-easi-messages
-                value={this.score[region] == null ? easiRequiredMessage : easiEmptyMessages}
+                value={this.score?.[region] == null ? easiRequiredMessage : easiEmptyMessages}
                 type="warning" />
               {easiText.region[region]}
             </span>
@@ -104,7 +104,7 @@ export class EasiComponent {
     </Host>;
   }
 
-  changeRegionHandler(e: Event, value: EasiRegions): void {
+  changeRegionHandler(e: Event, value: EasiRegions | null): void {
     e.stopPropagation();
 
     this.selectedRegion = value || EasiRegions.Head;
@@ -153,8 +153,8 @@ export class EasiComponent {
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  valueChange: EventEmitter<IEasi>
+  valueChange!: EventEmitter<IEasi>
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  scoreChange: EventEmitter<IEasiScore>
+  scoreChange!: EventEmitter<IEasiScore>
 }

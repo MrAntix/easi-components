@@ -32,7 +32,7 @@ export enum EasiExtents {
 }
 
 export interface IEasi {
-  isChild: boolean;
+  isChild: boolean | null;
   [EasiRegions.Head]: IEasiRegion;
   [EasiRegions.Trunk]: IEasiRegion;
   [EasiRegions.Upper]: IEasiRegion;
@@ -40,19 +40,19 @@ export interface IEasi {
 }
 
 export interface IEasiRegion {
-  extent: EasiExtents;
-  [EasiSigns.Erythema]: EasiSeverities;
-  [EasiSigns.EdemaPapulation]: EasiSeverities;
-  [EasiSigns.Excoriation]: EasiSeverities;
-  [EasiSigns.Lichenification]: EasiSeverities;
+  extent: EasiExtents | null;
+  [EasiSigns.Erythema]: EasiSeverities | null;
+  [EasiSigns.EdemaPapulation]: EasiSeverities | null;
+  [EasiSigns.Excoriation]: EasiSeverities | null;
+  [EasiSigns.Lichenification]: EasiSeverities | null;
 }
 
 export interface IEasiScore {
-  total: number;
-  [EasiRegions.Head]: number;
-  [EasiRegions.Trunk]: number;
-  [EasiRegions.Upper]: number;
-  [EasiRegions.Lower]: number;
+  total: number | null;
+  [EasiRegions.Head]: number | null;
+  [EasiRegions.Trunk]: number | null;
+  [EasiRegions.Upper]: number | null;
+  [EasiRegions.Lower]: number | null;
 }
 
 export const easiText_en: IEasiText = {
@@ -149,22 +149,22 @@ export function calculateScore(value: IEasi): IEasiScore {
 export function calculateRegionScore(
   value: IEasi,
   region: EasiRegions
-): number {
+): number | null {
   if (value.isChild == null) return null;
   if (value[region].extent === EasiExtents.E0) return 0;
   if (Object.values(value[region]).some(v => v == null)) return null;
 
   return (
-    (value[region][EasiSigns.Erythema] +
-      value[region][EasiSigns.EdemaPapulation] +
-      value[region][EasiSigns.Excoriation] +
-      value[region][EasiSigns.Lichenification]) *
-    value[region].extent *
-    getRegionMultiplier(value.isChild, region)
-  );
+    (value[region][EasiSigns.Erythema]! +
+      value[region][EasiSigns.EdemaPapulation]! +
+      value[region][EasiSigns.Excoriation]! +
+      value[region][EasiSigns.Lichenification]!) *
+    value[region].extent! *
+    getRegionMultiplier(value.isChild, region)!
+  ) ?? null;
 }
 
-export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
+export function getRegionMultiplier(isChild: boolean, region: EasiRegions): number | null {
   if (isChild == null) return null;
 
   switch (region) {
@@ -181,18 +181,18 @@ export function getRegionMultiplier(isChild: boolean, region: EasiRegions) {
   }
 }
 
-export function calculateRegionLevel(value: IEasiRegion): number {
+export function calculateRegionLevel(value: IEasiRegion): number | null {
   if (value.extent === EasiExtents.E0) return 0;
   if (Object.values(value).some(v => v == null)) return null;
 
   return Math.round(
-    ((value[EasiSigns.Erythema] +
-      value[EasiSigns.EdemaPapulation] +
-      value[EasiSigns.Excoriation] +
-      value[EasiSigns.Lichenification]) *
-      value.extent) /
-      7.2
-  );
+    ((value[EasiSigns.Erythema]! +
+      value[EasiSigns.EdemaPapulation]! +
+      value[EasiSigns.Excoriation]! +
+      value[EasiSigns.Lichenification]!) *
+      value.extent!) /
+    7.2
+  ) ?? null;
 }
 
 export type easiMessageTypes = 'info' | 'warning' | 'error';

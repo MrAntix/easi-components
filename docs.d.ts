@@ -55,7 +55,7 @@ export interface JsonDocsProp {
     type: string;
     mutable: boolean;
     attr?: string;
-    reflectToAttr: boolean;
+    reflect: boolean;
     docs: string;
     docsTags: JsonDocsTag[];
     default: string;

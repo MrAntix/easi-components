@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+        content="width=device-width, initial-scale=1.0">
   <title>EASI Components</title>
   <link rel="icon"
         type="image/svg+xml"
@@ -34,7 +34,7 @@
       padding: var(--unit);
     }
 
-    header.main{
+    header.main {
       margin-bottom: 2em;
     }
 
@@ -152,7 +152,7 @@
     <footer class="row">
       <div class="properties">
         <div><label>--easi-unit</label>
-          <input type="range"
+          <input type="range" title="units"
                  min="0"
                  max="1"
                  step=".05"
@@ -164,7 +164,7 @@
                 [inner-text]="unit"></span>rem
         </div>
         <div><label>--easi-primary-hue</label>
-          <input type="range"
+          <input type="range" title="primary-hue"
                  min="0"
                  max="360"
                  bind
@@ -174,7 +174,7 @@
                 [inner-text]="primary-hue"></span>
         </div>
         <div><label>--easi-primary-saturation</label>
-          <input type="range"
+          <input type="range" title="primary-saturation"
                  min="0"
                  max="100"
                  bind
@@ -185,7 +185,7 @@
                 [inner-text]="primary-saturation"></span>%
         </div>
         <div><label>--easi-primary-lightness</label>
-          <input type="range"
+          <input type="range" title="primary-lightness"
                  min="0"
                  max="100"
                  bind
@@ -196,7 +196,7 @@
                 [inner-text]="primary-lightness"></span>%
         </div>
         <div><label>--easi-grid-gap</label>
-          <input type="range"
+          <input type="range" title="grid-gap"
                  min="0"
                  max="10"
                  bind
@@ -207,7 +207,7 @@
                 [inner-text]="grid-gap"></span>px
         </div>
         <div><label>--easi-border-radius</label>
-          <input type="range"
+          <input type="range" title="border-radius"
                  min="0"
                  max="20"
                  bind
@@ -218,7 +218,7 @@
                 [inner-text]="border-radius"></span>px
         </div>
         <div><label>--easi-border-width</label>
-          <input type="range"
+          <input type="range" title="border-width"
                  min="0"
                  max="10"
                  bind
@@ -230,7 +230,7 @@
         </div>
         <hr />
         <div><label>--easi-ernie-hue</label>
-          <input type="range"
+          <input type="range" title="ernie-hue"
                  min="0"
                  max="360"
                  bind
@@ -240,7 +240,7 @@
                 [inner-text]="ernie-hue"></span>
         </div>
         <div><label>--easi-ernie-border-width</label>
-          <input type="range"
+          <input type="range" title="ernie-border-width"
                  min="0"
                  max="10"
                  bind
@@ -252,7 +252,7 @@
         </div>
         <hr />
         <div><label>--easi-panel-border-width</label>
-          <input type="range"
+          <input type="range" title="panel-border-width"
                  min="0"
                  max="10"
                  bind
@@ -263,7 +263,7 @@
                 [inner-text]="panel-border-width"></span>px
         </div>
         <div><label>--easi-panel-shadow-dist</label>
-          <input type="range"
+          <input type="range" title="panel-shadow-dist"
                  min="0"
                  max="40"
                  bind

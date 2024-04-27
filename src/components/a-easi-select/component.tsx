@@ -11,21 +11,21 @@ export class EasiSelectComponent {
   @Prop()
   options: any[] = []
   @Prop()
-  optionsText: { [key: string]: string };
+  optionsText: { [key: string]: string } = {};
   @Prop()
   nullValue: any = null;
 
-  @Prop({ reflectToAttr: true })
-  required: boolean;
-  @Prop({ reflectToAttr: true })
-  disabled: boolean;
-  @Prop({ reflectToAttr: true })
-  showText: boolean;
+  @Prop({ reflect: true })
+  required: boolean = false;
+  @Prop({ reflect: true })
+  disabled: boolean = false;
+  @Prop({ reflect: true })
+  showText: boolean = false;
 
-  @Prop()
-  value: any;
-  @Prop()
-  errors: IEasiMessages;
+  @Prop({ mutable: true })
+  value?: any;
+  @Prop({ mutable: true })
+  errors?: IEasiMessages;
 
   @Method()
   async validate(): Promise<IEasiMessages> {
@@ -51,11 +51,11 @@ export class EasiSelectComponent {
     if (this.showText && !this.optionsText) return 'optionText not set';
 
 
-    return <Host aria-role="menu" invalid={this.errors !== easiEmptyMessages}>
-      <div class="options">
+    return <Host invalid={this.errors !== easiEmptyMessages}>
+      <div role="menu" class="options">
         {this.options
-          .map(option => <label
-            aria-role="menuitemradio" aria-checked={this.value === option}
+          .map(option => <label key={option}
+            role="menuitemradio" aria-checked={this.value === option}
             onClick={e => this.changeHandler(e, option)}>
             <span>{this.showText ? this.optionsText[option] : option}</span>
           </label>
@@ -75,5 +75,5 @@ export class EasiSelectComponent {
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  valueChange: EventEmitter<any>
+  valueChange!: EventEmitter<any>
 }

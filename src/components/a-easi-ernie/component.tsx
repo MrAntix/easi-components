@@ -11,11 +11,11 @@ export class EasiErnieComponent {
   @Prop()
   value: IEasi = easiDefault;
 
-  @Prop({ reflectToAttr: true })
-  selectedRegion: EasiRegions = null;
+  @Prop({ reflect: true })
+  selectedRegion?: EasiRegions;
 
   render() {
-    const value = this.value ||easiDefault;
+    const value = this.value || easiDefault;
 
     return <Host>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 240"
@@ -57,14 +57,14 @@ export class EasiErnieComponent {
     </Host>;
   }
 
-  selectRegionHandler(e: MouseEvent, region: EasiRegions): void {
+  selectRegionHandler(e: MouseEvent, region: EasiRegions | null): void {
     e.stopPropagation();
 
     this.selectRegion.emit(region);
   }
 
   @Event({ bubbles: false, cancelable: false, composed: false })
-  selectRegion: EventEmitter<EasiRegions>
+  selectRegion!: EventEmitter<EasiRegions | null>
 }
 
 

@@ -6,14 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { easiMessageTypes, EasiRegions, IEasi, IEasiMessages, IEasiScore } from "./models";
+export { easiMessageTypes, EasiRegions, IEasi, IEasiMessages, IEasiScore } from "./models";
 export namespace Components {
     interface AEasi {
-        "score": IEasiScore;
+        "score": IEasiScore | null;
         "showText": boolean;
         "value": IEasi;
     }
     interface AEasiErnie {
-        "selectedRegion": EasiRegions;
+        "selectedRegion"?: EasiRegions;
         "value": IEasi;
     }
     interface AEasiMessages {
@@ -22,24 +23,59 @@ export namespace Components {
     }
     interface AEasiSelect {
         "disabled": boolean;
-        "errors": IEasiMessages;
+        "errors"?: IEasiMessages;
         "nullValue": any;
         "options": any[];
         "optionsText": { [key: string]: string };
         "required": boolean;
         "showText": boolean;
         "validate": () => Promise<IEasiMessages>;
-        "value": any;
+        "value"?: any;
     }
 }
+export interface AEasiCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAEasiElement;
+}
+export interface AEasiErnieCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAEasiErnieElement;
+}
+export interface AEasiSelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAEasiSelectElement;
+}
 declare global {
+    interface HTMLAEasiElementEventMap {
+        "valueChange": IEasi;
+        "scoreChange": IEasiScore;
+    }
     interface HTMLAEasiElement extends Components.AEasi, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAEasiElementEventMap>(type: K, listener: (this: HTMLAEasiElement, ev: AEasiCustomEvent<HTMLAEasiElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAEasiElementEventMap>(type: K, listener: (this: HTMLAEasiElement, ev: AEasiCustomEvent<HTMLAEasiElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAEasiElement: {
         prototype: HTMLAEasiElement;
         new (): HTMLAEasiElement;
     };
+    interface HTMLAEasiErnieElementEventMap {
+        "selectRegion": EasiRegions | null;
+    }
     interface HTMLAEasiErnieElement extends Components.AEasiErnie, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAEasiErnieElementEventMap>(type: K, listener: (this: HTMLAEasiErnieElement, ev: AEasiErnieCustomEvent<HTMLAEasiErnieElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAEasiErnieElementEventMap>(type: K, listener: (this: HTMLAEasiErnieElement, ev: AEasiErnieCustomEvent<HTMLAEasiErnieElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAEasiErnieElement: {
         prototype: HTMLAEasiErnieElement;
@@ -51,7 +87,18 @@ declare global {
         prototype: HTMLAEasiMessagesElement;
         new (): HTMLAEasiMessagesElement;
     };
+    interface HTMLAEasiSelectElementEventMap {
+        "valueChange": any;
+    }
     interface HTMLAEasiSelectElement extends Components.AEasiSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAEasiSelectElementEventMap>(type: K, listener: (this: HTMLAEasiSelectElement, ev: AEasiSelectCustomEvent<HTMLAEasiSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAEasiSelectElementEventMap>(type: K, listener: (this: HTMLAEasiSelectElement, ev: AEasiSelectCustomEvent<HTMLAEasiSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAEasiSelectElement: {
         prototype: HTMLAEasiSelectElement;
@@ -66,14 +113,14 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AEasi {
-        "onScoreChange"?: (event: CustomEvent<IEasiScore>) => void;
-        "onValueChange"?: (event: CustomEvent<IEasi>) => void;
-        "score"?: IEasiScore;
+        "onScoreChange"?: (event: AEasiCustomEvent<IEasiScore>) => void;
+        "onValueChange"?: (event: AEasiCustomEvent<IEasi>) => void;
+        "score"?: IEasiScore | null;
         "showText"?: boolean;
         "value"?: IEasi;
     }
     interface AEasiErnie {
-        "onSelectRegion"?: (event: CustomEvent<EasiRegions>) => void;
+        "onSelectRegion"?: (event: AEasiErnieCustomEvent<EasiRegions | null>) => void;
         "selectedRegion"?: EasiRegions;
         "value"?: IEasi;
     }
@@ -85,7 +132,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "errors"?: IEasiMessages;
         "nullValue"?: any;
-        "onValueChange"?: (event: CustomEvent<any>) => void;
+        "onValueChange"?: (event: AEasiSelectCustomEvent<any>) => void;
         "options"?: any[];
         "optionsText"?: { [key: string]: string };
         "required"?: boolean;

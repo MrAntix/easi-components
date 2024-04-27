@@ -4,8 +4,7 @@
 
 :host {
     position: relative;
-    display:inline-flex;
-    -overflow: hidden;
+    display: inline-flex;
 }
 
 .options {
@@ -14,7 +13,6 @@
     grid-gap: var(--easi-grid-gap);
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
-    -overflow-x: auto;
 }
 
 label {
