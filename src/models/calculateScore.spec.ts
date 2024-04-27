@@ -1,10 +1,10 @@
-import { easiClone } from "./easiClone";
-import { calculateRegionLevel } from "./calculateRegionLevel";
-import { calculateScore } from "./calculateScore";
-import { easiDefault } from "./easiDefault";
-import { EasiExtents } from "./EasiExtents";
-import { EasiSigns } from "./EasiSigns";
-import { EasiRegions } from "./EasiRegions";
+import { easiClone } from './easiClone';
+import { calculateRegionLevel } from './calculateRegionLevel';
+import { calculateScore } from './calculateScore';
+import { easiDefault } from './easiDefault';
+import { EasiExtents } from './EasiExtents';
+import { EasiSigns } from './EasiSigns';
+import { EasiRegions } from './EasiRegions';
 
 describe('calculateScore', () => {
   it('default easi scores null', () => {

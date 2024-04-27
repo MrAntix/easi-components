@@ -1,8 +1,7 @@
-import { EasiRegions } from "./EasiRegions";
-import { IEasi } from "./IEasi";
-import { IEasiScore } from "./IEasiScore";
-import { calculateRegionScore } from "./calculateRegionScore";
-
+import { EasiRegions } from './EasiRegions';
+import { IEasi } from './IEasi';
+import { IEasiScore } from './IEasiScore';
+import { calculateRegionScore } from './calculateRegionScore';
 
 export function calculateScore(value: IEasi): IEasiScore {
     return Object.values(EasiRegions).reduce(

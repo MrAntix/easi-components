@@ -1,7 +1,6 @@
-import { EasiExtents } from "./EasiExtents";
-import { EasiSeverities } from "./EasiSeverities";
-import { EasiSigns } from "./EasiSigns";
-
+import { EasiExtents } from './EasiExtents';
+import { EasiSeverities } from './EasiSeverities';
+import { EasiSigns } from './EasiSigns';
 
 export interface IEasiRegion {
     extent: EasiExtents | null;

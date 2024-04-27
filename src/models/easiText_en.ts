@@ -1,7 +1,7 @@
-import { EasiRegions } from "./EasiRegions";
-import { EasiSeverities } from "./EasiSeverities";
-import { EasiSigns } from "./EasiSigns";
-import { IEasiText } from "./IEasiText";
+import { EasiRegions } from './EasiRegions';
+import { EasiSeverities } from './EasiSeverities';
+import { EasiSigns } from './EasiSigns';
+import { IEasiText } from './IEasiText';
 
 export const easiText_en: IEasiText = {
     sign: {

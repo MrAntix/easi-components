@@ -1,7 +1,6 @@
-import { EasiRegions } from "./EasiRegions";
-import { EasiSigns } from "./EasiSigns";
-import { IEasi } from "./IEasi";
-
+import { EasiRegions } from './EasiRegions';
+import { EasiSigns } from './EasiSigns';
+import { IEasi } from './IEasi';
 
 export const easiDefault: IEasi = Object.freeze({
     isChild: null,

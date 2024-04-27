@@ -1,5 +1,4 @@
-import { EasiRegions } from "./EasiRegions";
-
+import { EasiRegions } from './EasiRegions';
 
 export interface IEasiScore {
     total: number | null;

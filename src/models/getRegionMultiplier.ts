@@ -1,5 +1,4 @@
-import { EasiRegions } from "./EasiRegions";
-
+import { EasiRegions } from './EasiRegions';
 
 export function getRegionMultiplier(isChild: boolean, region: EasiRegions): number | null {
     if (isChild == null) return null;

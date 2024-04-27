@@ -1,9 +1,8 @@
-import { EasiExtents } from "./EasiExtents";
-import { EasiRegions } from "./EasiRegions";
-import { EasiSigns } from "./EasiSigns";
-import { IEasi } from "./IEasi";
-import { getRegionMultiplier } from "./getRegionMultiplier";
-
+import { EasiExtents } from './EasiExtents';
+import { EasiRegions } from './EasiRegions';
+import { EasiSigns } from './EasiSigns';
+import { IEasi } from './IEasi';
+import { getRegionMultiplier } from './getRegionMultiplier';
 
 export function calculateRegionScore(
     value: IEasi,

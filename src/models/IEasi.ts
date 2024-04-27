@@ -1,6 +1,5 @@
-import { EasiRegions } from "./EasiRegions";
-import { IEasiRegion } from "./IEasiRegion";
-
+import { EasiRegions } from './EasiRegions';
+import { IEasiRegion } from './IEasiRegion';
 
 export interface IEasi {
     isChild: boolean | null;

@@ -1,7 +1,6 @@
-import { EasiExtents } from "./EasiExtents";
-import { EasiSigns } from "./EasiSigns";
-import { IEasiRegion } from "./IEasiRegion";
-
+import { EasiExtents } from './EasiExtents';
+import { EasiSigns } from './EasiSigns';
+import { IEasiRegion } from './IEasiRegion';
 
 export function calculateRegionLevel(value: IEasiRegion): number | null {
     if (value.extent === EasiExtents.E0) return 0;
