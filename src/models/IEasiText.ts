@@ -1,4 +1,3 @@
-
 export interface IEasiText {
     sign: { [key: string]: string; };
     region: { [key: string]: string; };

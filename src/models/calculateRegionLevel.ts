@@ -13,5 +13,5 @@ export function calculateRegionLevel(value: IEasiRegion): number | null {
             value[EasiSigns.Lichenification]!) *
             value.extent!) /
         7.2
-    ) ?? null;
+    );
 }

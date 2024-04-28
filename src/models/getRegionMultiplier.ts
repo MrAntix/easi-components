@@ -9,9 +9,9 @@ export function getRegionMultiplier(isChild: boolean, region: EasiRegions): numb
         case EasiRegions.Head:
             return isChild ? 0.2 : 0.1;
         case EasiRegions.Trunk:
-            return isChild ? 0.3 : 0.3;
+            return 0.3;
         case EasiRegions.Upper:
-            return isChild ? 0.2 : 0.2;
+            return 0.2;
         case EasiRegions.Lower:
             return isChild ? 0.3 : 0.4;
     }

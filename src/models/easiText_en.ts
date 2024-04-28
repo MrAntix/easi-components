@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { EasiRegions } from './EasiRegions';
 import { EasiSeverities } from './EasiSeverities';
 import { EasiSigns } from './EasiSigns';

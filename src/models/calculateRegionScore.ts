@@ -12,12 +12,14 @@ export function calculateRegionScore(
     if (value[region].extent === EasiExtents.E0) return 0;
     if (Object.values(value[region]).some(v => v == null)) return null;
 
-    return (
-        (value[region][EasiSigns.Erythema]! +
-            value[region][EasiSigns.EdemaPapulation]! +
-            value[region][EasiSigns.Excoriation]! +
-            value[region][EasiSigns.Lichenification]!) *
+    var regionMultiplier = getRegionMultiplier(value.isChild, region);
+    if (regionMultiplier == null)
+        return null;
+
+    return (value[region][EasiSigns.Erythema]! +
+        value[region][EasiSigns.EdemaPapulation]! +
+        value[region][EasiSigns.Excoriation]! +
+        value[region][EasiSigns.Lichenification]!) *
         value[region].extent! *
-        getRegionMultiplier(value.isChild, region)!
-    ) ?? null;
+        regionMultiplier;
 }
