@@ -18,13 +18,13 @@ describe('a-easi', () => {
     expect(element).toHaveClass('hydrated');
   });
 
-  // TODO: https://github.com/ionic-team/stencil/issues/1530
-  // it('show text always on child-adult', async () => {
-  //   const childAdultElement = await page.find('a-easi >>> .child-adult >>> label');
+  it('show text always on child-adult', async () => {
+    const childAdultElement = await page.find('a-easi >>> .child-adult');
+    const lableElement = await childAdultElement.find('>>> label');
 
-  //   element.setProperty('show-text', false);
-  //   await page.waitForChanges();
+    element.setProperty('show-text', false);
+    await page.waitForChanges();
 
-  //   expect(childAdultElement.innerText).toBe('Child');
-  // });
+    expect(lableElement.innerText).toBe('Extent');
+  });
 });
