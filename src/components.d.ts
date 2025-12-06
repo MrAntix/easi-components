@@ -11,25 +11,61 @@ export { easiMessageTypes, EasiRegions, IEasi, IEasiMessages, IEasiScore } from 
 export { IEasiMessages as IEasiMessages1 } from "./models/IEasiMessages";
 export namespace Components {
     interface AEasi {
+        /**
+          * @default null
+         */
         "score": IEasiScore | null;
+        /**
+          * @default false
+         */
         "showText": boolean;
+        /**
+          * @default easiDefault
+         */
         "value": IEasi;
     }
     interface AEasiErnie {
         "selectedRegion"?: EasiRegions;
+        /**
+          * @default easiDefault
+         */
         "value": IEasi;
     }
     interface AEasiMessages {
+        /**
+          * @default 'warning'
+         */
         "type": easiMessageTypes;
+        /**
+          * @default easiEmptyMessages
+         */
         "value": IEasiMessages;
     }
     interface AEasiSelect {
+        /**
+          * @default false
+         */
         "disabled": boolean;
         "errors"?: IEasiMessages1;
+        /**
+          * @default null
+         */
         "nullValue": any;
+        /**
+          * @default []
+         */
         "options": any[];
+        /**
+          * @default {}
+         */
         "optionsText": { [key: string]: string };
+        /**
+          * @default false
+         */
         "required": boolean;
+        /**
+          * @default false
+         */
         "showText": boolean;
         "validate": () => Promise<IEasiMessages1>;
         "value"?: any;
@@ -117,27 +153,63 @@ declare namespace LocalJSX {
     interface AEasi {
         "onScoreChange"?: (event: AEasiCustomEvent<IEasiScore>) => void;
         "onValueChange"?: (event: AEasiCustomEvent<IEasi>) => void;
+        /**
+          * @default null
+         */
         "score"?: IEasiScore | null;
+        /**
+          * @default false
+         */
         "showText"?: boolean;
+        /**
+          * @default easiDefault
+         */
         "value"?: IEasi;
     }
     interface AEasiErnie {
         "onSelectRegion"?: (event: AEasiErnieCustomEvent<EasiRegions | null>) => void;
         "selectedRegion"?: EasiRegions;
+        /**
+          * @default easiDefault
+         */
         "value"?: IEasi;
     }
     interface AEasiMessages {
+        /**
+          * @default 'warning'
+         */
         "type"?: easiMessageTypes;
+        /**
+          * @default easiEmptyMessages
+         */
         "value"?: IEasiMessages;
     }
     interface AEasiSelect {
+        /**
+          * @default false
+         */
         "disabled"?: boolean;
         "errors"?: IEasiMessages1;
+        /**
+          * @default null
+         */
         "nullValue"?: any;
         "onValueChange"?: (event: AEasiSelectCustomEvent<any>) => void;
+        /**
+          * @default []
+         */
         "options"?: any[];
+        /**
+          * @default {}
+         */
         "optionsText"?: { [key: string]: string };
+        /**
+          * @default false
+         */
         "required"?: boolean;
+        /**
+          * @default false
+         */
         "showText"?: boolean;
         "value"?: any;
     }

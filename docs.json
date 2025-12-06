@@ -1,9 +1,9 @@
 {
-  "timestamp": "2024-04-28T09:50:24",
+  "timestamp": "2025-12-06T13:32:02",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.17.1",
-    "typescriptVersion": "5.4.5"
+    "version": "4.38.3",
+    "typescriptVersion": "5.9.3"
   },
   "components": [
     {
@@ -32,7 +32,12 @@
           "mutable": true,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "null"
+            }
+          ],
           "default": "null",
           "values": [
             {
@@ -43,7 +48,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "showText",
@@ -57,7 +64,12 @@
           "attr": "show-text",
           "reflectToAttr": true,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -65,7 +77,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -84,7 +98,12 @@
           "mutable": true,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "easiDefault"
+            }
+          ],
           "default": "easiDefault",
           "values": [
             {
@@ -92,7 +111,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -205,7 +226,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -224,7 +247,12 @@
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "easiDefault"
+            }
+          ],
           "default": "easiDefault",
           "values": [
             {
@@ -232,7 +260,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -299,7 +329,12 @@
           "attr": "type",
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "'warning'"
+            }
+          ],
           "default": "'warning'",
           "values": [
             {
@@ -316,7 +351,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -335,7 +372,12 @@
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "easiEmptyMessages"
+            }
+          ],
           "default": "easiEmptyMessages",
           "values": [
             {
@@ -343,7 +385,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [],
@@ -387,7 +431,12 @@
           "attr": "disabled",
           "reflectToAttr": true,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -395,7 +444,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "errors",
@@ -424,7 +475,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "nullValue",
@@ -438,7 +491,12 @@
           "attr": "null-value",
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "null"
+            }
+          ],
           "default": "null",
           "values": [
             {
@@ -446,7 +504,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "options",
@@ -459,7 +519,12 @@
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "[]"
+            }
+          ],
           "default": "[]",
           "values": [
             {
@@ -467,7 +532,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "optionsText",
@@ -480,7 +547,12 @@
           "mutable": false,
           "reflectToAttr": false,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "{}"
+            }
+          ],
           "default": "{}",
           "values": [
             {
@@ -488,7 +560,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "required",
@@ -502,7 +576,12 @@
           "attr": "required",
           "reflectToAttr": true,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -510,7 +589,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "showText",
@@ -524,7 +605,12 @@
           "attr": "show-text",
           "reflectToAttr": true,
           "docs": "",
-          "docsTags": [],
+          "docsTags": [
+            {
+              "name": "default",
+              "text": "false"
+            }
+          ],
           "default": "false",
           "values": [
             {
@@ -532,7 +618,9 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         },
         {
           "name": "value",
@@ -553,7 +641,9 @@
             }
           ],
           "optional": true,
-          "required": false
+          "required": false,
+          "getter": false,
+          "setter": false
         }
       ],
       "methods": [
