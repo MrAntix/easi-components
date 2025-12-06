@@ -52,7 +52,7 @@
     "jest-cli": "29.7.0",
     "npm-check-updates": "^16.14.20",
     "puppeteer": "22.11.2",
-    "semantic-release": "^23.0.8",
+    "semantic-release": "^25.0.2",
     "typescript": "^5.4.5"
   },
   "jest": {
