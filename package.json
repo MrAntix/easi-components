@@ -43,7 +43,7 @@
     "@stencil/core": "4.17.1",
     "@types/jest": "29.5.12",
     "@types/puppeteer": "5.4.7",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
     "babel-jest": "^29.7.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
